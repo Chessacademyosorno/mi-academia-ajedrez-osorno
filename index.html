@@ -7,8 +7,24 @@
     <meta name="description" content="Academia de Ajedrez en Osorno. Clases presenciales y online.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
-
+    <script src="https://pgn4web.casaschi.net/js/pgn4web.js"></script>
+    <link rel="stylesheet" href="https://pgn4web.casaschi.net/css/mini.css">
+    
     <style>
+        /* Estilo responsivo para el tablero */
+        .pgn4web-board {
+            margin: 20px auto;
+            max-width: 100%;
+            width: 450px;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .pgn4web-board {
+                width: 95vw;
+            }
+        }
+
         :root { --bg-dark: #0f172a; --nav-bg: #020617; --accent: #2563eb; --text-light: #f1f5f9; }
         html { scroll-behavior: smooth; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
@@ -24,7 +40,6 @@
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
         .menu-toggle span { width: 25px; height: 3px; background: white; border-radius: 2px; }
 
-        /* MÓVIL: Menú con transición elegante de desvanecimiento */
         @media (max-width: 768px) {
             .navbar { padding: 15px 20px; }
             .menu-toggle { display: flex; }
@@ -33,11 +48,10 @@
                 height: 0; background: var(--nav-bg); padding: 0; gap: 25px; 
                 align-items: center; text-align: center; z-index: 1050;
                 overflow: hidden; opacity: 0; transition: height 0.4s ease, opacity 0.4s ease;
-                pointer-events: none; /* Evita clics accidentales cuando está oculto */
+                pointer-events: none;
             }
             .menu.active { height: 100vh; opacity: 1; pointer-events: all; padding-top: 50px; }
             .menu a { font-size: 20px; padding: 15px; }
-        }
         }
 
         header { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("Fotos20-26/77f4d12a-44df-4642-bccb-26c53893683b.jpg"); background-size: cover; background-position: center; padding: 180px 20px 100px; text-align: center; }
@@ -113,91 +127,23 @@
 </section>
 
 <section id="galeria">
-    <h2 class="reveal">Galería</h2>
-    <h3 class="reveal">Torneos</h3>
-    <div class="galeria-netflix reveal">
-        <figure><img src="torneos/nacional-santiago-2018.jpg" onclick="abrirImagen(this)"><figcaption>Nacional Temuco</figcaption></figure>
-        <figure><img src="torneos/nacional2018santiago1.jpg" onclick="abrirImagen(this)"><figcaption>Regional Puerto Montt</figcaption></figure>
-        <figure><img src="torneos/4nacionalsantiago2018.jpg" onclick="abrirImagen(this)"><figcaption>Santiago 2017</figcaption></figure>
-        <figure><img src="torneos/puertomontt2.jpg" onclick="abrirImagen(this)"><figcaption>Col. Alemán Pto. Montt</figcaption></figure>
-    </div>
-    <h3 class="reveal" style="margin-top:50px">Competencias en el Extranjero</h3>
-    <div class="galeria-netflix reveal">
-        <figure><img src="extranjero/extranjero1.jpg" onclick="abrirImagen(this)"><figcaption>Bariloche 2018</figcaption></figure>
-        <figure><img src="extranjero/extranjero2.jpg" onclick="abrirImagen(this)"><figcaption>Mundial Brasil sub 10</figcaption></figure>
-        <figure><img src="extranjero/extranjero3.jpg" onclick="abrirImagen(this)"><figcaption>Sudamericano Paraguay</figcaption></figure>
-        <figure><img src="extranjero/cieloarge.jpg" onclick="abrirImagen(this)"><figcaption>Jugando en Argentina</figcaption></figure>
-    </div>
-    <h3 class="reveal" style="margin-top:60px">Ganadores</h3>
-    <div class="galeria-grid reveal">
-        <figure><img src="ganadores/1conii.jpg" onclick="abrirImagen(this)"><figcaption>Constanza Treumun</figcaption></figure>
-        <figure><img src="ganadores/2conii.jpg" onclick="abrirImagen(this)"><figcaption>Logros Constanza</figcaption></figure>
-        <figure><img src="ganadores/3pipe.jpg" onclick="abrirImagen(this)"><figcaption>Felipe Vera</figcaption></figure>
-        <figure><img src="ganadores/5josefa.jpg" onclick="abrirImagen(this)"><figcaption>Josefa Clerc</figcaption></figure>
-    </div>
-</section>
+    </section>
 
 <section id="recursos">
     <h2 class="reveal">Recursos</h2>
     <div class="box-info reveal">
-        <h3>Guía para Principiantes</h3>
-        <p>Descarga nuestro PDF gratuito con los consejos básicos de ajedrez.</p>
+        <h3>Análisis de Partida</h3>
+        <p>Estudia conmigo esta partida táctica:</p>
+        <div id="board1" class="pgn4web-board"></div>
+        <textarea id="pgn1" style="display:none;">
+[Event "Partida de Academia"]
+[Site "Osorno"]
+1. e4 e5 2. Cf3 Cc6 3. Ab5 a6 4. Aa4 Cf6 5. O-O Ae7 6. Te1 b5 7. Ab3 d6 8. c3 O-O 9. h3 Ca5 10. Ac2 c5 11. d4 Dc7 12. Cbd2 cxd4 13. cxd4 Cc6 14. a3 a5 15. d5 Cb8 16. a4 b4 17. Ad3 Aa6 18. Axa6 Cxa6 19. b3 Tfc8 20. Cc4 Cc5
+        </textarea>
+        <br>
         <a href="#" class="btn">Descargar PDF</a>
     </div>
 </section>
-
-<section id="noticias">
-    <h2 class="reveal">Blog</h2>
-    <div class="blog-card reveal">
-        <h3>¿Por qué elegir ajedrez en Osorno?</h3>
-        <p>El ajedrez potencia el rendimiento escolar. ¡Conoce más sobre nuestros métodos!</p>
-    </div>
-</section>
-
-<section id="testimonios">
-    <h2 class="reveal">Testimonios</h2>
-    <div class="testimonio-item reveal"><p>"Excelente academia, mi hijo ha mejorado mucho su concentración."</p><span>— Familia Martinez</span></div>
-</section>
-
-<section id="inscripciones">
-    <h2 class="reveal">Inscripciones 2026</h2>
-    <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST" class="reveal">
-        <input type="text" name="Nombre" placeholder="Nombre" required>
-        <input type="number" name="Edad" placeholder="Edad" required>
-        <input type="email" name="Email" placeholder="Correo electrónico" required>
-        <button class="btn" type="submit" style="width:100%">Enviar solicitud</button>
-    </form>
-</section>
-
-<a class="whatsapp" href="https://wa.me/56981772160" target="_blank">💬</a>
-
-<footer><p>Chess Academy Osorno © 2026</p></footer>
-
-<div id="lightbox" onclick="cerrarImagen()"><span id="cerrar">&times;</span><img id="imagen-grande"></div>
-
-<script>
-    const counters = document.querySelectorAll('.highlight');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = +entry.target.getAttribute('data-target');
-                let count = 0;
-                const update = () => {
-                    count += target / 40;
-                    if (count < target) { entry.target.innerText = Math.ceil(count); setTimeout(update, 50); }
-                    else { entry.target.innerText = "+" + target; }
-                };
-                update(); observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    counters.forEach(c => observer.observe(c));
-
-    ScrollReveal().reveal('.reveal', { delay: 200, distance: '40px', origin: 'bottom', duration: 800, interval: 100 });
-    function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
-    function abrirImagen(img){ document.getElementById("lightbox").style.display="flex"; document.getElementById("imagen-grande").src=img.src; }
-    function cerrarImagen(){ document.getElementById("lightbox").style.display="none"; }
-</script>
-
 </body>
+
 </html>
