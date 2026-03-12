@@ -2,18 +2,48 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Chess Academy Osorno</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Academy Osorno | Clases de Ajedrez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://pgn4web.casaschi.net/js/pgn4web.js"></script>
     <link rel="stylesheet" href="https://pgn4web.casaschi.net/css/mini.css">
+
+    <style>
+        /* ESTILO DEL TABLERO */
+        .pgn4web-board { margin: 20px auto; max-width: 100%; width: 450px; display: block; }
+        @media (max-width: 600px) { .pgn4web-board { width: 95vw; } }
+
+        /* TU DISEÑO ORIGINAL */
+        :root { --bg-dark: #0f172a; --nav-bg: #020617; --accent: #2563eb; --text-light: #f1f5f9; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg-dark); color: var(--text-light); }
+        .navbar { background: var(--nav-bg); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+        header { padding: 100px 20px; text-align: center; background: #020617; }
+        section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+        .btn { display: inline-block; padding: 14px 28px; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; }
+    </style>
 </head>
 <body>
-    <h1>Bienvenido a la Academia</h1>
+
+<nav class="navbar">
+    <div class="logo">♟ Chess Academy Osorno</div>
+</nav>
+
+<header>
+    <h1>Chess Academy Osorno</h1>
+    <p>Entrenamiento competitivo de ajedrez.</p>
+</header>
+
+<section id="recursos">
+    <h2>Recursos</h2>
+    <p>Analiza esta partida:</p>
     
     <div id="board1" class="pgn4web-board"></div>
-    
     <textarea id="pgn1" style="display:none;">
-[Event "Partida de Prueba"]
+[Event "Partida de Academia"]
 1. e4 e5 2. Cf3 Cc6 3. Ab5 a6 4. Aa4 Cf6 5. O-O Ae7 6. Te1 b5 7. Ab3 d6 8. c3 O-O 9. h3 Ca5 10. Ac2 c5 11. d4 Dc7 12. Cbd2 cxd4 13. cxd4 Cc6 14. a3 a5 15. d5 Cb8 16. a4 b4 17. Ad3 Aa6 18. Axa6 Cxa6 19. b3 Tfc8 20. Cc4 Cc5
     </textarea>
+</section>
+
 </body>
 </html>
