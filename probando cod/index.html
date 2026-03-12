@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chess Academy Osorno | Clases de Ajedrez</title>
+
+<meta name="description" content="Academia de ajedrez en Osorno. Clases para niños, jóvenes y adultos. Entrenamiento competitivo y preparación para torneos.">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+html{scroll-behavior:smooth;}
+
+body{
+margin:0;
+font-family:'Montserrat',sans-serif;
+background:#0f172a;
+color:#f1f5f9;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+background:#020617;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+z-index:999;
+box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+.logo{
+font-weight:800;
+font-size:20px;
+}
+
+.menu{
+list-style:none;
+display:flex;
+gap:25px;
+}
+
+.menu a{
+color:#cbd5e1;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.menu a:hover{
+color:#60a5fa;
+}
+
+/* HEADER */
+
+header{
+background-image:url("Fotos20-26/77f4d12a-44df-4642-bccb-26c53893683b.jpg");
+background-size:cover;
+background-position:center;
+padding:140px 20px;
+text-align:center;
+position:relative;
+margin-top:60px;
+}
+
+header::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.6);
+}
+
+header *{
+position:relative;
+z-index:2;
+}
+
+header h1{
+font-size:52px;
+margin-bottom:20px;
+}
+
+header p{
+font-size:20px;
+max-width:700px;
+margin:auto;
+}
+
+/* BOTONES */
+
+.btn{
+display:inline-block;
+padding:14px 28px;
+margin-top:30px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:600;
+}
+
+.btn:hover{
+background:#1d4ed8;
+}
+
+/* SECTIONS */
+
+section{
+padding:80px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+font-size:36px;
+margin-bottom:40px;
+}
+
+/* CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:16px;
+text-align:center;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:#334155;
+}
+
+.highlight{
+font-size:42px;
+font-weight:800;
+color:#2563eb;
+}
+
+/* GALERIA */
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.galeria figure{
+margin:0;
+text-align:center;
+}
+
+.galeria img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
+cursor:pointer;
+transition:.4s;
+}
+
+.galeria img:hover{
+transform:scale(1.07);
+}
+
+.galeria figcaption{
+margin-top:6px;
+font-size:14px;
+color:#cbd5e1;
+}
+
+/* LIGHTBOX */
+
+#lightbox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:2000;
+}
+
+#imagen-grande{
+max-width:85%;
+max-height:80%;
+border-radius:12px;
+}
+
+#caption{
+color:white;
+margin-top:15px;
+font-size:18px;
+}
+
+#cerrar{
+position:absolute;
+top:30px;
+right:40px;
+color:white;
+font-size:45px;
+cursor:pointer;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+color:white;
+text-decoration:none;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.15)}
+100%{transform:scale(1)}
+}
+
+footer{
+background:#020617;
+text-align:center;
+padding:30px;
+color:#94a3b8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">♟ Chess Academy Osorno</div>
+
+<ul class="menu">
+<li><a href="#">Inicio</a></li>
+<li><a href="#inscripciones">Inscripciones</a></li>
+<li><a href="#objetivos">Objetivos</a></li>
+<li><a href="#galeria">Galería</a></li>
+<li><a href="#historia">Historia</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</nav>
+
+<header>
+
+<h1>Chess Academy Osorno</h1>
+
+<p>Entrenamiento competitivo de ajedrez. Desarrollo estratégico, cálculo y mentalidad ganadora.</p>
+
+<a href="#inscripciones" class="btn">Inscribirse</a>
+
+</header>
+
+<section id="galeria">
+
+<h2>Galería</h2>
+
+<h3>Torneos</h3>
+
+<div class="galeria">
+
+<figure>
+<img src="imagenes/torneos/torneo1.jpg" onclick="abrirImagen(this)">
+<figcaption>Torneo escolar</figcaption>
+</figure>
+
+<figure>
+<img src="imagenes/torneos/torneo2.jpg" onclick="abrirImagen(this)">
+<figcaption>Competencia regional</figcaption>
+</figure>
+
+</div>
+
+<h3 style="margin-top:50px">Competencias en el Extranjero</h3>
+
+<div class="galeria">
+
+<figure>
+<img src="extranjero/extranjero1.jpg" onclick="abrirImagen(this)">
+<figcaption>Competencia internacional</figcaption>
+</figure>
+
+<figure>
+<img src="extranjero/extranjero2.jpg" onclick="abrirImagen(this)">
+<figcaption>Evento en Paraguay</figcaption>
+</figure>
+
+<figure>
+<img src="extranjero/extranjero3.jpg" onclick="abrirImagen(this)">
+<figcaption>Participación internacional</figcaption>
+</figure>
+
+</div>
+
+</section>
+
+<div id="lightbox" onclick="cerrarImagen()">
+<span id="cerrar">&times;</span>
+<img id="imagen-grande">
+<p id="caption"></p>
+</div>
+
+<a class="whatsapp" href="https://wa.me/56981772160">💬</a>
+
+<footer>
+© 2026 Chess Academy Osorno
+</footer>
+
+<script>
+
+function abrirImagen(img){
+
+document.getElementById("lightbox").style.display="flex";
+
+document.getElementById("imagen-grande").src=img.src;
+
+let texto=img.nextElementSibling.innerText;
+
+document.getElementById("caption").innerText=texto;
+
+}
+
+function cerrarImagen(){
+
+document.getElementById("lightbox").style.display="none";
+
+}
+
+</script>
+
+</body>
+</html>
