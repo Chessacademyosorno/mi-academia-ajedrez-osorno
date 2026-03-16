@@ -30,38 +30,27 @@
         }
 
         header { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("Fotos20-26/77f4d12a-44df-4642-bccb-26c53893683b.jpg"); background-size: cover; background-position: center; padding: 180px 20px 100px; text-align: center; }
-        header h1 { font-size: clamp(28px, 6vw, 52px); margin-bottom: 20px; }
-
         section { padding: 80px 20px; max-width: 1100px; margin: auto; }
         h2 { text-align: center; font-size: 36px; margin-bottom: 40px; }
-        h3 { color: #60a5fa; margin-bottom: 20px; border-left: 4px solid var(--accent); padding-left: 15px; }
-
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
         .card { background: #1e293b; padding: 25px; border-radius: 16px; text-align: center; height: 100%; }
         .highlight { font-size: 45px; font-weight: 800; color: var(--accent); }
-
-        .galeria-netflix { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; scrollbar-width: none; }
+        .galeria-netflix { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; }
         .galeria-netflix figure { min-width: 260px; margin: 0; }
-        .galeria-netflix img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; transition: .4s; cursor: pointer; }
+        .galeria-netflix img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; cursor: pointer; }
         .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
         .galeria-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; cursor: pointer; }
-        figcaption { text-align: center; margin-top: 10px; font-size: 13px; color: #94a3b8; }
-
+        figcaption { text-align: center; font-size: 13px; color: #94a3b8; }
+        .testimonio-item { background: #1e293b; padding: 30px; border-radius: 20px; margin-bottom: 20px; border-left: 5px solid var(--accent); }
         .box-info { background: #1e293b; padding: 40px; border-radius: 20px; text-align: center; border: 2px dashed var(--accent); }
         .blog-card { background: #1e293b; padding: 25px; border-radius: 16px; border-top: 4px solid var(--accent); }
-
-        input { width: 100%; padding: 14px; margin-bottom: 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
-        .btn { display: inline-block; padding: 14px 28px; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; cursor: pointer; border: none; }
-
+        .btn { display: inline-block; padding: 14px 28px; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; }
         .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; }
-        footer { background: #020617; text-align: center; padding: 40px; color: #64748b; }
-
         #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; z-index: 2000; }
-        #lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; }
+        #lightbox img { max-width: 90%; max-height: 80%; }
         #cerrar { position: absolute; top: 20px; right: 30px; font-size: 40px; cursor: pointer; }
     </style>
 </head>
-
 <body>
 
 <nav class="navbar">
@@ -71,6 +60,7 @@
         <li><a href="#historia" onclick="toggleMenu()">Historia</a></li>
         <li><a href="#resultados" onclick="toggleMenu()">Logros</a></li>
         <li><a href="#galeria" onclick="toggleMenu()">Galería</a></li>
+        <li><a href="#recursos" onclick="toggleMenu()">Recursos</a></li>
         <li><a href="#noticias" onclick="toggleMenu()">Blog</a></li>
         <li><a href="#inscripciones" onclick="toggleMenu()">Contacto</a></li>
     </ul>
@@ -78,7 +68,7 @@
 
 <header>
     <h1>Chess Academy Osorno</h1>
-    <p>Entrenamiento competitivo de ajedrez. Desarrollo estratégico y mentalidad ganadora.</p>
+    <p>Entrenamiento competitivo de ajedrez. Desarrollo estratégico, cálculo y mentalidad ganadora.</p>
     <a href="#inscripciones" class="btn">Quiero inscribirme</a>
 </header>
 
@@ -92,38 +82,37 @@
     </div>
 </section>
 
-<section id="historia">
-    <h2 class="reveal">Nuestra Historia</h2>
-    <div class="reveal" style="background: #1e293b; padding: 35px; border-radius: 20px;">
-        <p>Elevando el ajedrez regional desde Osorno hacia el mundo.</p>
-    </div>
-</section>
-
 <section id="galeria">
     <h2 class="reveal">Galería</h2>
     <h3 class="reveal">Torneos</h3>
     <div class="galeria-netflix reveal">
-        <figure><img src="torneos/osorno-nacional.jpg" onclick="abrirImagen(this)"><figcaption>Nacional</figcaption></figure>
-        <figure><img src="torneos/osorno-nacional-santiago-2018.jpg" onclick="abrirImagen(this)"><figcaption>Santiago 2018</figcaption></figure>
-        <figure><img src="torneos/osorno-puertomontt2.jpg" onclick="abrirImagen(this)"><figcaption>Pto. Montt</figcaption></figure>
-        <figure><img src="torneos/osorno-puertomontt-regional.jpg" onclick="abrirImagen(this)"><figcaption>Regional</figcaption></figure>
-        <figure><img src="torneos/osorno-torneosnacional-santiago-2018.jpg" onclick="abrirImagen(this)"><figcaption>Nacional Santiago</figcaption></figure>
+        <figure><img src="torneos/nacional-santiago-2018.jpg" onclick="abrirImagen(this)"><figcaption>Nacional Temuco</figcaption></figure>
+        <figure><img src="torneos/nacional2018santiago1.jpg" onclick="abrirImagen(this)"><figcaption>Regional Puerto Montt</figcaption></figure>
+        <figure><img src="torneos/4nacionalsantiago2018.jpg" onclick="abrirImagen(this)"><figcaption>Santiago 2017</figcaption></figure>
+        <figure><img src="torneos/puertomontt2.jpg" onclick="abrirImagen(this)"><figcaption>Col. Alemán Pto. Montt</figcaption></figure>
     </div>
-
     <h3 class="reveal" style="margin-top:50px">Competencias en el Extranjero</h3>
     <div class="galeria-netflix reveal">
         <figure><img src="extranjero/extranjero1.jpg" onclick="abrirImagen(this)"><figcaption>Bariloche 2018</figcaption></figure>
-        <figure><img src="extranjero/extranjero2.jpg" onclick="abrirImagen(this)"><figcaption>Mundial Brasil</figcaption></figure>
+        <figure><img src="extranjero/extranjero2.jpg" onclick="abrirImagen(this)"><figcaption>Mundial Brasil sub 10</figcaption></figure>
         <figure><img src="extranjero/extranjero3.jpg" onclick="abrirImagen(this)"><figcaption>Sudamericano Paraguay</figcaption></figure>
-        <figure><img src="extranjero/cieloarge.jpg" onclick="abrirImagen(this)"><figcaption>Argentina</figcaption></figure>
+        <figure><img src="extranjero/cieloarge.jpg" onclick="abrirImagen(this)"><figcaption>Jugando en Argentina</figcaption></figure>
     </div>
-
     <h3 class="reveal" style="margin-top:60px">Ganadores</h3>
     <div class="galeria-grid reveal">
         <figure><img src="ganadores/1conii.jpg" onclick="abrirImagen(this)"><figcaption>Constanza Treumun</figcaption></figure>
         <figure><img src="ganadores/2conii.jpg" onclick="abrirImagen(this)"><figcaption>Logros Constanza</figcaption></figure>
         <figure><img src="ganadores/3pipe.jpg" onclick="abrirImagen(this)"><figcaption>Felipe Vera</figcaption></figure>
         <figure><img src="ganadores/5josefa.jpg" onclick="abrirImagen(this)"><figcaption>Josefa Clerc</figcaption></figure>
+    </div>
+</section>
+
+<section id="recursos">
+    <h2 class="reveal">Recursos</h2>
+    <div class="box-info reveal">
+        <h3>Guía para Principiantes</h3>
+        <p>Descarga nuestros materiales de estudio disponibles.</p>
+        <a href="#" class="btn">Descargar PDF</a>
     </div>
 </section>
 
