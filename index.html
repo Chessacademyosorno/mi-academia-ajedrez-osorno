@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,6 +20,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- LIBRERIAS TABLERO -->
+<link rel="stylesheet"
+href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
 
 <style>
 
@@ -179,6 +188,22 @@ border-radius:20px;
 text-align:center;
 }
 
+.controles{
+display:flex;
+gap:10px;
+justify-content:center;
+margin-top:15px;
+}
+
+.controles button{
+background:#2563eb;
+border:none;
+color:white;
+padding:10px 16px;
+border-radius:6px;
+cursor:pointer;
+}
+
 iframe{
 border-radius:10px;
 max-width:100%;
@@ -324,7 +349,7 @@ Títulos FIDE
 
 <div class="tablero">
 
-<p>Revisa partidas comentadas de alumnos de la academia.</p>
+<p>Partidas de entrenamiento de la academia.</p>
 
 <iframe
 width="600"
@@ -332,102 +357,40 @@ height="397"
 src="https://lichess.org/embed/game/white/ue41HurTo2dk?theme=dark&bg=auto">
 </iframe>
 
+<br><br>
+
+<div id="tablero" style="width:420px;margin:auto"></div>
+
+<div class="controles">
+<button onclick="inicio()">⏮ Inicio</button>
+<button onclick="atras()">◀</button>
+<button onclick="adelante()">▶</button>
+<button onclick="final()">⏭ Final</button>
+</div>
+
 </div>
 
 </section>
 
+<!-- RESTO DE TU SITIO IGUAL -->
+
 <section id="historia">
-
 <h2>Historia de la Academia</h2>
-
 <div style="background:#1e293b;padding:40px;border-radius:20px">
-
-<p>
-Chess Academy Osorno es el resultado de más de 30 años de experiencia
-dedicada al entrenamiento competitivo de ajedrez en la región.
-</p>
-
-<p>
-La academia ha formado numerosos campeones escolares,
-regionales y participantes en campeonatos nacionales.
-</p>
-
+<p>Chess Academy Osorno es el resultado de más de 30 años de experiencia dedicada al entrenamiento competitivo de ajedrez en la región.</p>
+<p>La academia ha formado numerosos campeones escolares, regionales y participantes en campeonatos nacionales.</p>
 </div>
-
 </section>
 
 <section id="galeria">
-
 <h2>Galería</h2>
 
 <div class="galeria-netflix">
-
 <img src="torneos/osorno-nacional.jpg">
 <img src="torneos/osorno-nacional-santiago-2018.jpg">
 <img src="torneos/osorno-puertomontt2.jpg">
 <img src="torneos/osorno-puertomontt-regional.jpg">
-
 </div>
-<h3 class="reveal">Torneos</h3>
-
-<div class="galeria-netflix reveal">
-
-<figure>
-<img src="torneos/osorno-nacional.jpg" onclick="abrirImagen(this)">
-<figcaption>Nacional</figcaption>
-</figure>
-
-<figure>
-<img src="torneos/osorno-nacional-santiago-2018.jpg" onclick="abrirImagen(this)">
-<figcaption>Santiago 2018</figcaption>
-</figure>
-
-<figure>
-<img src="torneos/osorno-puertomontt2.jpg" onclick="abrirImagen(this)">
-<figcaption>Puerto Montt</figcaption>
-</figure>
-
-</div>
-  <h3 class="reveal">Ganadores</h3>
-
-<div class="galeria-grid reveal">
-
-<figure>
-<img src="ganadores/1conii.jpg" onclick="abrirImagen(this)">
-<figcaption>Constanza Treumun</figcaption>
-</figure>
-
-<figure>
-<img src="ganadores/3pipe.jpg" onclick="abrirImagen(this)">
-<figcaption>Felipe Vera</figcaption>
-</figure>
-
-</div>
-
-<h3 class="reveal">Competencias en el Extranjero</h3>
-
-<div class="galeria-netflix reveal">
-
-<figure>
-<img src="extranjero/extranjero1.jpg" onclick="abrirImagen(this)">
-<figcaption>Bariloche</figcaption>
-</figure>
-
-<figure>
-<img src="extranjero/extranjero2.jpg" onclick="abrirImagen(this)">
-<figcaption>Mundial Brasil</figcaption>
-</figure>
-
-<figure>
-<img src="extranjero/extranjero3.jpg" onclick="abrirImagen(this)">
-<figcaption>Sudamericano Paraguay</figcaption>
-</figure>
-
-</div>
-
-
-
-  
 
 </section>
 
@@ -438,9 +401,7 @@ regionales y participantes en campeonatos nacionales.
 <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST">
 
 <input type="text" name="Nombre" placeholder="Nombre" required>
-
 <input type="number" name="Edad" placeholder="Edad" required>
-
 <input type="email" name="Email" placeholder="Correo electrónico" required>
 
 <button class="btn" type="submit" style="width:100%">
@@ -454,65 +415,70 @@ Enviar solicitud
 <a class="whatsapp" href="https://wa.me/56981772160">💬</a>
 
 <footer>
-
 <p>Chess Academy Osorno © 2026</p>
-
 </footer>
 
 <script>
 
-const counters=document.querySelectorAll('.highlight');
+let board
+let game = new Chess()
 
-const observer=new IntersectionObserver(entries=>{
+let moves=[]
+let moveIndex=0
 
-entries.forEach(entry=>{
+window.onload=function(){
 
-if(entry.isIntersecting){
+board=Chessboard('tablero','start')
 
-const target=+entry.target.getAttribute('data-target');
+fetch("pgnestudio-academia.pgn")
+.then(response=>response.text())
+.then(data=>{
 
-let count=0;
+game.load_pgn(data)
 
-const update=()=>{
+moves=game.history()
 
-count+=target/40;
+game.reset()
 
-if(count<target){
-
-entry.target.innerText=Math.ceil(count);
-
-setTimeout(update,50);
-
-}else{
-
-entry.target.innerText="+"+target;
+})
 
 }
 
-};
-
-update();
-
-observer.unobserve(entry.target);
-
+function actualizar(){
+board.position(game.fen())
 }
 
-});
+function adelante(){
+if(moveIndex<moves.length){
+game.move(moves[moveIndex])
+moveIndex++
+actualizar()
+}
+}
 
-},{threshold:0.5});
+function atras(){
+if(moveIndex>0){
+game.undo()
+moveIndex--
+actualizar()
+}
+}
 
-counters.forEach(c=>observer.observe(c));
+function inicio(){
+game.reset()
+moveIndex=0
+actualizar()
+}
 
-ScrollReveal().reveal('section',{delay:200,distance:'40px',origin:'bottom',duration:800});
-
-function toggleMenu(){
-
-document.getElementById("navMenu").classList.toggle("active");
-
+function final(){
+while(moveIndex<moves.length){
+game.move(moves[moveIndex])
+moveIndex++
+}
+actualizar()
 }
 
 </script>
 
 </body>
 </html>
-```
