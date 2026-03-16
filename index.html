@@ -21,6 +21,20 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     
     <style>
+     .logo { font-weight: 800; font-size: 20px; color: #fff; }
+
+.logo-img{
+    height:60px;
+    border-radius:6px;
+}
+.logo-img{
+    height:60px;
+    border-radius:6px;
+    background:white;
+    padding:4px;
+}
+
+     
         :root { --bg-dark: #0f172a; --nav-bg: #020617; --accent: #2563eb; --text-light: #f1f5f9; }
         html { scroll-behavior: smooth; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
@@ -77,7 +91,9 @@
 <body>
 
 <nav class="navbar">
-    <div class="logo">♟ Chess Academy Osorno</div>
+    <div class="logo">
+    <img src="logo/osorno-clases-ajedrez-logo.jpg" alt="Chess Academy Osorno Clases de Ajedrez" class="logo-img">
+</div>
     <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     <ul class="menu" id="navMenu">
         <li><a href="#historia" onclick="toggleMenu()">Historia</a></li>
@@ -89,9 +105,14 @@
 </nav>
 
 <header>
+   <header>
+    <img src="logo/osorno-clases-ajedrez-logo.jpg" class="logo-header">
+
     <h1>Chess Academy Osorno</h1>
     <p>Entrenamiento competitivo de ajedrez. Desarrollo estratégico y mentalidad ganadora.</p>
+    
     <a href="#inscripciones" class="btn">Quiero inscribirme</a>
+
 </header>
 
 <section id="resultados">
