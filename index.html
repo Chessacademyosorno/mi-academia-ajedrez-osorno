@@ -1,15 +1,19 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Chess Academy Osorno | Clases de Ajedrez en Osorno</title>
 
 <meta name="description" content="Academia de Ajedrez en Osorno. Clases para niños, jóvenes y adultos. Entrenamiento competitivo con más de 30 años de experiencia.">
+
+<meta name="keywords" content="ajedrez osorno, clases de ajedrez osorno, academia de ajedrez osorno">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/scrollreveal"></script>
 
 <link rel="stylesheet"
 href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
@@ -19,10 +23,6 @@ href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.mi
 <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-
-<script src="https://unpkg.com/scrollreveal"></script>
 
 <style>
 
@@ -40,24 +40,45 @@ background:var(--bg-dark);
 color:var(--text-light);
 }
 
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+background:var(--nav-bg);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+z-index:1000;
+}
+
 .logo-img{
 height:45px;
+}
+
+.menu{
+list-style:none;
+display:flex;
+gap:30px;
+}
+
+.menu a{
+color:#cbd5e1;
+text-decoration:none;
+font-weight:600;
+}
+
+header{
+background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Fotos20-26/77f4d12a-44df-4642-bccb-26c53893683b.jpg");
+background-size:cover;
+padding:180px 20px 100px;
+text-align:center;
 }
 
 section{
 padding:80px 20px;
 max-width:1100px;
 margin:auto;
-}
-
-.hero-points{
-margin-top:25px;
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-font-weight:600;
-color:#60a5fa;
 }
 
 .cards{
@@ -79,16 +100,18 @@ font-weight:800;
 color:var(--accent);
 }
 
-.visor-partida{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:20px;
+.tablero{
+background:#1e293b;
+padding:40px;
+border-radius:20px;
+text-align:center;
 }
 
 .controles{
 display:flex;
 gap:10px;
+justify-content:center;
+margin-top:15px;
 }
 
 .controles button{
@@ -100,40 +123,90 @@ border-radius:6px;
 cursor:pointer;
 }
 
-</style>
+.galeria-netflix{
+display:flex;
+gap:20px;
+overflow-x:auto;
+}
 
+.galeria-netflix img{
+height:220px;
+border-radius:12px;
+}
+
+.btn{
+padding:14px 28px;
+background:var(--accent);
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+color:white;
+}
+
+</style>
 </head>
 
 <body>
+
+<nav class="navbar">
+
+<img src="logo/osorno-clases-ajedrez-logo.jpg" class="logo-img">
+
+<ul class="menu">
+<li><a href="#historia">Historia</a></li>
+<li><a href="#resultados">Logros</a></li>
+<li><a href="#partidas">Partidas</a></li>
+<li><a href="#galeria">Galería</a></li>
+<li><a href="#inscripciones">Contacto</a></li>
+</ul>
+
+</nav>
 
 <header>
 
 <h1>Chess Academy Osorno</h1>
 
-<p>Clases de ajedrez para niños, jóvenes y adultos en Osorno.</p>
+<p>Clases de ajedrez para niños, jóvenes y adultos</p>
 
-<div class="hero-points">
-<span>♟ Más de 30 años de experiencia</span>
-<span>🏆 Campeones regionales</span>
-<span>🧠 Mejora concentración</span>
-</div>
+<br>
+
+<a href="#inscripciones" class="btn">Primera clase de prueba</a>
 
 </header>
 
 <section id="resultados">
 
-<h2>Logros de la Academia</h2>
+<h2>Logros</h2>
 
 <div class="cards">
 
 <div class="card">
-<div class="highlight" data-target="1200">0</div>
+<div class="highlight">1200+</div>
 Alumnos entrenados
 </div>
 
 <div class="card">
-<div class="highlight" data-target="60">0</div>
+<div class="highlight">60</div>
 Títulos regionales
+</div>
+
+<div class="card">
+<div class="highlight">30</div>
+Participaciones nacionales
 </div>
 
 </div>
@@ -144,71 +217,111 @@ Títulos regionales
 
 <h2>Partidas de alumnos</h2>
 
-<div class="visor-partida">
+<div class="tablero">
 
-<div id="tablero" style="width:420px"></div>
+<iframe
+width="600"
+height="397"
+src="https://lichess.org/embed/game/white/ue41HurTo2dk?theme=dark">
+</iframe>
+
+<br><br>
+
+<div id="tablero" style="width:420px;margin:auto"></div>
 
 <div class="controles">
-
-<button onclick="inicio()">⏮ Inicio</button>
-
+<button onclick="inicio()">⏮</button>
 <button onclick="atras()">◀</button>
-
 <button onclick="adelante()">▶</button>
-
-<button onclick="final()">⏭ Final</button>
-
+<button onclick="final()">⏭</button>
 </div>
 
 </div>
 
 </section>
 
-<footer>
+<section id="historia">
 
-<p>Chess Academy Osorno © 2026</p>
+<h2>Historia</h2>
 
-</footer>
+<p>Más de 30 años formando ajedrecistas competitivos en Osorno.</p>
+
+</section>
+
+<section id="galeria">
+
+<h2>Galería</h2>
+
+<div class="galeria-netflix">
+<img src="torneos/osorno-nacional.jpg">
+<img src="torneos/osorno-nacional-santiago-2018.jpg">
+<img src="torneos/osorno-puertomontt2.jpg">
+<img src="torneos/osorno-puertomontt-regional.jpg">
+</div>
+
+</section>
+
+<section id="inscripciones">
+
+<h2>Contacto</h2>
+
+<form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST">
+
+<input type="text" name="Nombre" placeholder="Nombre" required>
+<br><br>
+
+<input type="number" name="Edad" placeholder="Edad" required>
+<br><br>
+
+<input type="email" name="Email" placeholder="Correo" required>
+<br><br>
+
+<button class="btn" type="submit">
+Enviar
+</button>
+
+</form>
+
+</section>
+
+<a class="whatsapp" href="https://wa.me/56981772160">💬</a>
 
 <script>
 
 let board
 let game = new Chess()
 
-let moves=[]
-let moveIndex=0
+let moves = []
+let moveIndex = 0
 
-var pgn = `
-[Event "Academia Osorno"]
-[Site "Osorno"]
+window.onload=function(){
 
-1.e4 e5
-2.Nf3 Nc6
-3.Bb5 a6
-4.Ba4 Nf6
-5.O-O Be7
-6.Re1 b5
-7.Bb3 d6
-8.c3 O-O
-9.h3
-`
+board = Chessboard('tablero',{
+position:'start'
+})
 
-window.onload = function(){
+fetch("pgn%20pagina/mate%20caballo%20pagina.27.pgn")
 
-board = Chessboard('tablero','start')
+.then(response=>response.text())
 
-game.load_pgn(pgn)
+.then(data=>{
+
+game.load_pgn(data)
 
 moves = game.history()
 
 game.reset()
 
+})
+
+.catch(error=>{
+console.log("Error cargando PGN",error)
+})
+
 }
 
 function actualizar(){
-
 board.position(game.fen())
-
 }
 
 function adelante(){
@@ -240,7 +353,6 @@ actualizar()
 function inicio(){
 
 game.reset()
-
 moveIndex=0
 
 actualizar()
@@ -264,4 +376,3 @@ actualizar()
 
 </body>
 </html>
-```
