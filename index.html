@@ -56,6 +56,7 @@
             padding: 15px 40px;
             z-index: 1000;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
         }
 
         .logo-img { height: 45px; border-radius: 6px; }
@@ -94,11 +95,12 @@
         }
 
         @media(max-width:768px) {
+            .navbar { padding: 15px 20px; }
             .menu-toggle { display: flex; }
             .menu {
                 flex-direction: column;
                 position: fixed;
-                top: 70px;
+                top: 75px;
                 left: 0;
                 width: 100%;
                 height: 0;
@@ -106,6 +108,8 @@
                 overflow: hidden;
                 opacity: 0;
                 transition: .4s;
+                margin: 0;
+                padding: 0;
             }
             .menu.active {
                 height: 100vh;
@@ -116,7 +120,7 @@
         }
 
         header {
-            background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("Fotos20-26/77f4d12a-44df-4642-bccb-26c53893683b.jpg");
+            background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("fotos pagina ok/77f4d12a-44df-4642-bccb-26c53893683b.jpg");
             background-size: cover;
             background-position: center;
             padding: 180px 20px 100px;
@@ -166,11 +170,18 @@
             margin-bottom: 40px;
         }
 
+        #tablero {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        
         .controles {
             display: flex;
             gap: 10px;
             justify-content: center;
             margin-top: 15px;
+            flex-wrap: wrap;
         }
 
         .controles button {
@@ -181,6 +192,38 @@
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
+            min-width: 60px;
+        }
+        
+        .controles button:hover {
+            background: #1d4ed8;
+        }
+
+        .selector-pgn {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .selector-pgn button {
+            background: #334155;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .selector-pgn button:hover {
+            background: #475569;
+        }
+        
+        .selector-pgn button.activo {
+            background: var(--accent);
         }
 
         .galeria-netflix {
@@ -188,6 +231,16 @@
             gap: 20px;
             overflow-x: auto;
             padding: 20px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) #1e293b;
+        }
+        
+        .galeria-netflix::-webkit-scrollbar {
+            height: 8px;
+        }
+        .galeria-netflix::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
         }
 
         .galeria-netflix img {
@@ -208,6 +261,8 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         form input {
@@ -216,6 +271,10 @@
             border: none;
             background: #0f172a;
             color: white;
+        }
+        
+        form input::placeholder {
+            color: #64748b;
         }
 
         .btn {
@@ -229,6 +288,11 @@
             border: none;
             cursor: pointer;
             text-align: center;
+            transition: background .3s;
+        }
+        
+        .btn:hover {
+            background: #1d4ed8;
         }
 
         .whatsapp {
@@ -246,6 +310,11 @@
             color: white;
             z-index: 1000;
             text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp:hover {
+            transform: scale(1.1);
         }
 
         footer {
@@ -254,6 +323,12 @@
             padding: 40px;
             color: #64748b;
         }
+        
+        .pgn-status {
+            color: #60a5fa;
+            margin-top: 10px;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -261,7 +336,7 @@
 
     <nav class="navbar">
         <div>
-            <img src="logo/osorno-clases-ajedrez-logo.jpg" class="logo-img">
+            <img src="logo/osorno-clases-ajedrez-logo.jpg" class="logo-img" alt="Logo Chess Academy Osorno">
         </div>
 
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -269,11 +344,11 @@
         </div>
 
         <ul class="menu" id="navMenu">
-            <li><a href="#historia">Historia</a></li>
-            <li><a href="#resultados">Logros</a></li>
-            <li><a href="#partidas">Partidas</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#inscripciones">Contacto</a></li>
+            <li><a href="#historia" onclick="toggleMenu()">Historia</a></li>
+            <li><a href="#resultados" onclick="toggleMenu()">Logros</a></li>
+            <li><a href="#partidas" onclick="toggleMenu()">Partidas</a></li>
+            <li><a href="#galeria" onclick="toggleMenu()">Galería</a></li>
+            <li><a href="#inscripciones" onclick="toggleMenu()">Contacto</a></li>
         </ul>
     </nav>
 
@@ -316,13 +391,19 @@
         <div class="tablero-container">
             <p>Análisis de partidas - Visor de la Academia</p>
             
-            <div id="tablero" style="width: 100%; max-width: 400px; margin: auto;"></div>
+            <div class="selector-pgn">
+                <button onclick="cargarPGN('mate_caballo.pgn')" id="btnMate" class="activo">Mate de Caballo</button>
+                <button onclick="cargarPGN('pgnestudio-academia.pgn')" id="btnEstudio">Estudio Academia</button>
+            </div>
+            
+            <div id="tablero"></div>
+            <div id="pgnStatus" class="pgn-status">Cargando partida por defecto...</div>
 
             <div class="controles">
-                <button onclick="inicio()">⏮</button>
-                <button onclick="atras()">◀</button>
-                <button onclick="adelante()">▶</button>
-                <button onclick="final()">⏭</button>
+                <button onclick="inicio()" title="Inicio">⏮</button>
+                <button onclick="atras()" title="Atrás">◀</button>
+                <button onclick="adelante()" title="Adelante">▶</button>
+                <button onclick="final()" title="Final">⏭</button>
             </div>
         </div>
     </section>
@@ -338,10 +419,10 @@
     <section id="galeria">
         <h2>Galería</h2>
         <div class="galeria-netflix">
-            <img src="torneos/osorno-nacional.jpg">
-            <img src="torneos/osorno-nacional-santiago-2018.jpg">
-            <img src="torneos/osorno-puertomontt2.jpg">
-            <img src="torneos/osorno-puertomontt-regional.jpg">
+            <img src="torneos/osorno-nacional.jpg" alt="Torneo Nacional" onclick="window.open(this.src)">
+            <img src="torneos/osorno-nacional-santiago-2018.jpg" alt="Nacional Santiago 2018" onclick="window.open(this.src)">
+            <img src="torneos/osorno-puertomontt2.jpg" alt="Torneo Puerto Montt" onclick="window.open(this.src)">
+            <img src="torneos/osorno-puertomontt-regional.jpg" alt="Regional Puerto Montt" onclick="window.open(this.src)">
         </div>
     </section>
 
@@ -355,7 +436,7 @@
         </form>
     </section>
 
-    <a class="whatsapp" href="https://wa.me/56981772160">💬</a>
+    <a class="whatsapp" href="https://wa.me/56981772160" target="_blank" rel="noopener">💬</a>
 
     <footer>
         <p>Chess Academy Osorno © 2026</p>
@@ -370,6 +451,10 @@
         let game = new Chess();
         let moves = [];
         let moveIndex = 0;
+        let pgnActual = '';
+
+        // PGN de ejemplo por si no encuentra ningún archivo
+        const defaultPGN = `1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 6. Nxf7 Kxf7 7. Qf3+ Ke6 8. Nc3 Ncb4 9. a3 Nxc2+ 10. Kd1 Nxa1 11. Nxd5 Kd6 12. Qf4+ Ke6 13. Qe4+ Kd6 14. d4 exd4 15. Bf4+ Kc6 16. Qd5+ Kb6 17. Bd3 Nc2 18. Qb5#`;
 
         window.onload = function() {
             // Inicializar tablero
@@ -378,20 +463,79 @@
                 draggable: false,
                 pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
             });
-
-            // Cargar PGN
-            fetch("mate_caballo.pgn")
+            
+            // Cargar partida por defecto (mate_caballo.pgn)
+            cargarPGN('mate_caballo.pgn');
+        }
+        
+        function cargarPGN(nombreArchivo) {
+            // Actualizar botones activos
+            document.getElementById('btnMate').classList.remove('activo');
+            document.getElementById('btnEstudio').classList.remove('activo');
+            
+            if (nombreArchivo === 'mate_caballo.pgn') {
+                document.getElementById('btnMate').classList.add('activo');
+            } else {
+                document.getElementById('btnEstudio').classList.add('activo');
+            }
+            
+            document.getElementById('pgnStatus').innerHTML = `Cargando ${nombreArchivo}...`;
+            
+            // Intentar cargar el archivo PGN
+            fetch(nombreArchivo)
                 .then(response => {
-                    if(!response.ok) throw new Error("No se encontró el archivo PGN");
+                    if (!response.ok) {
+                        throw new Error(`No se encontró ${nombreArchivo}`);
+                    }
                     return response.text();
                 })
                 .then(data => {
-                    game.load_pgn(data);
-                    moves = game.history();
-                    game.reset();
-                    board.start();
+                    if (data && data.trim()) {
+                        pgnActual = data;
+                        document.getElementById('pgnStatus').innerHTML = `✅ Partida cargada: ${nombreArchivo}`;
+                    } else {
+                        throw new Error("Archivo vacío");
+                    }
                 })
-                .catch(err => console.error(err));
+                .catch(err => {
+                    console.warn(`Error cargando ${nombreArchivo}:`, err);
+                    
+                    // Si falla mate_caballo.pgn, intentar con el otro
+                    if (nombreArchivo === 'mate_caballo.pgn') {
+                        document.getElementById('pgnStatus').innerHTML = '⚠️ No se encontró mate_caballo.pgn, intentando con pgnestudio-academia.pgn...';
+                        cargarPGN('pgnestudio-academia.pgn');
+                        return;
+                    } 
+                    // Si falla pgnestudio-academia.pgn, usar PGN por defecto
+                    else {
+                        pgnActual = defaultPGN;
+                        document.getElementById('pgnStatus').innerHTML = '⚠️ Usando partida de ejemplo';
+                    }
+                })
+                .finally(() => {
+                    try {
+                        game.load_pgn(pgnActual);
+                        moves = game.history({ verbose: false });
+                        game.reset();
+                        moveIndex = 0;
+                        board.start();
+                        console.log(`Partida cargada con ${moves.length} movimientos`);
+                    } catch (e) {
+                        console.error("Error cargando PGN:", e);
+                        document.getElementById('pgnStatus').innerHTML = '❌ Error cargando partida';
+                        
+                        // Si hay error, usar PGN por defecto como último recurso
+                        if (pgnActual !== defaultPGN) {
+                            pgnActual = defaultPGN;
+                            game.load_pgn(pgnActual);
+                            moves = game.history({ verbose: false });
+                            game.reset();
+                            moveIndex = 0;
+                            board.start();
+                            document.getElementById('pgnStatus').innerHTML = '⚠️ Usando partida de ejemplo';
+                        }
+                    }
+                });
         }
 
         function actualizar() {
@@ -429,4 +573,5 @@
         }
     </script>
 </body>
+
 </html>
