@@ -431,7 +431,7 @@ window.onload=function(){
 
 board=Chessboard('tablero','start')
 
-// CARGA DEL PGN CON EL NUEVO NOMBRE
+// CARGA DEL PGN: Se busca directamente en la raíz como está en tu GitHub
 fetch("mate_caballo.pgn")
 .then(response=>response.text())
 .then(data=>{
