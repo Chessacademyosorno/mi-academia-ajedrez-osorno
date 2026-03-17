@@ -3,14 +3,15 @@
 <html lang="es">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Chess Academy Osorno | Clases de Ajedrez en Osorno</title>
+<title>Chess Academy Osorno | Clases de Ajedrez</title>
 
-<meta name="description" content="Academia de Ajedrez en Osorno. Clases para niños, jóvenes y adultos. Entrenamiento competitivo con más de 30 años de experiencia.">
+<meta name="description" content="Academia de ajedrez en Osorno. Clases para niños, jóvenes y adultos. Entrenamiento competitivo y desarrollo mental.">
 
-<meta name="keywords" content="ajedrez osorno, clases de ajedrez osorno, academia de ajedrez osorno, ajedrez para niños osorno, chess academy osorno">
+<meta name="keywords" content="ajedrez osorno, clases de ajedrez osorno, academia de ajedrez osorno, ajedrez chile">
 
 <meta property="og:title" content="Chess Academy Osorno | Entrenamiento de Elite">
 <meta property="og:description" content="Academia de ajedrez en Osorno: desde principiantes hasta nivel competitivo.">
@@ -135,7 +136,7 @@ margin-bottom:10px;
 margin-top:25px;
 display:flex;
 justify-content:center;
-gap:30px;
+gap:25px;
 flex-wrap:wrap;
 font-weight:600;
 color:#60a5fa;
@@ -172,23 +173,12 @@ font-weight:800;
 color:var(--accent);
 }
 
-.tablero{
-background:#1e293b;
-padding:40px;
-border-radius:20px;
-text-align:center;
-}
-
-iframe{
-border-radius:10px;
-max-width:100%;
-}
-
 .galeria-netflix{
 display:flex;
 gap:20px;
 overflow-x:auto;
 padding:20px 0;
+scrollbar-width:none;
 }
 
 .galeria-netflix img{
@@ -213,6 +203,13 @@ border-radius:12px;
 cursor:pointer;
 }
 
+figcaption{
+text-align:center;
+margin-top:10px;
+font-size:13px;
+color:#94a3b8;
+}
+
 .btn{
 display:inline-block;
 padding:14px 28px;
@@ -221,6 +218,16 @@ color:white;
 text-decoration:none;
 border-radius:10px;
 font-weight:600;
+}
+
+input{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+border-radius:8px;
+border:1px solid #334155;
+background:#0f172a;
+color:white;
 }
 
 .whatsapp{
@@ -245,16 +252,39 @@ padding:40px;
 color:#64748b;
 }
 
+#lightbox{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.95);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+#lightbox img{
+max-width:90%;
+max-height:80%;
+border-radius:10px;
+}
+
+#cerrar{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+cursor:pointer;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <nav class="navbar">
 
-<div>
 <img src="logo/osorno-clases-ajedrez-logo.jpg" class="logo-img">
-</div>
 
 <div class="menu-toggle" onclick="toggleMenu()">
 <span></span><span></span><span></span>
@@ -320,11 +350,9 @@ Títulos FIDE
 
 <section id="partidas">
 
-<h2>Partidas destacadas de alumnos</h2>
+<h2>Partida destacada de la academia</h2>
 
-<div class="tablero">
-
-<p>Revisa partidas comentadas de alumnos de la academia.</p>
+<div style="text-align:center">
 
 <iframe
 width="600"
@@ -338,18 +366,16 @@ src="https://lichess.org/embed/game/white/ue41HurTo2dk?theme=dark&bg=auto">
 
 <section id="historia">
 
-<h2>Historia de la Academia</h2>
+<h2>Historia y Trayectoria</h2>
 
 <div style="background:#1e293b;padding:40px;border-radius:20px">
 
 <p>
-Chess Academy Osorno es el resultado de más de 30 años de experiencia
-dedicada al entrenamiento competitivo de ajedrez en la región.
+Chess Academy Osorno nace en 2012 con la misión de profesionalizar el entrenamiento de ajedrez en la región.
 </p>
 
 <p>
-La academia ha formado numerosos campeones escolares,
-regionales y participantes en campeonatos nacionales.
+Con más de tres décadas de experiencia, la academia ha formado numerosos campeones escolares y regionales.
 </p>
 
 </div>
@@ -360,12 +386,61 @@ regionales y participantes en campeonatos nacionales.
 
 <h2>Galería</h2>
 
+<h3>Torneos</h3>
+
 <div class="galeria-netflix">
 
-<img src="torneos/osorno-nacional.jpg">
-<img src="torneos/osorno-nacional-santiago-2018.jpg">
-<img src="torneos/osorno-puertomontt2.jpg">
-<img src="torneos/osorno-puertomontt-regional.jpg">
+<figure>
+<img src="torneos/osorno-nacional.jpg" onclick="abrirImagen(this)">
+<figcaption>Nacional</figcaption>
+</figure>
+
+<figure>
+<img src="torneos/osorno-nacional-santiago-2018.jpg" onclick="abrirImagen(this)">
+<figcaption>Santiago 2018</figcaption>
+</figure>
+
+<figure>
+<img src="torneos/osorno-puertomontt2.jpg" onclick="abrirImagen(this)">
+<figcaption>Puerto Montt</figcaption>
+</figure>
+
+</div>
+
+<h3>Competencias en el Extranjero</h3>
+
+<div class="galeria-netflix">
+
+<figure>
+<img src="extranjero/extranjero1.jpg" onclick="abrirImagen(this)">
+<figcaption>Bariloche</figcaption>
+</figure>
+
+<figure>
+<img src="extranjero/extranjero2.jpg" onclick="abrirImagen(this)">
+<figcaption>Mundial Brasil</figcaption>
+</figure>
+
+<figure>
+<img src="extranjero/extranjero3.jpg" onclick="abrirImagen(this)">
+<figcaption>Sudamericano Paraguay</figcaption>
+</figure>
+
+</div>
+
+<h3>Ganadores</h3>
+
+<div class="galeria-grid">
+
+<figure>
+<img src="ganadores/1conii.jpg" onclick="abrirImagen(this)">
+<figcaption>Constanza Treumun</figcaption>
+</figure>
+
+<figure>
+<img src="ganadores/3pipe.jpg" onclick="abrirImagen(this)">
+<figcaption>Felipe Vera</figcaption>
+</figure>
 
 </div>
 
@@ -373,7 +448,7 @@ regionales y participantes en campeonatos nacionales.
 
 <section id="inscripciones">
 
-<h2>Inscripciones</h2>
+<h2>Inscripciones 2026</h2>
 
 <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST">
 
@@ -399,46 +474,40 @@ Enviar solicitud
 
 </footer>
 
+<div id="lightbox" onclick="cerrarImagen()">
+<span id="cerrar">&times;</span>
+<img id="imagen-grande">
+</div>
+
 <script>
 
 const counters=document.querySelectorAll('.highlight');
 
 const observer=new IntersectionObserver(entries=>{
-
 entries.forEach(entry=>{
-
 if(entry.isIntersecting){
 
 const target=+entry.target.getAttribute('data-target');
-
 let count=0;
 
 const update=()=>{
-
 count+=target/40;
 
 if(count<target){
-
 entry.target.innerText=Math.ceil(count);
-
 setTimeout(update,50);
-
-}else{
-
+}
+else{
 entry.target.innerText="+"+target;
-
 }
 
 };
 
 update();
-
 observer.unobserve(entry.target);
 
 }
-
 });
-
 },{threshold:0.5});
 
 counters.forEach(c=>observer.observe(c));
@@ -446,9 +515,16 @@ counters.forEach(c=>observer.observe(c));
 ScrollReveal().reveal('section',{delay:200,distance:'40px',origin:'bottom',duration:800});
 
 function toggleMenu(){
-
 document.getElementById("navMenu").classList.toggle("active");
+}
 
+function abrirImagen(img){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("imagen-grande").src=img.src;
+}
+
+function cerrarImagen(){
+document.getElementById("lightbox").style.display="none";
 }
 
 </script>
