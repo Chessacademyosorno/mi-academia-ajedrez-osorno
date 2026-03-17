@@ -2,429 +2,464 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Chess Academy Osorno | Clases de Ajedrez en Osorno</title>
+<title>Chess Academy Osorno | Clases de Ajedrez en Osorno</title>
 
-    <meta name="description" content="Academia de Ajedrez en Osorno. Clases para niños, jóvenes y adultos. Entrenamiento competitivo con más de 30 años de experiencia.">
+<meta name="description" content="Academia de Ajedrez en Osorno. Clases para niños, jóvenes y adultos. Entrenamiento competitivo con más de 30 años de experiencia.">
 
-    <meta name="keywords" content="ajedrez osorno, clases de ajedrez osorno, academia de ajedrez osorno, ajedrez para niños osorno, chess academy osorno">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <meta property="og:title" content="Chess Academy Osorno | Entrenamiento de Elite">
-    <meta property="og:description" content="Academia de ajedrez en Osorno: desde principiantes hasta nivel competitivo.">
-    <meta property="og:image" content="https://chessacademyosorno.github.io/mi-academia-ajedrez-osorno/logo/osorno-clases-ajedrez-logo.jpg">
-    <meta property="og:url" content="https://chessacademyosorno.github.io/mi-academia-ajedrez-osorno/">
-    <meta property="og:type" content="website">
+<script src="https://unpkg.com/scrollreveal"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
 
-    <script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
+<script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 
-    <style>
-        :root {
-            --bg-dark: #0f172a;
-            --nav-bg: #020617;
-            --accent: #2563eb;
-            --text-light: #f1f5f9;
-        }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
 
-        html { scroll-behavior: smooth; }
+<style>
 
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+:root{
+--bg-dark:#0f172a;
+--nav-bg:#020617;
+--accent:#2563eb;
+--text-light:#f1f5f9;
+}
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--nav-bg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            z-index: 1000;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-        }
+body{
+margin:0;
+font-family:'Montserrat',sans-serif;
+background:var(--bg-dark);
+color:var(--text-light);
+line-height:1.6;
+}
 
-        .logo-img { height: 45px; border-radius: 6px; }
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+background:var(--nav-bg);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+z-index:1000;
+}
 
-        .menu {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-        }
+.logo-img{
+height:45px;
+border-radius:6px;
+}
 
-        .menu a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: .3s;
-        }
+.menu{
+list-style:none;
+display:flex;
+gap:30px;
+margin:0;
+}
 
-        .menu a:hover { color: #60a5fa; }
+.menu a{
+color:#cbd5e1;
+text-decoration:none;
+font-weight:600;
+font-size:13px;
+}
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
+header{
+background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Fotos20-26/77f4d12a-44df-4642-bccb-26c53893683b.jpg");
+background-size:cover;
+background-position:center;
+padding:180px 20px 100px;
+text-align:center;
+}
 
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: white;
-        }
+.hero-points{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+color:#60a5fa;
+font-weight:600;
+}
 
-        @media(max-width:768px) {
-            .menu-toggle { display: flex; }
-            .menu {
-                flex-direction: column;
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                height: 0;
-                background: var(--nav-bg);
-                overflow: hidden;
-                opacity: 0;
-                transition: .4s;
-            }
-            .menu.active {
-                height: 100vh;
-                opacity: 1;
-                padding-top: 40px;
-                text-align: center;
-            }
-        }
+section{
+padding:80px 20px;
+max-width:1100px;
+margin:auto;
+}
 
-        header {
-            background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("Fotos20-26/77f4d12a-44df-4642-bccb-26c53893683b.jpg");
-            background-size: cover;
-            background-position: center;
-            padding: 180px 20px 100px;
-            text-align: center;
-        }
+h2{
+text-align:center;
+font-size:36px;
+margin-bottom:40px;
+}
 
-        header h1 { font-size: clamp(30px, 6vw, 52px); margin-bottom: 10px; }
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
 
-        .hero-points {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            font-weight: 600;
-            color: #60a5fa;
-        }
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:16px;
+text-align:center;
+}
 
-        section {
-            padding: 80px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+.highlight{
+font-size:45px;
+font-weight:800;
+color:var(--accent);
+}
 
-        h2 { text-align: center; font-size: 36px; margin-bottom: 40px; }
+.tablero{
+background:#1e293b;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+.controles{
+display:flex;
+gap:10px;
+justify-content:center;
+margin-top:15px;
+}
 
-        .card {
-            background: #1e293b;
-            padding: 25px;
-            border-radius: 16px;
-            text-align: center;
-        }
+.controles button{
+background:#2563eb;
+border:none;
+color:white;
+padding:10px 16px;
+border-radius:6px;
+cursor:pointer;
+}
 
-        .highlight { font-size: 45px; font-weight: 800; color: var(--accent); }
+.galeria-titulo{
+margin-top:40px;
+margin-bottom:15px;
+font-size:22px;
+color:#60a5fa;
+}
 
-        .tablero-container {
-            background: #1e293b;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
+.galeria-netflix{
+display:flex;
+gap:20px;
+overflow-x:auto;
+padding:20px 0;
+}
 
-        .controles {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 15px;
-        }
+.galeria-netflix img{
+height:220px;
+border-radius:12px;
+cursor:pointer;
+transition:transform .3s;
+}
 
-        .controles button {
-            background: #2563eb;
-            border: none;
-            color: white;
-            padding: 10px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+.galeria-netflix img:hover{
+transform:scale(1.05);
+}
 
-        .galeria-netflix {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 20px 0;
-        }
+/* visor imagen grande */
 
-        .galeria-netflix img {
-            height: 220px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.lightbox{
+display:none;
+position:fixed;
+z-index:2000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+}
 
-        .galeria-netflix img:hover { transform: scale(1.05); }
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
 
-        form {
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+.lightbox span{
+position:absolute;
+top:20px;
+right:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
 
-        form input {
-            padding: 12px;
-            border-radius: 8px;
-            border: none;
-            background: #0f172a;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-        }
+.btn{
+display:inline-block;
+padding:14px 28px;
+background:var(--accent);
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-        }
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+color:white;
+}
 
-        .whatsapp {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #25D366;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            color: white;
-            z-index: 1000;
-            text-decoration: none;
-        }
+footer{
+background:#020617;
+text-align:center;
+padding:40px;
+color:#64748b;
+}
 
-        footer {
-            background: #020617;
-            text-align: center;
-            padding: 40px;
-            color: #64748b;
-        }
-    </style>
+</style>
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <div>
-            <img src="logo/osorno-clases-ajedrez-logo.jpg" class="logo-img">
-        </div>
+<nav class="navbar">
 
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </div>
+<img src="logo/osorno-clases-ajedrez-logo.jpg" class="logo-img">
 
-        <ul class="menu" id="navMenu">
-            <li><a href="#historia">Historia</a></li>
-            <li><a href="#resultados">Logros</a></li>
-            <li><a href="#partidas">Partidas</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#inscripciones">Contacto</a></li>
-        </ul>
-    </nav>
+<ul class="menu">
+<li><a href="#historia">Historia</a></li>
+<li><a href="#resultados">Logros</a></li>
+<li><a href="#partidas">Partidas</a></li>
+<li><a href="#galeria">Galería</a></li>
+<li><a href="#inscripciones">Contacto</a></li>
+</ul>
 
-    <header>
-        <h1>Chess Academy Osorno</h1>
-        <p>Clases de ajedrez para niños, jóvenes y adultos en Osorno.</p>
-        <div class="hero-points">
-            <span>♟ Más de 30 años de experiencia</span>
-            <span>🏆 Campeones regionales</span>
-            <span>🧠 Mejora concentración</span>
-        </div>
-        <br>
-        <a href="#inscripciones" class="btn">Primera clase de prueba</a>
-    </header>
+</nav>
 
-    <section id="resultados">
-        <h2>Logros de la Academia</h2>
-        <div class="cards">
-            <div class="card">
-                <div class="highlight">1200+</div>
-                Alumnos entrenados
-            </div>
-            <div class="card">
-                <div class="highlight">60+</div>
-                Títulos regionales
-            </div>
-            <div class="card">
-                <div class="highlight">30+</div>
-                Participaciones nacionales
-            </div>
-            <div class="card">
-                <div class="highlight">3</div>
-                Títulos FIDE
-            </div>
-        </div>
-    </section>
+<header>
 
-    <section id="partidas">
-        <h2>Partidas destacadas</h2>
-        <div class="tablero-container">
-            <p>Análisis de partidas - Visor de la Academia</p>
-            
-            <div id="tablero" style="width: 100%; max-width: 400px; margin: auto;"></div>
+<h1>Chess Academy Osorno</h1>
 
-            <div class="controles">
-                <button onclick="inicio()">⏮</button>
-                <button onclick="atras()">◀</button>
-                <button onclick="adelante()">▶</button>
-                <button onclick="final()">⏭</button>
-            </div>
-        </div>
-    </section>
+<p>Clases de ajedrez para niños, jóvenes y adultos en Osorno.</p>
 
-    <section id="historia">
-        <h2>Historia de la Academia</h2>
-        <div style="background:#1e293b; padding:40px; border-radius:20px">
-            <p>Chess Academy Osorno es el resultado de más de 30 años de experiencia dedicada al entrenamiento competitivo de ajedrez en la región.</p>
-            <p>La academia ha formado numerosos campeones escolares, regionales y participantes en campeonatos nacionales bajo la dirección de Sergio Vera S.</p>
-        </div>
-    </section>
+<div class="hero-points">
+<span>♟ Más de 30 años de experiencia</span>
+<span>🏆 Campeones regionales</span>
+<span>🧠 Mejora concentración</span>
+</div>
 
-    <section id="galeria">
-        <h2>Galería</h2>
-        <div class="galeria-netflix">
-            <img src="torneos/osorno-nacional.jpg">
-            <img src="torneos/osorno-nacional-santiago-2018.jpg">
-            <img src="torneos/osorno-puertomontt2.jpg">
-            <img src="torneos/osorno-puertomontt-regional.jpg">
-        </div>
-    </section>
+<br>
 
-    <section id="inscripciones">
-        <h2>Inscripciones</h2>
-        <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST">
-            <input type="text" name="Nombre" placeholder="Nombre" required>
-            <input type="number" name="Edad" placeholder="Edad" required>
-            <input type="email" name="Email" placeholder="Correo electrónico" required>
-            <button class="btn" type="submit">Enviar solicitud</button>
-        </form>
-    </section>
+<a href="#inscripciones" class="btn">Primera clase de prueba</a>
 
-    <a class="whatsapp" href="https://wa.me/56981772160">💬</a>
+</header>
 
-    <footer>
-        <p>Chess Academy Osorno © 2026</p>
-    </footer>
+<section id="resultados">
 
-    <script>
-        function toggleMenu() {
-            document.getElementById("navMenu").classList.toggle("active");
-        }
+<h2>Logros de la Academia</h2>
 
-        let board;
-        let game = new Chess();
-        let moves = [];
-        let moveIndex = 0;
+<div class="cards">
 
-        window.onload = function() {
-            board = Chessboard('tablero', {
-                position: 'start',
-                draggable: false,
-                pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
-            });
+<div class="card">
+<div class="highlight">1200</div>
+Alumnos entrenados
+</div>
 
-            fetch("mate_caballo.pgn")
-                .then(response => {
-                    if(!response.ok) throw new Error("No se encontró el archivo PGN");
-                    return response.text();
-                })
-                .then(data => {
-                    game.load_pgn(data);
-                    moves = game.history();
-                    game.reset();
-                    board.start();
-                })
-                .catch(err => console.error(err));
-        }
+<div class="card">
+<div class="highlight">60</div>
+Títulos regionales
+</div>
 
-        function actualizar() {
-            board.position(game.fen());
-        }
+<div class="card">
+<div class="highlight">30</div>
+Participaciones nacionales
+</div>
 
-        function adelante() {
-            if (moveIndex < moves.length) {
-                game.move(moves[moveIndex]);
-                moveIndex++;
-                actualizar();
-            }
-        }
+</div>
 
-        function atras() {
-            if (moveIndex > 0) {
-                game.undo();
-                moveIndex--;
-                actualizar();
-            }
-        }
+</section>
 
-        function inicio() {
-            game.reset();
-            moveIndex = 0;
-            actualizar();
-        }
+<section id="partidas">
 
-        function final() {
-            while (moveIndex < moves.length) {
-                game.move(moves[moveIndex]);
-                moveIndex++;
-            }
-            actualizar();
-        }
-    </script>
+<h2>Partidas de alumnos</h2>
+
+<div class="tablero">
+
+<iframe
+width="600"
+height="397"
+src="https://lichess.org/embed/game/white/ue41HurTo2dk?theme=dark">
+</iframe>
+
+<br><br>
+
+<div id="tablero" style="width:420px;margin:auto"></div>
+
+<div class="controles">
+<button onclick="inicio()">⏮</button>
+<button onclick="atras()">◀</button>
+<button onclick="adelante()">▶</button>
+<button onclick="final()">⏭</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="historia">
+
+<h2>Historia</h2>
+
+<p>Chess Academy Osorno es el resultado de más de 30 años formando ajedrecistas competitivos en la región.</p>
+
+</section>
+
+<section id="galeria">
+
+<h2>Galería</h2>
+
+<h3 class="galeria-titulo">Torneos</h3>
+
+<div class="galeria-netflix">
+
+<img src="torneos/osorno-nacional.jpg" onclick="abrirImagen(this)">
+<img src="torneos/osorno-nacional-santiago-2018.jpg" onclick="abrirImagen(this)">
+<img src="torneos/osorno-puertomontt2.jpg" onclick="abrirImagen(this)">
+<img src="torneos/osorno-puertomontt-regional.jpg" onclick="abrirImagen(this)">
+
+</div>
+
+<h3 class="galeria-titulo">Clases</h3>
+
+<div class="galeria-netflix">
+
+<img src="fotos pagina ok/clase1.jpg" onclick="abrirImagen(this)">
+<img src="fotos pagina ok/clase2.jpg" onclick="abrirImagen(this)">
+<img src="fotos pagina ok/clase3.jpg" onclick="abrirImagen(this)">
+<img src="fotos pagina ok/clase4.jpg" onclick="abrirImagen(this)">
+
+</div>
+
+<h3 class="galeria-titulo">Campeones</h3>
+
+<div class="galeria-netflix">
+
+<img src="ganadores/campeon1.jpg" onclick="abrirImagen(this)">
+<img src="ganadores/campeon2.jpg" onclick="abrirImagen(this)">
+<img src="ganadores/campeon3.jpg" onclick="abrirImagen(this)">
+<img src="ganadores/campeon4.jpg" onclick="abrirImagen(this)">
+
+</div>
+
+</section>
+
+<section id="inscripciones">
+
+<h2>Inscripciones</h2>
+
+<form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST">
+
+<input type="text" name="Nombre" placeholder="Nombre" required><br><br>
+<input type="number" name="Edad" placeholder="Edad" required><br><br>
+<input type="email" name="Email" placeholder="Correo electrónico" required><br><br>
+
+<button class="btn" type="submit">Enviar solicitud</button>
+
+</form>
+
+</section>
+
+<a class="whatsapp" href="https://wa.me/56981772160">💬</a>
+
+<footer>
+<p>Chess Academy Osorno © 2026</p>
+</footer>
+
+<div id="lightbox" class="lightbox">
+<span onclick="cerrarImagen()">×</span>
+<img id="imagenGrande">
+</div>
+
+<script>
+
+function abrirImagen(img){
+let lightbox=document.getElementById("lightbox")
+let imagen=document.getElementById("imagenGrande")
+imagen.src=img.src
+lightbox.style.display="flex"
+}
+
+function cerrarImagen(){
+document.getElementById("lightbox").style.display="none"
+}
+
+let board
+let game=new Chess()
+let moves=[]
+let moveIndex=0
+
+window.onload=function(){
+
+board=Chessboard('tablero',{position:'start'})
+
+fetch("pgnestudio-academia.pgn")
+
+.then(response=>response.text())
+
+.then(data=>{
+game.load_pgn(data)
+moves=game.history()
+game.reset()
+})
+
+}
+
+function actualizar(){
+board.position(game.fen())
+}
+
+function adelante(){
+if(moveIndex<moves.length){
+game.move(moves[moveIndex])
+moveIndex++
+actualizar()
+}
+}
+
+function atras(){
+if(moveIndex>0){
+game.undo()
+moveIndex--
+actualizar()
+}
+}
+
+function inicio(){
+game.reset()
+moveIndex=0
+actualizar()
+}
+
+function final(){
+while(moveIndex<moves.length){
+game.move(moves[moveIndex])
+moveIndex++
+}
+actualizar()
+}
+
+</script>
+
 </body>
 </html>
