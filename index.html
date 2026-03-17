@@ -36,7 +36,6 @@ header h1{ font-size:clamp(30px,6vw,52px); margin-bottom:10px; }
 section{ padding:80px 20px; max-width:1100px; margin:auto; }
 h2{ text-align:center; font-size:36px; margin-bottom:40px; }
 
-/* CONTENEDOR DEL TABLERO CORREGIDO */
 .tablero-box { background:#1e293b; padding:30px; border-radius:20px; max-width:450px; margin:auto; text-align:center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
 #tablero { width: 100%; margin: auto; border: 2px solid #334155; border-radius: 4px; }
 .controles { display:flex; gap:10px; justify-content:center; margin-top:20px; }
@@ -80,7 +79,7 @@ footer{ background:#020617; text-align:center; padding:40px; color:#64748b; }
             <button onclick="adelante()">▶</button>
             <button onclick="final()">⏭</button>
         </div>
-        <p style="margin-top:15px; font-size:14px; color:#94a3b8">Cargando estudio: mate_caballo.pgn</p>
+        <p style="margin-top:15px; font-size:14px; color:#94a3b8">Visualizando: mate_caballo.pgn</p>
     </div>
 </section>
 
@@ -122,16 +121,20 @@ function initBoard() {
         pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
     });
 
-    // LEEMOS TU ARCHIVO SUBIDO A GITHUB
+    // Intentamos cargar el archivo desde ambas ubicaciones posibles en tu GitHub
     fetch("mate_caballo.pgn")
-    .then(response => response.text())
+    .then(response => {
+        if (!response.ok) return fetch("pgnestudio-academia.pgn/mate_caballo.pgn");
+        return response.text();
+    })
     .then(data => {
         game.load_pgn(data);
         moves = game.history();
         game.reset();
         board.start();
+        console.log("¡Partida cargada!");
     })
-    .catch(err => console.error("Error cargando PGN:", err));
+    .catch(err => console.error("No se pudo cargar el PGN:", err));
 }
 
 $(document).ready(initBoard);
