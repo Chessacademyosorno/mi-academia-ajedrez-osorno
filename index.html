@@ -21,7 +21,6 @@
 
 <script src="https://unpkg.com/scrollreveal"></script>
 
-<!-- LIBRERIAS TABLERO -->
 <link rel="stylesheet"
 href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
 
@@ -372,8 +371,6 @@ src="https://lichess.org/embed/game/white/ue41HurTo2dk?theme=dark&bg=auto">
 
 </section>
 
-<!-- RESTO DE TU SITIO IGUAL -->
-
 <section id="historia">
 <h2>Historia de la Academia</h2>
 <div style="background:#1e293b;padding:40px;border-radius:20px">
@@ -420,6 +417,10 @@ Enviar solicitud
 
 <script>
 
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("active");
+}
+
 let board
 let game = new Chess()
 
@@ -430,7 +431,8 @@ window.onload=function(){
 
 board=Chessboard('tablero','start')
 
-fetch("pgn%20pagina/mate%20caballo%20pagina.27.pgn")
+// CARGA DEL PGN CON EL NUEVO NOMBRE
+fetch("mate_caballo.pgn")
 .then(response=>response.text())
 .then(data=>{
 
