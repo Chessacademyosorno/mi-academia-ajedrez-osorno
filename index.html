@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -22,6 +21,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <script src="https://unpkg.com/scrollreveal"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
 
 <style>
 
@@ -135,7 +139,7 @@ margin-bottom:10px;
 .hero-points{
 margin-top:25px;
 display:flex;
-justify-content:center;
+justify(center);
 gap:25px;
 flex-wrap:wrap;
 font-weight:600;
@@ -171,6 +175,33 @@ text-align:center;
 font-size:45px;
 font-weight:800;
 color:var(--accent);
+}
+
+/* ESTILO TABLERO */
+.tablero-box {
+background:#1e293b;
+padding:30px;
+border-radius:20px;
+max-width:450px;
+margin:auto;
+text-align:center;
+}
+
+.controles {
+display:flex;
+gap:10px;
+justify-content:center;
+margin-top:15px;
+}
+
+.controles button {
+background:var(--accent);
+border:none;
+color:white;
+padding:10px 15px;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
 }
 
 .galeria-netflix{
@@ -352,13 +383,18 @@ Títulos FIDE
 
 <h2>Partida destacada de la academia</h2>
 
-<div style="text-align:center">
+<div class="tablero-box">
 
-<iframe
-width="600"
-height="397"
-src="https://lichess.org/embed/game/white/ue41HurTo2dk?theme=dark&bg=auto">
-</iframe>
+<div id="tablero" style="width: 100%; margin: auto;"></div>
+
+<div class="controles">
+<button onclick="inicio()">⏮</button>
+<button onclick="atras()">◀</button>
+<button onclick="adelante()">▶</button>
+<button onclick="final()">⏭</button>
+</div>
+
+<p style="margin-top:15px; font-size:14px; color:#94a3b8">Usa los controles para ver el análisis de la partida.</p>
 
 </div>
 
@@ -481,6 +517,66 @@ Enviar solicitud
 
 <script>
 
+// LOGICA DEL TABLERO PGN
+let board;
+let game = new Chess();
+let moves = [];
+let moveIndex = 0;
+
+window.onload = function() {
+    // Inicializar tablero visualmente
+    board = Chessboard('tablero', {
+        position: 'start',
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+    // Cargar el archivo PGN que subiste
+    fetch("mate_caballo.pgn")
+    .then(response => response.text())
+    .then(data => {
+        game.load_pgn(data);
+        moves = game.history();
+        game.reset();
+        board.start();
+    })
+    .catch(err => console.log("Error cargando PGN:", err));
+}
+
+function actualizar() {
+    board.position(game.fen());
+}
+
+function adelante() {
+    if (moveIndex < moves.length) {
+        game.move(moves[moveIndex]);
+        moveIndex++;
+        actualizar();
+    }
+}
+
+function atras() {
+    if (moveIndex > 0) {
+        game.undo();
+        moveIndex--;
+        actualizar();
+    }
+}
+
+function inicio() {
+    game.reset();
+    moveIndex = 0;
+    actualizar();
+}
+
+function final() {
+    while (moveIndex < moves.length) {
+        game.move(moves[moveIndex]);
+        moveIndex++;
+    }
+    actualizar();
+}
+
+// LOGICA DE CONTADORES
 const counters=document.querySelectorAll('.highlight');
 
 const observer=new IntersectionObserver(entries=>{
@@ -531,4 +627,3 @@ document.getElementById("lightbox").style.display="none";
 
 </body>
 </html>
-```
