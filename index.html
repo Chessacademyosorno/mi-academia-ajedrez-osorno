@@ -199,33 +199,6 @@
             background: #1d4ed8;
         }
 
-        .selector-pgn {
-            margin: 20px 0;
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .selector-pgn button {
-            background: #334155;
-            border: none;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        
-        .selector-pgn button:hover {
-            background: #475569;
-        }
-        
-        .selector-pgn button.activo {
-            background: var(--accent);
-        }
-
         .galeria-netflix {
             display: flex;
             gap: 20px;
@@ -391,11 +364,6 @@
         <div class="tablero-container">
             <p>Análisis de partidas - Visor de la Academia</p>
             
-            <div class="selector-pgn">
-                <button onclick="cargarPGN('mate_caballo.pgn')" id="btnMate" class="activo">Mate de Caballo</button>
-                <button onclick="cargarPGN('pgnestudio-academia.pgn')" id="btnEstudio">Estudio Academia</button>
-            </div>
-            
             <div id="tablero"></div>
             <div id="pgnStatus" class="pgn-status">Cargando partida por defecto...</div>
 
@@ -451,9 +419,8 @@
         let game = new Chess();
         let moves = [];
         let moveIndex = 0;
-        let pgnActual = '';
 
-        // PGN de ejemplo por si no encuentra ningún archivo
+        // PGN de Mate de Caballo (por si no carga el archivo)
         const defaultPGN = `1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 6. Nxf7 Kxf7 7. Qf3+ Ke6 8. Nc3 Ncb4 9. a3 Nxc2+ 10. Kd1 Nxa1 11. Nxd5 Kd6 12. Qf4+ Ke6 13. Qe4+ Kd6 14. d4 exd4 15. Bf4+ Kc6 16. Qd5+ Kb6 17. Bd3 Nc2 18. Qb5#`;
 
         window.onload = function() {
@@ -463,78 +430,33 @@
                 draggable: false,
                 pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
             });
-            
-            // Cargar partida por defecto (mate_caballo.pgn)
-            cargarPGN('mate_caballo.pgn');
-        }
-        
-        function cargarPGN(nombreArchivo) {
-            // Actualizar botones activos
-            document.getElementById('btnMate').classList.remove('activo');
-            document.getElementById('btnEstudio').classList.remove('activo');
-            
-            if (nombreArchivo === 'mate_caballo.pgn') {
-                document.getElementById('btnMate').classList.add('activo');
-            } else {
-                document.getElementById('btnEstudio').classList.add('activo');
-            }
-            
-            document.getElementById('pgnStatus').innerHTML = `Cargando ${nombreArchivo}...`;
-            
-            // Intentar cargar el archivo PGN
-            fetch(nombreArchivo)
+
+            // Intentar cargar el archivo mate_caballo.pgn
+            fetch("mate_caballo.pgn")
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error(`No se encontró ${nombreArchivo}`);
+                        throw new Error("No se encontró el archivo mate_caballo.pgn");
                     }
                     return response.text();
                 })
                 .then(data => {
                     if (data && data.trim()) {
-                        pgnActual = data;
-                        document.getElementById('pgnStatus').innerHTML = `✅ Partida cargada: ${nombreArchivo}`;
+                        game.load_pgn(data);
+                        moves = game.history({ verbose: false });
+                        game.reset();
+                        board.start();
+                        document.getElementById('pgnStatus').innerHTML = '✅ Partida mate_caballo.pgn cargada';
                     } else {
                         throw new Error("Archivo vacío");
                     }
                 })
                 .catch(err => {
-                    console.warn(`Error cargando ${nombreArchivo}:`, err);
-                    
-                    // Si falla mate_caballo.pgn, intentar con el otro
-                    if (nombreArchivo === 'mate_caballo.pgn') {
-                        document.getElementById('pgnStatus').innerHTML = '⚠️ No se encontró mate_caballo.pgn, intentando con pgnestudio-academia.pgn...';
-                        cargarPGN('pgnestudio-academia.pgn');
-                        return;
-                    } 
-                    // Si falla pgnestudio-academia.pgn, usar PGN por defecto
-                    else {
-                        pgnActual = defaultPGN;
-                        document.getElementById('pgnStatus').innerHTML = '⚠️ Usando partida de ejemplo';
-                    }
-                })
-                .finally(() => {
-                    try {
-                        game.load_pgn(pgnActual);
-                        moves = game.history({ verbose: false });
-                        game.reset();
-                        moveIndex = 0;
-                        board.start();
-                        console.log(`Partida cargada con ${moves.length} movimientos`);
-                    } catch (e) {
-                        console.error("Error cargando PGN:", e);
-                        document.getElementById('pgnStatus').innerHTML = '❌ Error cargando partida';
-                        
-                        // Si hay error, usar PGN por defecto como último recurso
-                        if (pgnActual !== defaultPGN) {
-                            pgnActual = defaultPGN;
-                            game.load_pgn(pgnActual);
-                            moves = game.history({ verbose: false });
-                            game.reset();
-                            moveIndex = 0;
-                            board.start();
-                            document.getElementById('pgnStatus').innerHTML = '⚠️ Usando partida de ejemplo';
-                        }
-                    }
+                    console.warn("Usando PGN por defecto:", err);
+                    game.load_pgn(defaultPGN);
+                    moves = game.history({ verbose: false });
+                    game.reset();
+                    board.start();
+                    document.getElementById('pgnStatus').innerHTML = '⚠️ Usando partida de ejemplo (mate de caballo)';
                 });
         }
 
