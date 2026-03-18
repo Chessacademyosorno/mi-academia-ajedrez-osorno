@@ -49,9 +49,9 @@
             .menu.active { height: 100vh; padding-top: 40px; opacity: 1; }
         }
 
-        /* Header - Usando imagen de la carpeta torneos como fondo principal */
+        /* Header con imagen de fondo Santiago 2018 */
         header { 
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("torneos/osorno-nacional.jpg"); 
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("torneos/osorno-nacional-santiago-2018.jpg"); 
             background-size: cover; background-position: center; 
             padding: 160px 20px 80px; text-align: center; 
         }
@@ -197,7 +197,6 @@
     </footer>
 
     <script>
-        // Animación de contadores numéricos
         const counters = document.querySelectorAll('.highlight');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -218,10 +217,8 @@
         }, {threshold: 0.5});
         counters.forEach(c => observer.observe(c));
 
-        // Animaciones de entrada (ScrollReveal)
         ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 700 });
 
-        // Función Menú Móvil
         function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
     </script>
 </body>
