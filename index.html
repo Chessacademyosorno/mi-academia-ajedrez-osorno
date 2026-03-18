@@ -1,458 +1,228 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Academy Osorno | Entrenamiento de Elite</title>
 
-<title>Chess Academy Osorno | Clases de Ajedrez en Osorno</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
 
-<meta name="description" content="Academia de Ajedrez en Osorno. Clases para niños, jóvenes y adultos. Entrenamiento competitivo con más de 30 años de experiencia.">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --nav-bg: #020617;
+            --accent: #2563eb;
+            --text-light: #f1f5f9;
+        }
 
-<meta name="keywords" content="ajedrez osorno, clases de ajedrez osorno, academia de ajedrez osorno, ajedrez para niños osorno, chess academy osorno">
+        html { scroll-behavior: smooth; }
+        body { 
+            margin: 0; font-family: 'Montserrat', sans-serif; 
+            background: var(--bg-dark); color: var(--text-light); 
+            line-height: 1.6; overflow-x: hidden; 
+        }
 
-<meta property="og:title" content="Chess Academy Osorno | Entrenamiento de Elite">
-<meta property="og:description" content="Academia de ajedrez en Osorno: desde principiantes hasta nivel competitivo.">
-<meta property="og:image" content="https://chessacademyosorno.github.io/mi-academia-ajedrez-osorno/logo/osorno-clases-ajedrez-logo.jpg">
-<meta property="og:url" content="https://chessacademyosorno.github.io/mi-academia-ajedrez-osorno/">
-<meta property="og:type" content="website">
+        /* Navegación */
+        .navbar { 
+            position: fixed; top: 0; width: 100%; background: var(--nav-bg); 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 10px 40px; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+        }
+        .logo-img { height: 50px; border-radius: 6px; background: white; padding: 2px; }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+        .menu { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+        .menu a { color: #cbd5e1; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: .3s; }
+        .menu a:hover { color: #60a5fa; }
 
-<script src="https://unpkg.com/scrollreveal"></script>
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .menu-toggle span { width: 25px; height: 3px; background: white; }
 
-<style>
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .menu { 
+                flex-direction: column; position: fixed; top: 70px; left: 0; 
+                width: 100%; height: 0; background: var(--nav-bg); 
+                overflow: hidden; transition: .4s; align-items: center; 
+            }
+            .menu.active { height: 100vh; padding-top: 40px; opacity: 1; }
+        }
 
-:root{
---bg-dark:#0f172a;
---nav-bg:#020617;
---accent:#2563eb;
---text-light:#f1f5f9;
-}
+        /* Header - Usando imagen de la carpeta torneos como fondo principal */
+        header { 
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("torneos/osorno-nacional.jpg"); 
+            background-size: cover; background-position: center; 
+            padding: 160px 20px 80px; text-align: center; 
+        }
+        header h1 { font-size: clamp(30px, 6vw, 52px); margin: 0; font-weight: 800; }
+        .hero-points { margin: 20px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; color: #60a5fa; font-weight: 600; }
 
-html{scroll-behavior:smooth;}
+        /* Secciones */
+        section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+        h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: var(--accent); }
+        h3 { color: #60a5fa; border-left: 4px solid var(--accent); padding-left: 15px; margin: 40px 0 20px; }
 
-body{
-margin:0;
-font-family:'Montserrat',sans-serif;
-background:var(--bg-dark);
-color:var(--text-light);
-line-height:1.6;
-overflow-x:hidden;
-}
+        /* Tarjetas de Logros */
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .card { background: #1e293b; padding: 25px; border-radius: 16px; text-align: center; border-bottom: 4px solid var(--accent); }
+        .highlight { font-size: 40px; font-weight: 800; color: white; }
 
-.navbar{
-position:fixed;
-top:0;
-width:100%;
-background:var(--nav-bg);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-z-index:1000;
-box-shadow:0 5px 20px rgba(0,0,0,0.5);
-}
+        /* Galerías con Scroll Horizontal */
+        .galeria-scroll { 
+            display: flex; gap: 15px; overflow-x: auto; padding: 10px 0; 
+            scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
+        }
+        .galeria-scroll figure { min-width: 280px; margin: 0; flex-shrink: 0; }
+        .galeria-scroll img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; transition: .3s; border: 1px solid #334155; }
+        .galeria-scroll img:hover { transform: translateY(-5px); border-color: var(--accent); }
+        figcaption { text-align: center; font-size: 14px; margin-top: 10px; color: #94a3b8; font-weight: 600; }
 
-.logo-img{
-height:45px;
-border-radius:6px;
-}
+        /* Contenedores de Texto / Blog */
+        .content-box { background: #1e293b; padding: 35px; border-radius: 20px; border: 1px solid #334155; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
 
-.menu{
-list-style:none;
-display:flex;
-gap:30px;
-margin:0;
-padding:0;
-}
+        /* Formulario */
+        form { background: #1e293b; padding: 30px; border-radius: 20px; max-width: 500px; margin: auto; }
+        input { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
+        .btn { display: inline-block; padding: 14px 28px; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; border: none; width: 100%; cursor: pointer; text-align: center; transition: .3s; }
+        .btn:hover { background: #1d4ed8; }
 
-.menu a{
-color:#cbd5e1;
-text-decoration:none;
-font-weight:600;
-font-size:13px;
-text-transform:uppercase;
-letter-spacing:1px;
-transition:.3s;
-}
-
-.menu a:hover{color:#60a5fa;}
-
-.menu-toggle{
-display:none;
-flex-direction:column;
-gap:5px;
-cursor:pointer;
-}
-
-.menu-toggle span{
-width:25px;
-height:3px;
-background:white;
-}
-
-@media(max-width:768px){
-
-.menu-toggle{display:flex;}
-
-.menu{
-flex-direction:column;
-position:fixed;
-top:70px;
-left:0;
-width:100%;
-height:0;
-background:var(--nav-bg);
-overflow:hidden;
-opacity:0;
-transition:.4s;
-}
-
-.menu.active{
-height:100vh;
-opacity:1;
-padding-top:40px;
-}
-
-}
-
-header{
-background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Fotos20-26/77f4d12a-44df-4642-bccb-26c53893683b.jpg");
-background-size:cover;
-background-position:center;
-padding:180px 20px 100px;
-text-align:center;
-}
-
-header h1{
-font-size:clamp(30px,6vw,52px);
-margin-bottom:10px;
-}
-
-.hero-points{
-margin-top:25px;
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-font-weight:600;
-color:#60a5fa;
-}
-
-section{
-padding:80px 20px;
-max-width:1100px;
-margin:auto;
-}
-
-h2{
-text-align:center;
-font-size:36px;
-margin-bottom:40px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:16px;
-text-align:center;
-}
-
-.highlight{
-font-size:45px;
-font-weight:800;
-color:var(--accent);
-}
-
-.tablero{
-background:#1e293b;
-padding:40px;
-border-radius:20px;
-text-align:center;
-}
-
-iframe{
-border-radius:10px;
-max-width:100%;
-}
-
-.galeria-netflix{
-display:flex;
-gap:20px;
-overflow-x:auto;
-padding:20px 0;
-}
-
-.galeria-netflix img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:12px;
-cursor:pointer;
-}
-
-.galeria-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-}
-
-.galeria-grid img{
-width:100%;
-height:250px;
-object-fit:cover;
-border-radius:12px;
-cursor:pointer;
-}
-
-.btn{
-display:inline-block;
-padding:14px 28px;
-background:var(--accent);
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-weight:600;
-}
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-color:white;
-}
-
-footer{
-background:#020617;
-text-align:center;
-padding:40px;
-color:#64748b;
-}
-
-</style>
+        .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        footer { background: #020617; text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
+    </style>
 </head>
 
 <body>
 
-<nav class="navbar">
-
-<div>
-<img src="logo/osorno-clases-ajedrez-logo.jpg" class="logo-img">
-</div>
-
-<div class="menu-toggle" onclick="toggleMenu()">
-<span></span><span></span><span></span>
-</div>
-
-<ul class="menu" id="navMenu">
-<li><a href="#historia">Historia</a></li>
-<li><a href="#resultados">Logros</a></li>
-<li><a href="#partidas">Partidas</a></li>
-<li><a href="#galeria">Galería</a></li>
-<li><a href="#inscripciones">Contacto</a></li>
-</ul>
-
-</nav>
-
-<header>
-
-<h1>Chess Academy Osorno</h1>
-
-<p>Clases de ajedrez para niños, jóvenes y adultos en Osorno.</p>
-
-<div class="hero-points">
-<span>♟ Más de 30 años de experiencia</span>
-<span>🏆 Campeones regionales</span>
-<span>🧠 Mejora concentración</span>
-</div>
-
-<br>
-
-<a href="#inscripciones" class="btn">Primera clase de prueba</a>
-
-</header>
-
-<section id="resultados">
-
-<h2>Logros de la Academia</h2>
-
-<div class="cards">
-
-<div class="card">
-<div class="highlight" data-target="1200">0</div>
-Alumnos entrenados
-</div>
-
-<div class="card">
-<div class="highlight" data-target="60">0</div>
-Títulos regionales
-</div>
-
-<div class="card">
-<div class="highlight" data-target="30">0</div>
-Participaciones nacionales
-</div>
-
-<div class="card">
-<div class="highlight" data-target="3">0</div>
-Títulos FIDE
-</div>
-
-</div>
-
-</section>
-
-<section id="partidas">
-
-<h2>Partidas destacadas de alumnos</h2>
-
-<div class="tablero">
-
-<p>Revisa partidas comentadas de alumnos de la academia.</p>
-
-<iframe
-width="600"
-height="397"
-src="https://lichess.org/embed/game/white/ue41HurTo2dk?theme=dark&bg=auto">
-</iframe>
-
-</div>
-
-</section>
-
-<section id="historia">
-
-<h2>Historia de la Academia</h2>
-
-<div style="background:#1e293b;padding:40px;border-radius:20px">
-
-<p>
-Chess Academy Osorno es el resultado de más de 30 años de experiencia
-dedicada al entrenamiento competitivo de ajedrez en la región.
-</p>
-
-<p>
-La academia ha formado numerosos campeones escolares,
-regionales y participantes en campeonatos nacionales.
-</p>
-
-</div>
-
-</section>
-
-<section id="galeria">
-
-<h2>Galería</h2>
-
-<div class="galeria-netflix">
-
-<img src="torneos/osorno-nacional.jpg">
-<img src="torneos/osorno-nacional-santiago-2018.jpg">
-<img src="torneos/osorno-puertomontt2.jpg">
-<img src="torneos/osorno-puertomontt-regional.jpg">
-
-</div>
-
-</section>
-
-<section id="inscripciones">
-
-<h2>Inscripciones</h2>
-
-<form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST">
-
-<input type="text" name="Nombre" placeholder="Nombre" required>
-
-<input type="number" name="Edad" placeholder="Edad" required>
-
-<input type="email" name="Email" placeholder="Correo electrónico" required>
-
-<button class="btn" type="submit" style="width:100%">
-Enviar solicitud
-</button>
-
-</form>
-
-</section>
-
-<a class="whatsapp" href="https://wa.me/56981772160">💬</a>
-
-<footer>
-
-<p>Chess Academy Osorno © 2026</p>
-
-</footer>
-
-<script>
-
-const counters=document.querySelectorAll('.highlight');
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-const target=+entry.target.getAttribute('data-target');
-
-let count=0;
-
-const update=()=>{
-
-count+=target/40;
-
-if(count<target){
-
-entry.target.innerText=Math.ceil(count);
-
-setTimeout(update,50);
-
-}else{
-
-entry.target.innerText="+"+target;
-
-}
-
-};
-
-update();
-
-observer.unobserve(entry.target);
-
-}
-
-});
-
-},{threshold:0.5});
-
-counters.forEach(c=>observer.observe(c));
-
-ScrollReveal().reveal('section',{delay:200,distance:'40px',origin:'bottom',duration:800});
-
-function toggleMenu(){
-
-document.getElementById("navMenu").classList.toggle("active");
-
-}
-
-</script>
-
+    <nav class="navbar">
+        <a href="#"><img src="logo/osorno-clases-ajedrez-logo.jpg" alt="Chess Academy Osorno" class="logo-img"></a>
+        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <ul class="menu" id="navMenu">
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#resultados">Logros</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#inscripciones">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1 class="reveal">Chess Academy Osorno</h1>
+        <p class="reveal">Más de 30 años formando campeones en la Región de Los Lagos.</p>
+        <div class="hero-points reveal">
+            <span>♟ Entrenamiento Competitivo</span>
+            <span>🏆 Éxito Regional</span>
+            <span>🧠 Desarrollo Cognitivo</span>
+        </div>
+        <a href="#inscripciones" class="btn" style="width: auto; margin-top: 20px;">Inscríbete Ahora</a>
+    </header>
+
+    <section id="resultados">
+        <h2 class="reveal">Resultados Destacados</h2>
+        <div class="cards">
+            <div class="card reveal"><div class="highlight" data-target="1200">0</div>Alumnos Formados</div>
+            <div class="card reveal"><div class="highlight" data-target="60">0</div>Títulos Regionales</div>
+            <div class="card reveal"><div class="highlight" data-target="30">0</div>Podios Nacionales</div>
+            <div class="card reveal"><div class="highlight" data-target="3">0</div>Títulos FIDE</div>
+        </div>
+    </section>
+
+    <section id="historia">
+        <h2 class="reveal">Nuestra Historia</h2>
+        <div class="content-box reveal">
+            <p><strong>Chess Academy Osorno</strong> es el proyecto líder en la enseñanza del ajedrez en Osorno. Bajo la dirección de <strong>Sergio Vera</strong>, hemos transformado la pasión por el juego en un sistema de entrenamiento de alto rendimiento que abarca desde la iniciación hasta el nivel de maestría.</p>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <h2 class="reveal">Galería Visual</h2>
+
+        <h3>Eventos y Torneos Locales</h3>
+        <div class="galeria-scroll reveal">
+            <figure><img src="torneos/osorno-nacional.jpg"><figcaption>Final Nacional</figcaption></figure>
+            <figure><img src="torneos/osorno-nacional-santiago-2018.jpg"><figcaption>Santiago 2018</figcaption></figure>
+            <figure><img src="torneos/osorno-puertomontt2.jpg"><figcaption>Abierto Pto. Montt</figcaption></figure>
+            <figure><img src="torneos/osorno-puertomontt-regional.jpg"><figcaption>Regional Escolar</figcaption></figure>
+        </div>
+
+        <h3>Giras y Competencia Internacional</h3>
+        <div class="galeria-scroll reveal">
+            <figure><img src="extranjero/extranjero1.jpg"><figcaption>Delegación en Argentina</figcaption></figure>
+            <figure><img src="extranjero/extranjero2.jpg"><figcaption>Torneo Internacional</figcaption></figure>
+            <figure><img src="extranjero/extranjero3.jpg"><figcaption>Representación Osorno</figcaption></figure>
+            <figure><img src="extranjero/extranjero4.jpg"><figcaption>Encuentro de Maestros</figcaption></figure>
+        </div>
+
+        <h3>Alumnos Destacados</h3>
+        <div class="galeria-scroll reveal">
+            <figure><img src="ganadores/1conii.jpg"><figcaption>C. Treumun - Campeona</figcaption></figure>
+            <figure><img src="ganadores/3pipe.jpg"><figcaption>F. Vera - Competidor</figcaption></figure>
+            <figure><img src="ganadores/5josefa.jpg"><figcaption>J. Clerc - Finalista</figcaption></figure>
+            <figure><img src="ganadores/6antonela.jpg"><figcaption>A. Vera - Talento</figcaption></figure>
+        </div>
+    </section>
+
+    <section id="blog">
+        <h2 class="reveal">Blog de la Academia</h2>
+        <div class="content-box reveal">
+            <h3>¿Por qué estudiar ajedrez?</h3>
+            <div class="blog-grid">
+                <div>
+                    <h4 style="color: var(--accent);">Pensamiento Estratégico</h4>
+                    <p>El ajedrez enseña a los jóvenes a prever consecuencias y planificar a largo plazo.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent);">Disciplina Deportiva</h4>
+                    <p>Fomentamos el respeto, la paciencia y la resiliencia ante la derrota competitiva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inscripciones">
+        <h2 class="reveal">Contacto Directo</h2>
+        <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST" class="reveal">
+            <input type="text" name="Nombre" placeholder="Nombre completo" required>
+            <input type="number" name="Edad" placeholder="Edad del alumno" required>
+            <input type="email" name="Email" placeholder="Correo electrónico de contacto" required>
+            <button class="btn" type="submit">Enviar Información</button>
+        </form>
+    </section>
+
+    <a class="whatsapp" href="https://wa.me/56981772160" target="_blank" aria-label="Chat por WhatsApp">💬</a>
+
+    <footer>
+        <p>Chess Academy Osorno © 2026 | Osorno, Chile</p>
+    </footer>
+
+    <script>
+        // Animación de contadores numéricos
+        const counters = document.querySelectorAll('.highlight');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    const target = +entry.target.getAttribute('data-target');
+                    let count = 0;
+                    const update = () => {
+                        count += target / 40;
+                        if(count < target){
+                            entry.target.innerText = Math.ceil(count);
+                            setTimeout(update, 30);
+                        } else { entry.target.innerText = "+" + target; }
+                    };
+                    update();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.5});
+        counters.forEach(c => observer.observe(c));
+
+        // Animaciones de entrada (ScrollReveal)
+        ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 700 });
+
+        // Función Menú Móvil
+        function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
+    </script>
 </body>
 </html>
-```
