@@ -3,142 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clases de Ajedrez en Osorno | Chess Academy Sergio Vera</title>
-    <meta name="description" content="Aprende ajedrez en Osorno con el instructor Sergio Vera. Más de 30 años de experiencia formando campeones.">
-
+    <title>Chess Academy Osorno | Sergio Vera S.</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <style>
-        :root {
-            --bg-dark: #0f172a;
-            --nav-bg: #020617;
-            --accent: #2563eb;
-            --text-light: #f1f5f9;
-        }
-
+        :root { --bg-dark: #0f172a; --nav-bg: #020617; --accent: #2563eb; --text-light: #f1f5f9; }
         html { scroll-behavior: smooth; }
-        body { 
-            margin: 0; font-family: 'Montserrat', sans-serif; 
-            background: var(--bg-dark); color: var(--text-light); 
-            line-height: 1.6; overflow-x: hidden; 
-        }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg-dark); color: var(--text-light); overflow-x: hidden; }
 
         /* Navegación */
-        .navbar { 
-            position: fixed; top: 0; width: 100%; background: var(--nav-bg); 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 10px 40px; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            box-sizing: border-box;
-        }
+        .navbar { position: fixed; top: 0; width: 100%; background: var(--nav-bg); display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; z-index: 1000; box-sizing: border-box; }
         .logo-img { height: 50px; border-radius: 6px; background: white; padding: 2px; }
-
-        .menu { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
-        .menu a { color: #cbd5e1; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: .3s; }
-        .menu a:hover { color: #60a5fa; }
-
-        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-        .menu-toggle span { width: 25px; height: 3px; background: white; }
-
-        @media (max-width: 768px) {
-            .menu-toggle { display: flex; }
-            .menu { 
-                flex-direction: column; position: fixed; top: 70px; left: 0; 
-                width: 100%; height: 0; background: var(--nav-bg); 
-                overflow: hidden; transition: .4s; align-items: center; 
-            }
-            .menu.active { height: 100vh; padding-top: 40px; opacity: 1; }
-        }
+        .menu { list-style: none; display: flex; gap: 25px; }
+        .menu a { color: #cbd5e1; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; }
 
         /* Header */
-        header { 
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("torneos/osorno-nacional-santiago-2018.jpg"); 
-            background-size: cover; background-position: center; 
-            padding: 160px 20px 80px; text-align: center; 
-        }
-        header h1 { font-size: clamp(30px, 6vw, 52px); margin: 0; font-weight: 800; }
-        .hero-points { margin: 20px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; color: #60a5fa; font-weight: 600; }
+        header { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("torneos/osorno-nacional-santiago-2018.jpg"); background-size: cover; background-position: center; padding: 160px 20px 80px; text-align: center; }
+        
+        /* Tarjetas */
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
+        .card { background: #1e293b; padding: 25px; border-radius: 16px; text-align: center; border-bottom: 4px solid var(--accent); cursor: pointer; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); background: #2d3a4f; }
+        .highlight { font-size: 40px; font-weight: 800; }
 
-        /* Secciones */
-        section { padding: 60px 20px; max-width: 1100px; margin: auto; }
-        h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: var(--accent); }
-        h3 { color: #60a5fa; border-left: 4px solid var(--accent); padding-left: 15px; margin: 40px 0 20px; }
-
-        /* Tarjetas de Logros */
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .card { background: #1e293b; padding: 25px; border-radius: 16px; text-align: center; border-bottom: 4px solid var(--accent); cursor: pointer; transition: 0.3s ease; }
-        .card:hover { transform: translateY(-5px); }
-        .highlight { font-size: 40px; font-weight: 800; color: white; }
-
-        /* Galerías */
-        .galeria-scroll { 
-            display: flex; gap: 15px; overflow-x: auto; padding: 10px 0; 
-            scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
-        }
-        .galeria-scroll figure { min-width: 280px; margin: 0; flex-shrink: 0; text-align: center; }
+        /* Galerías Scroll */
+        .galeria-scroll { display: flex; gap: 15px; overflow-x: auto; padding: 20px 0; scrollbar-width: thin; }
+        .galeria-scroll figure { min-width: 280px; margin: 0; }
         .galeria-scroll img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid #334155; }
-        figcaption { text-align: center; font-size: 14px; margin-top: 8px; color: #94a3b8; font-weight: 600; }
 
-        .content-box { background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid #334155; }
-
-        /* Formulario */
-        form { background: #1e293b; padding: 30px; border-radius: 20px; max-width: 500px; margin: auto; }
-        input { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
-        .btn { display: inline-block; padding: 14px 28px; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; border: none; width: 100%; cursor: pointer; text-align: center; }
-
-        /* WhatsApp y Footer */
-        .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; text-decoration: none; }
-        footer { background: #020617; text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
-
-        /* MODAL (Corregido para Scroll Vertical) */
-        .modal {
-            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.95); justify-content: center; align-items: flex-start; overflow-y: auto;
-        }
-        .close { position: fixed; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 2100; }
-
-        #galleryContainer { display: flex; flex-direction: column; gap: 20px; padding: 80px 20px; max-width: 800px; margin: auto; }
-        .student-box { display: flex; align-items: center; gap: 20px; background: #0f172a; padding: 15px; border-radius: 12px; border: 1px solid #334155; width: 100%; box-sizing: border-box; }
-        .student-photo { width: 100px; height: 100px; border-radius: 8px; border: 3px solid white; flex-shrink: 0; object-fit: cover; }
-        .student-info { background: #1e293b; padding: 10px 15px; border-radius: 8px; flex-grow: 1; border: 3px solid black; }
-        .student-name { color: #fff; font-weight: 800; font-size: 16px; margin: 0; }
-        .student-achievement { color: #cbd5e1; font-weight: 600; font-size: 14px; margin: 0; }
+        /* Modales */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; padding-top: 60px; }
+        .close { position: fixed; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; z-index: 2100; }
+        
+        .gallery-container { display: flex; flex-direction: column; gap: 20px; padding: 20px; max-width: 700px; margin: auto; }
+        .student-box { display: flex; align-items: center; gap: 20px; background: #0f172a; padding: 15px; border-radius: 12px; border: 1px solid #334155; }
+        .student-photo { width: 90px; height: 90px; border-radius: 8px; border: 2px solid white; object-fit: cover; }
+        .student-info { background: #1e293b; padding: 12px; border-radius: 8px; flex-grow: 1; border: 2px solid #000; }
+        .student-name { font-weight: 800; margin: 0; color: #fff; }
+        .student-achievement { font-size: 14px; margin: 5px 0 0; color: #cbd5e1; }
     </style>
 </head>
-
 <body>
 
-    <div id="studentModal" class="modal">
-        <span class="close" onclick="closeModal('studentModal')">&times;</span>
-        <div id="galleryContainer">
-            <h2 style="color: white; margin-bottom: 20px;">Nuestra Comunidad de Alumnos</h2>
-            
+    <div id="modal1200" class="modal">
+        <span class="close" onclick="closeModal('modal1200')">&times;</span>
+        <div class="gallery-container">
+            <h2 style="color:white; text-align:center">Nuestra Comunidad</h2>
             <div class="student-box">
-                <img src="ganadores/ajedrez-clases-ballestero-santiago-pag.jpg" class="student-photo" alt="L. Ballestero">
+                <img src="ganadores/1conii.jpg" class="student-photo">
+                <div class="student-info">
+                    <p class="student-name">Constanza Treumun</p>
+                    <p class="student-achievement">Deportista destacada Educación Pública Osorno</p>
+                </div>
+            </div>
+            <div class="student-box">
+                <img src="ganadores/5josefa.jpg" class="student-photo">
+                <div class="student-info">
+                    <p class="student-name">Josefa Cler</p>
+                    <p class="student-achievement">Campeona Regional Puerto Montt</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal30" class="modal">
+        <span class="close" onclick="closeModal('modal30')">&times;</span>
+        <div class="gallery-container">
+            <h2 style="color:white; text-align:center">Podios Nacionales</h2>
+            <div class="student-box">
+                <img src="ganadores/ajedrez-clases-ballestero-santiago-pag.jpg" class="student-photo">
                 <div class="student-info">
                     <p class="student-name">Leonardo Ballestero</p>
                     <p class="student-achievement">Campeón de Chile Sub 10, Santiago 2016</p>
                 </div>
             </div>
-
             <div class="student-box">
-                <img src="ganadores/ajedrez-clases-osorno-tomy-pag.jpg" class="student-photo" alt="T. Gebauer">
+                <img src="ganadores/ajedrez-clases-osorno-tomy-pag.jpg" class="student-photo">
                 <div class="student-info">
                     <p class="student-name">Tomas Gebauer</p>
-                    <p class="student-achievement">3° y 4° de Chile Sub 8</p>
+                    <p class="student-achievement">3° de Chile y 4° de Chile Sub 8</p>
                 </div>
             </div>
-
             <div class="student-box">
-                <img src="ganadores/ajedrez-osorno-camila-pag.jpg" class="student-photo" alt="C. Saldias">
+                <img src="ganadores/ajedrez-osorno-camila-pag.jpg" class="student-photo">
                 <div class="student-info">
                     <p class="student-name">Camila Saldias</p>
                     <p class="student-achievement">Campeona Comunal, Provincial y Regional 2018</p>
                 </div>
             </div>
-
             <div class="student-box">
-                <img src="ganadores/ajedrez-osorno-felipe-pagina.jpg" class="student-photo" alt="F. Vera">
+                <img src="ganadores/ajedrez-osorno-felipe-pagina.jpg" class="student-photo">
                 <div class="student-info">
                     <p class="student-name">Felipe Vera</p>
                     <p class="student-achievement">3°- 4° de Chile Sub 14</p>
@@ -148,10 +103,8 @@
     </div>
 
     <nav class="navbar">
-        <a href="#"><img src="logo/osorno-clases-ajedrez-logo.jpg" alt="Logo" class="logo-img"></a>
-        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-        <ul class="menu" id="navMenu">
-            <li><a href="#historia">Historia</a></li>
+        <img src="logo/osorno-clases-ajedrez-logo.jpg" class="logo-img">
+        <ul class="menu">
             <li><a href="#resultados">Logros</a></li>
             <li><a href="#galeria">Galería</a></li>
             <li><a href="#inscripciones">Contacto</a></li>
@@ -159,29 +112,22 @@
     </nav>
 
     <header>
-        <h1 class="reveal">Ajedrez en Osorno | Chess Academy</h1>
-        <p class="reveal">Clases de ajedrez en Osorno con Sergio Vera S.</p>
-        <div class="hero-points reveal">
-            <span>♟ +30 años de experiencia</span>
-            <span>🏆 Campeones Regionales</span>
-            <span>🧠 Mejora Cognitiva</span>
-        </div>
-        <a href="#inscripciones" class="btn" style="width: auto; margin-top: 20px;">Primera clase de prueba</a>
+        <h1>Ajedrez en Osorno | Chess Academy</h1>
+        <p>Más de 30 años formando talentos con Sergio Vera S.</p>
     </header>
 
     <section id="resultados">
-        <h2 class="reveal">Nuestro Impacto</h2>
+        <h2>Nuestro Impacto</h2>
         <div class="cards">
-            <div class="card reveal" onclick="openModal('studentModal')">
+            <div class="card reveal" onclick="openModal('modal1200')">
                 <div class="highlight" data-target="1200">0</div>
                 <p>Alumnos Formados</p>
-                <p style="font-size: 11px; color: #60a5fa;">Ver comunidad ⬇</p>
             </div>
             <div class="card reveal">
                 <div class="highlight" data-target="60">0</div>
                 <p>Títulos Regionales</p>
             </div>
-            <div class="card reveal" onclick="openModal('studentModal')">
+            <div class="card reveal" onclick="openModal('modal30')">
                 <div class="highlight" data-target="30">0</div>
                 <p>Podios Nacionales</p>
             </div>
@@ -192,49 +138,23 @@
         </div>
     </section>
 
-    <section id="historia">
-        <h2 class="reveal">Trayectoria de la Academia</h2>
-        <div class="content-box reveal">
-            <p><strong>Chess Academy Osorno</strong> es el proyecto líder en la enseñanza competitiva de ajedrez en Osorno. Llevando a nuestros alumnos a podios escolares, comunales y nacionales.</p>
-        </div>
-    </section>
-
     <section id="galeria">
-        <h2 class="reveal">Galería Visual</h2>
-        <h3>Torneos Nacionales</h3>
-        <div class="galeria-scroll reveal">
-            <figure><img src="torneos/osorno-nacional.jpg"><figcaption>Final Nacional Santiago 2017</figcaption></figure>
-            <figure><img src="torneos/osorno-nacional-santiago-2018.jpg"><figcaption>Santiago 2018 Nacional</figcaption></figure>
-            <figure><img src="torneos/osorno-puertomontt2.jpg"><figcaption>Escolar de Puerto Montt</figcaption></figure>
-            <figure><img src="torneos/osorno-puertomontt-regional.jpg"><figcaption>Match Osorno vs Puerto</figcaption></figure>
+        <h2>Galería de Torneos</h2>
+        <h3>Nacionales</h3>
+        <div class="galeria-scroll">
+            <figure><img src="torneos/osorno-nacional.jpg"><figcaption>Santiago 2017</figcaption></figure>
+            <figure><img src="torneos/osorno-nacional-santiago-2018.jpg"><figcaption>Santiago 2018</figcaption></figure>
+        </div>
+        <h3>Internacionales</h3>
+        <div class="galeria-scroll">
+            <figure><img src="extranjero/extranjero1.jpg"><figcaption>Bariloche, Argentina</figcaption></figure>
+            <figure><img src="extranjero/extranjero2.jpg"><figcaption>Mundial Brasil</figcaption></figure>
         </div>
     </section>
-
-    <section id="inscripciones">
-        <h2 class="reveal">Contacto Directo</h2>
-        <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST" class="reveal">
-            <input type="text" name="Nombre" placeholder="Nombre completo" required>
-            <input type="number" name="Edad" placeholder="Edad del alumno" required>
-            <input type="email" name="Email" placeholder="Tu correo electrónico" required>
-            <button class="btn" type="submit">Enviar Solicitud</button>
-        </form>
-    </section>
-
-    <a class="whatsapp" href="https://wa.me/56981772160" target="_blank">💬</a>
-
-    <footer>
-        <p>Chess Academy Osorno © 2026 | Osorno, Chile</p>
-    </footer>
 
     <script>
-        function openModal(id) { 
-            document.getElementById(id).style.display = 'flex'; 
-            document.body.style.overflow = 'hidden'; 
-        }
-        function closeModal(id) { 
-            document.getElementById(id).style.display = 'none'; 
-            document.body.style.overflow = 'auto'; 
-        }
+        function openModal(id) { document.getElementById(id).style.display = "block"; document.body.style.overflow = "hidden"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; document.body.style.overflow = "auto"; }
 
         const counters = document.querySelectorAll('.highlight');
         const observer = new IntersectionObserver(entries => {
@@ -243,11 +163,9 @@
                     const target = +entry.target.getAttribute('data-target');
                     let count = 0;
                     const update = () => {
-                        count += target / 40;
-                        if(count < target){
-                            entry.target.innerText = Math.ceil(count);
-                            setTimeout(update, 30);
-                        } else { entry.target.innerText = "+" + target; }
+                        count += target / 50;
+                        if(count < target){ entry.target.innerText = Math.ceil(count); setTimeout(update, 20); }
+                        else { entry.target.innerText = "+" + target; }
                     };
                     update();
                     observer.unobserve(entry.target);
@@ -255,9 +173,7 @@
             });
         }, {threshold: 0.5});
         counters.forEach(c => observer.observe(c));
-
-        ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 700 });
-        function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
+        ScrollReveal().reveal('.reveal', { delay: 100, distance: '20px', origin: 'bottom' });
     </script>
 </body>
 </html>
