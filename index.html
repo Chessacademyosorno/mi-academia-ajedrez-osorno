@@ -49,7 +49,7 @@
             .menu.active { height: 100vh; padding-top: 40px; opacity: 1; }
         }
 
-        /* Header - Usando la foto Santiago 2018 como fondo principal */
+        /* Header */
         header { 
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("torneos/osorno-nacional-santiago-2018.jpg"); 
             background-size: cover; background-position: center; 
@@ -58,27 +58,26 @@
         header h1 { font-size: clamp(30px, 6vw, 52px); margin: 0; font-weight: 800; }
         .hero-points { margin: 20px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; color: #60a5fa; font-weight: 600; }
 
-        /* Secciones Generales */
+        /* Secciones */
         section { padding: 60px 20px; max-width: 1100px; margin: auto; }
         h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: var(--accent); }
         h3 { color: #60a5fa; border-left: 4px solid var(--accent); padding-left: 15px; margin: 40px 0 20px; }
 
-        /* Tarjetas de Logros (Contadores) */
+        /* Tarjetas de Logros */
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .card { background: #1e293b; padding: 25px; border-radius: 16px; text-align: center; border-bottom: 4px solid var(--accent); cursor: pointer; transition: 0.3s ease; }
         .card:hover { transform: translateY(-5px); }
         .highlight { font-size: 40px; font-weight: 800; color: white; }
 
-        /* Galerías con Scroll Horizontal ( Netflix Style ) */
+        /* Galería Scroll */
         .galeria-scroll { 
             display: flex; gap: 15px; overflow-x: auto; padding: 10px 0; 
             scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
         }
         .galeria-scroll figure { min-width: 280px; margin: 0; flex-shrink: 0; text-align: center; }
-        .galeria-scroll img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; transition: .3s; border: 1px solid #334155; }
+        .galeria-scroll img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid #334155; }
         figcaption { text-align: center; font-size: 14px; margin-top: 8px; color: #94a3b8; font-weight: 600; }
 
-        /* Blog Section */
         .content-box { background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid #334155; }
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
 
@@ -91,19 +90,18 @@
         .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; text-decoration: none; }
         footer { background: #020617; text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
 
-        /* Modales (Lightbox) para Maximizar */
+        /* Modales */
         .modal {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; overflow-y: auto;
+            background-color: rgba(0,0,0,0.95); justify-content: center; align-items: flex-start; overflow-y: auto; padding-top: 50px;
         }
-        .modal-content { max-width: 90%; max-height: 80%; border-radius: 10px; }
-        .close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .close { position: fixed; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 2100; }
 
-        /* Estilos Verticales de Galería Alumnos (Basados en el dibujo) */
-        #galleryContainer { display: flex; flex-direction: column; gap: 20px; padding: 40px 20px; max-width: 800px; margin: auto; }
-        .student-box { display: flex; align-items: center; gap: 20px; background: #0f172a; padding: 15px; border-radius: 12px; border: 1px solid #334155; }
-        .student-photo { width: 100px; height: 100px; border-radius: 8px; border: 3px solid white; flex-shrink: 0; object-fit: cover; }
-        .student-info { background: #1e293b; padding: 10px 15px; border-radius: 8px; flex-grow: 1; border: 3px solid black; }
+        /* Estilos Verticales Alumnos */
+        #galleryContainer { display: flex; flex-direction: column; gap: 20px; padding: 20px; max-width: 800px; margin: auto; padding-bottom: 100px; }
+        .student-box { display: flex; align-items: center; gap: 20px; background: #0f172a; padding: 15px; border-radius: 12px; border: 1px solid #334155; width: 100%; box-sizing: border-box; }
+        .student-photo { width: 100px; height: 100px; border-radius: 8px; border: 2px solid white; flex-shrink: 0; object-fit: cover; }
+        .student-info { background: #1e293b; padding: 10px 15px; border-radius: 8px; flex-grow: 1; border: 2px solid #000; }
         .student-name { color: #fff; font-weight: 800; font-size: 16px; margin: 0; }
         .student-achievement { color: #cbd5e1; font-weight: 600; font-size: 14px; margin: 0; }
     </style>
@@ -111,7 +109,7 @@
 
 <body>
 
-    <d<div id="studentModal" class="modal">
+    <div id="studentModal" class="modal">
         <span class="close" onclick="closeModal('studentModal')">&times;</span>
         <div id="galleryContainer">
             <h2 style="color: white; margin-bottom: 20px;">Nuestra Comunidad de Alumnos</h2>
@@ -120,12 +118,12 @@
                 <img src="ganadores/1conii.jpg" class="student-photo" alt="C. Treumun">
                 <div class="student-info">
                     <p class="student-name">Constanza Treumun</p>
-                    <p class="student-achievement">Deportista destacada educación Publica Osorno</p>
+                    <p class="student-achievement">Deportista destacada educación Pública Osorno</p>
                 </div>
             </div>
 
             <div class="student-box">
-                <img src="ganadores/3pipe.jpg" class="student-photo" alt="S. Vera y F.">
+                <img src="ganadores/3pipe.jpg" class="student-photo" alt="S. Vera">
                 <div class="student-info">
                     <p class="student-name">Sergio Vera y Felipe</p>
                     <p class="student-achievement">Ganadores, Osorno</p>
@@ -149,7 +147,7 @@
             </div>
 
             <div class="student-box">
-                <img src="ganadores/placeholder.jpg" class="student-photo" alt="Nuevo Alumno">
+                <img src="ganadores/placeholder.jpg" class="student-photo" alt="Nuevo">
                 <div class="student-info">
                     <p class="student-name">Nombre Alumno 5</p>
                     <p class="student-achievement">Logro o Categoría</p>
@@ -157,30 +155,14 @@
             </div>
 
             <div class="student-box">
-                <img src="ganadores/placeholder.jpg" class="student-photo" alt="Nuevo Alumno">
+                <img src="ganadores/placeholder.jpg" class="student-photo" alt="Nuevo">
                 <div class="student-info">
                     <p class="student-name">Nombre Alumno 6</p>
                     <p class="student-achievement">Logro o Categoría</p>
                 </div>
             </div>
-
-            <div class="student-box">
-                <img src="ganadores/placeholder.jpg" class="student-photo" alt="Nuevo Alumno">
-                <div class="student-info">
-                    <p class="student-name">Nombre Alumno 7</p>
-                    <p class="student-achievement">Logro o Categoría</p>
-                </div>
-            </div>
-
-            <div class="student-box">
-                <img src="ganadores/placeholder.jpg" class="student-photo" alt="Nuevo Alumno">
-                <div class="student-info">
-                    <p class="student-name">Nombre Alumno 8</p>
-                    <p class="student-achievement">Logro o Categoría</p>
-                </div>
-            </div>
-
-        </div> </div>
+        </div>
+    </div>
 
     <nav class="navbar">
         <a href="#"><img src="logo/osorno-clases-ajedrez-logo.jpg" alt="Logo" class="logo-img"></a>
@@ -210,7 +192,7 @@
         <div class="cards">
             <div class="card reveal" onclick="openModal('studentModal')">
                 <div class="highlight" data-target="1200">0</div>Alumnos Formados
-                <p style="font-size: 11px; color: #60a5fa;">Ver nuestra comunidad ⬇</p>
+                <p style="font-size: 11px; color: #60a5fa;">Ver comunidad ⬇</p>
             </div>
             <div class="card reveal" onclick="openModal('studentModal')">
                 <div class="highlight" data-target="60">0</div>Títulos Regionales
@@ -227,49 +209,31 @@
     <section id="historia">
         <h2 class="reveal">Trayectoria de la Academia</h2>
         <div class="content-box reveal">
-            <p><strong>Chess Academy Osorno</strong> es el proyecto líder en la enseñanza competitiva de ajedrez en Osorno. Bajo la dirección técnica del instructor Sergio Vera S., hemos profesionalizado el entrenamiento, llevando a nuestros alumnos a podios escolares, comunales y nacionales.</p>
+            <p><strong>Chess Academy Osorno</strong> es el proyecto líder en la enseñanza competitiva de ajedrez en Osorno. Llevando a nuestros alumnos a podios escolares, comunales y nacionales.</p>
         </div>
     </section>
 
     <section id="galeria">
         <h2 class="reveal">Galería Visual</h2>
-
-        <h3>Torneos y Eventos Nacionales</h3>
+        <h3>Torneos Nacionales</h3>
         <div class="galeria-scroll reveal">
-            <figure><img src="torneos/osorno-nacional.jpg"><figcaption>Final Nacional santiago 2017</figcaption></figure>
-            <figure><img src="torneos/osorno-nacional-santiago-2018.jpg"><figcaption>santigo 2018 Nacional santiago</figcaption></figure>
-            <figure><img src="torneos/osorno-puertomontt2.jpg"><figcaption>Escolar de puerto montt</figcaption></figure>
-            <figure><img src="torneos/osorno-puertomontt-regional.jpg"><figcaption>match osorno vs puerto</figcaption></figure>
+            <figure><img src="torneos/osorno-nacional.jpg"><figcaption>Final Nacional Santiago 2017</figcaption></figure>
+            <figure><img src="torneos/osorno-nacional-santiago-2018.jpg"><figcaption>Santiago 2018 Nacional</figcaption></figure>
+            <figure><img src="torneos/osorno-puertomontt2.jpg"><figcaption>Escolar de Puerto Montt</figcaption></figure>
+            <figure><img src="torneos/osorno-puertomontt-regional.jpg"><figcaption>Match Osorno vs Puerto</figcaption></figure>
         </div>
 
-        <h3 style="margin-top:50px">Presencia Internacional</h3>
+        <h3 style="margin-top:40px">Presencia Internacional</h3>
         <div class="galeria-scroll reveal">
             <figure><img src="extranjero/extranjero1.jpg"><figcaption>Sergio Vera Internacional Bariloche</figcaption></figure>
             <figure><img src="extranjero/extranjero2.jpg"><figcaption>Mundial sub 8 Brasil</figcaption></figure>
             <figure><img src="extranjero/extranjero3.jpg"><figcaption>Sudamericano Paraguay</figcaption></figure>
-            <figure><img src="extranjero/extranjero4.jpg"><figcaption>Jugando en Lima, peru</figcaption></figure>
-        </div>
-    </section>
-
-    <section id="blog">
-        <h2 class="reveal">Blog Académico</h2>
-        <div class="blog-box content-box reveal">
-            <h3>Beneficios del Ajedrez</h3>
-            <div class="blog-grid">
-                <div>
-                    <h4 style="color: var(--accent);">Infantil</h4>
-                    <p>Mejora el cálculo mental, la toma de decisiones y ayuda con el control de la hiperactividad.</p>
-                </div>
-                <div>
-                    <h4 style="color: var(--accent);">Adultos</h4>
-                    <p>Mantiene la agilidad mental activa, previene el deterioro cognitivo y es un excelente hobby social.</p>
-                </div>
-            </div>
+            <figure><img src="extranjero/extranjero4.jpg"><figcaption>Jugando en Lima, Perú</figcaption></figure>
         </div>
     </section>
 
     <section id="inscripciones">
-        <h2 class="reveal">Contacto Directo</h2>
+        <h2 class="reveal">Contacto</h2>
         <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST" class="reveal">
             <input type="text" name="Nombre" placeholder="Nombre completo" required>
             <input type="number" name="Edad" placeholder="Edad del alumno" required>
@@ -285,11 +249,15 @@
     </footer>
 
     <script>
-        // Funciones para modales
-        function openModal(id) { document.getElementById(id).style.display = 'flex'; document.body.style.overflow = 'hidden'; }
-        function closeModal(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = 'auto'; }
+        function openModal(id) { 
+            document.getElementById(id).style.display = 'flex'; 
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeModal(id) { 
+            document.getElementById(id).style.display = 'none'; 
+            document.body.style.overflow = 'auto'; 
+        }
 
-        // Animación de contadores
         const counters = document.querySelectorAll('.highlight');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -310,10 +278,7 @@
         }, {threshold: 0.5});
         counters.forEach(c => observer.observe(c));
 
-        // ScrollReveal
         ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 700 });
-
-        // Menú móvil
         function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
     </script>
 </body>
