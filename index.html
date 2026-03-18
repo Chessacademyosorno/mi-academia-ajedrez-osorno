@@ -49,7 +49,7 @@
             .menu.active { height: 100vh; padding-top: 40px; opacity: 1; }
         }
 
-        /* Header con imagen de fondo Santiago 2018 */
+        /* Header */
         header { 
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("torneos/osorno-nacional-santiago-2018.jpg"); 
             background-size: cover; background-position: center; 
@@ -66,6 +66,8 @@
         /* Tarjetas de Logros */
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .card { background: #1e293b; padding: 25px; border-radius: 16px; text-align: center; border-bottom: 4px solid var(--accent); }
+        .clickable-counter { cursor: pointer; transition: transform 0.3s; }
+        .clickable-counter:hover { transform: scale(1.1); }
         .highlight { font-size: 40px; font-weight: 800; color: white; }
 
         /* Galerías con Scroll Horizontal */
@@ -74,13 +76,12 @@
             scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
         }
         .galeria-scroll figure { min-width: 280px; margin: 0; flex-shrink: 0; }
-        .galeria-scroll img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; transition: .3s; border: 1px solid #334155; }
+        .galeria-scroll img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; transition: .3s; border: 1px solid #334155; cursor: pointer; }
         .galeria-scroll img:hover { transform: translateY(-5px); border-color: var(--accent); }
-        figcaption { text-align: center; font-size: 14px; margin-top: 10px; color: #94a3b8; font-weight: 600; }
+        figcaption { text-align: center; font-size: 13px; margin-top: 10px; color: #94a3b8; font-weight: 600; line-height: 1.2; }
 
         /* Contenedores de Texto / Blog */
         .content-box { background: #1e293b; padding: 35px; border-radius: 20px; border: 1px solid #334155; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
 
         /* Formulario */
         form { background: #1e293b; padding: 30px; border-radius: 20px; max-width: 500px; margin: auto; }
@@ -88,12 +89,25 @@
         .btn { display: inline-block; padding: 14px 28px; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; border: none; width: 100%; cursor: pointer; text-align: center; transition: .3s; }
         .btn:hover { background: #1d4ed8; }
 
-        .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        /* Modal para maximizar imagen */
+        #modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center;
+        }
+        #modal img { max-width: 90%; max-height: 80%; border: 3px solid white; border-radius: 10px; }
+        #modal span { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
+
+        .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; text-decoration: none; }
         footer { background: #020617; text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
     </style>
 </head>
 
 <body>
+
+    <div id="modal" onclick="this.style.display='none'">
+        <span>&times;</span>
+        <img id="modal-img">
+    </div>
 
     <nav class="navbar">
         <a href="#"><img src="logo/osorno-clases-ajedrez-logo.jpg" alt="Chess Academy Osorno" class="logo-img"></a>
@@ -101,6 +115,7 @@
         <ul class="menu" id="navMenu">
             <li><a href="#historia">Historia</a></li>
             <li><a href="#resultados">Logros</a></li>
+            <li><a href="#comunidad">Alumnos</a></li>
             <li><a href="#galeria">Galería</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#inscripciones">Contacto</a></li>
@@ -109,94 +124,125 @@
 
     <header>
         <h1 class="reveal">Chess Academy Osorno</h1>
-        <p class="reveal">Más de 30 años formando campeones en la Región de Los Lagos.</p>
+        <p class="reveal">Formación competitiva con Sergio Vera.</p>
         <div class="hero-points reveal">
-            <span>♟ Entrenamiento Competitivo</span>
-            <span>🏆 Éxito Regional</span>
-            <span>🧠 Desarrollo Cognitivo</span>
+            <span>♟ Entrenamiento de Elite</span>
+            <span>🏆 Campeones Regionales</span>
+            <span>🧠 Disciplina y Estrategia</span>
         </div>
-        <a href="#inscripciones" class="btn" style="width: auto; margin-top: 20px;">Inscríbete Ahora</a>
+        <a href="#inscripciones" class="btn" style="width: auto; margin-top: 20px;">Comienza tu Entrenamiento</a>
     </header>
 
     <section id="resultados">
-        <h2 class="reveal">Resultados Destacados</h2>
+        <h2 class="reveal">Nuestros Hitos</h2>
         <div class="cards">
-            <div class="card reveal"><div class="highlight" data-target="1200">0</div>Alumnos Formados</div>
+            <div class="card reveal clickable-counter" onclick="location.href='#comunidad'">
+                <div class="highlight" data-target="1200">0</div>Alumnos Formados
+                <p style="font-size: 11px; color: #60a5fa;">Ver nuestra comunidad ⬇</p>
+            </div>
             <div class="card reveal"><div class="highlight" data-target="60">0</div>Títulos Regionales</div>
             <div class="card reveal"><div class="highlight" data-target="30">0</div>Podios Nacionales</div>
             <div class="card reveal"><div class="highlight" data-target="3">0</div>Títulos FIDE</div>
         </div>
     </section>
 
-    <section id="historia">
-        <h2 class="reveal">Nuestra Historia</h2>
-        <div class="content-box reveal">
-            <p><strong>Chess Academy Osorno</strong> es el proyecto líder en la enseñanza del ajedrez en Osorno. Bajo la dirección de <strong>Sergio Vera</strong>, hemos transformado la pasión por el juego en un sistema de entrenamiento de alto rendimiento que abarca desde la iniciación hasta el nivel de maestría.</p>
+    <section id="comunidad">
+        <h2 class="reveal">Nuestra Comunidad de Alumnos</h2>
+        <div class="galeria-scroll reveal">
+            <figure>
+                <img src="ganadores/1conii.jpg" onclick="maximize(this.src)">
+                <figcaption>Constanza Treumun<br>Deportista destacada educación Pública Osorno</figcaption>
+            </figure>
+            <figure>
+                <img src="ganadores/3pipe.jpg" onclick="maximize(this.src)">
+                <figcaption>Sergio Vera y Felipe<br>Ganadores Osorno</figcaption>
+            </figure>
+            <figure>
+                <img src="ganadores/5josefa.jpg" onclick="maximize(this.src)">
+                <figcaption>Josefa Clerc<br>Campeona regional Pto. Montt</figcaption>
+            </figure>
+            <figure>
+                <img src="ganadores/6antonela.jpg" onclick="maximize(this.src)">
+                <figcaption>Antonella Flores<br>Campeona Comunal Osorno</figcaption>
+            </figure>
         </div>
     </section>
 
     <section id="galeria">
-        <h2 class="reveal">Galería Visual</h2>
+        <h2 class="reveal">Galería de Eventos</h2>
 
-        <h3>Eventos y Torneos Locales</h3>
+        <h3>Competiciones Nacionales</h3>
         <div class="galeria-scroll reveal">
-            <figure><img src="torneos/osorno-nacional.jpg"><figcaption>Final Nacional</figcaption></figure>
-            <figure><img src="torneos/osorno-nacional-santiago-2018.jpg"><figcaption>Santiago 2018</figcaption></figure>
-            <figure><img src="torneos/osorno-puertomontt2.jpg"><figcaption>Abierto Pto. Montt</figcaption></figure>
-            <figure><img src="torneos/osorno-puertomontt-regional.jpg"><figcaption>Regional Escolar</figcaption></figure>
+            <figure>
+                <img src="torneos/osorno-nacional.jpg" onclick="maximize(this.src)">
+                <figcaption>Santiago 2017</figcaption>
+            </figure>
+            <figure>
+                <img src="torneos/osorno-nacional-santiago-2018.jpg" onclick="maximize(this.src)">
+                <figcaption>Santiago 2018 Nacional</figcaption>
+            </figure>
+            <figure>
+                <img src="torneos/osorno-puertomontt2.jpg" onclick="maximize(this.src)">
+                <figcaption>Escolar de Puerto Montt</figcaption>
+            </figure>
+            <figure>
+                <img src="torneos/osorno-puertomontt-regional.jpg" onclick="maximize(this.src)">
+                <figcaption>Match Osorno vs Puerto Montt</figcaption>
+            </figure>
         </div>
 
-        <h3>Giras y Competencia Internacional</h3>
+        <h3>Presencia Internacional</h3>
         <div class="galeria-scroll reveal">
-            <figure><img src="extranjero/extranjero1.jpg"><figcaption>Delegación en Argentina</figcaption></figure>
-            <figure><img src="extranjero/extranjero2.jpg"><figcaption>Torneo Internacional</figcaption></figure>
-            <figure><img src="extranjero/extranjero3.jpg"><figcaption>Representación Osorno</figcaption></figure>
-            <figure><img src="extranjero/extranjero4.jpg"><figcaption>Encuentro de Maestros</figcaption></figure>
-        </div>
-
-        <h3>Alumnos Destacados</h3>
-        <div class="galeria-scroll reveal">
-            <figure><img src="ganadores/1conii.jpg"><figcaption>C. Treumun - Campeona</figcaption></figure>
-            <figure><img src="ganadores/3pipe.jpg"><figcaption>F. Vera - Competidor</figcaption></figure>
-            <figure><img src="ganadores/5josefa.jpg"><figcaption>J. Clerc - Finalista</figcaption></figure>
-            <figure><img src="ganadores/6antonela.jpg"><figcaption>A. Vera - Talento</figcaption></figure>
+            <figure>
+                <img src="extranjero/extranjero1.jpg" onclick="maximize(this.src)">
+                <figcaption>Sergio Vera Internacional Bariloche</figcaption>
+            </figure>
+            <figure>
+                <img src="extranjero/extranjero2.jpg" onclick="maximize(this.src)">
+                <figcaption>Mundial sub 8 Brasil</figcaption>
+            </figure>
+            <figure>
+                <img src="extranjero/extranjero3.jpg" onclick="maximize(this.src)">
+                <figcaption>Sudamericano Paraguay</figcaption>
+            </figure>
+            <figure>
+                <img src="extranjero/extranjero4.jpg" onclick="maximize(this.src)">
+                <figcaption>Jugando en Lima, Perú</figcaption>
+            </figure>
         </div>
     </section>
 
     <section id="blog">
-        <h2 class="reveal">Blog de la Academia</h2>
+        <h2 class="reveal">Blog Académico</h2>
         <div class="content-box reveal">
-            <h3>¿Por qué estudiar ajedrez?</h3>
-            <div class="blog-grid">
-                <div>
-                    <h4 style="color: var(--accent);">Pensamiento Estratégico</h4>
-                    <p>El ajedrez enseña a los jóvenes a prever consecuencias y planificar a largo plazo.</p>
-                </div>
-                <div>
-                    <h4 style="color: var(--accent);">Disciplina Deportiva</h4>
-                    <p>Fomentamos el respeto, la paciencia y la resiliencia ante la derrota competitiva.</p>
-                </div>
-            </div>
+            <h3>Beneficios del Ajedrez</h3>
+            <p>El ajedrez en nuestra academia no es solo un juego, es una herramienta de vida. Fomenta el cálculo, la toma de decisiones y la concentración extrema.</p>
         </div>
     </section>
 
     <section id="inscripciones">
-        <h2 class="reveal">Contacto Directo</h2>
+        <h2 class="reveal">Contacto</h2>
         <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST" class="reveal">
             <input type="text" name="Nombre" placeholder="Nombre completo" required>
-            <input type="number" name="Edad" placeholder="Edad del alumno" required>
-            <input type="email" name="Email" placeholder="Correo electrónico de contacto" required>
-            <button class="btn" type="submit">Enviar Información</button>
+            <input type="number" name="Edad" placeholder="Edad" required>
+            <input type="email" name="Email" placeholder="Correo electrónico" required>
+            <button class="btn" type="submit">Enviar Solicitud</button>
         </form>
     </section>
 
-    <a class="whatsapp" href="https://wa.me/56981772160" target="_blank" aria-label="Chat por WhatsApp">💬</a>
+    <a class="whatsapp" href="https://wa.me/56981772160" target="_blank">💬</a>
 
     <footer>
         <p>Chess Academy Osorno © 2026 | Osorno, Chile</p>
     </footer>
 
     <script>
+        // Función para maximizar imagen
+        function maximize(src) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
         const counters = document.querySelectorAll('.highlight');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
