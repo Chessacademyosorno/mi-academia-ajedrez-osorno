@@ -231,7 +231,7 @@
                 </div>
             </div>
 
-            <!-- AGUSTÍN OJEDA (actualizado) -->
+            <!-- AGUSTÍN OJEDA -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg" class="student-photo" alt="Agustín Ojeda" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg', 'Agustín Ojeda')">
                 <div class="student-info">
@@ -284,7 +284,7 @@
                 </div>
             </div>
 
-            <!-- JOSEFA (NUEVA) - 3 VECES CAMPEONA -->
+            <!-- JOSEFA - 3 VECES CAMPEONA -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-josefa-campeona-pag.jpg" class="student-photo" alt="Josefa" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-josefa-campeona-pag.jpg', 'Josefa')">
                 <div class="student-info">
@@ -310,7 +310,7 @@
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-tomy-4-de-chile.jpg', 'Tomás Gebauer')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-tomy-4-de-chile.jpg" alt="Tomás Gebauer">
-                <figcaption>Tomás Gebauer - 4° de Chile sub 12 (archivo duplicado)</figcaption>
+                <figcaption>Tomás Gebauer - 4° de Chile sub 12</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-camila-pag.jpg', 'Camila')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-camila-pag.jpg" alt="Camila">
@@ -320,6 +320,41 @@
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg" alt="Felipe Vera">
                 <figcaption>Felipe Vera - 4° de Chile Sub 14</figcaption>
             </figure>
+        </div>
+    </div>
+
+    <!-- NUEVO MODAL PARA +3 (LOGROS) -->
+    <div id="logrosModal" class="modal">
+        <span class="close" onclick="closeModal('logrosModal')">&times;</span>
+        <div id="galleryContainer">
+            <h2 style="color: white; margin-bottom: 20px;">Logros</h2>
+            
+            <!-- Imagen 1 -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logros/42e2dbed-fdbf-4a97-938a-828ba77057c7.jpg" class="student-photo" alt="Logro 1" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logros/42e2dbed-fdbf-4a97-938a-828ba77057c7.jpg', 'Logro 1')">
+                <div class="student-info">
+                    <p class="student-name">Logro 1</p>
+                    <p class="student-achievement">(Descripción pendiente)</p>
+                </div>
+            </div>
+
+            <!-- Imagen 2: arbitro.jpg -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logros/arbitro.jpg" class="student-photo" alt="Árbitro" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logros/arbitro.jpg', 'Árbitro')">
+                <div class="student-info">
+                    <p class="student-name">Árbitro</p>
+                    <p class="student-achievement">(Descripción pendiente)</p>
+                </div>
+            </div>
+
+            <!-- Imagen 3: monitor.jpg -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logros/monitor.jpg" class="student-photo" alt="Monitor" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logros/monitor.jpg', 'Monitor')">
+                <div class="student-info">
+                    <p class="student-name">Monitor</p>
+                    <p class="student-achievement">(Descripción pendiente)</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -339,6 +374,8 @@
             <li><a href="#resultados">Logros</a></li>
             <li><a href="#galeria">Galería</a></li>
             <li><a href="#inscripciones">Contacto</a></li>
+            <!-- NUEVO ÍTEM EN MENÚ: Logros (o Hito) -->
+            <li><a href="#logros">Logros</a></li>
         </ul>
     </nav>
 
@@ -366,7 +403,8 @@
             <div class="card reveal" onclick="openModal('podiumModal')">
                 <div class="highlight" data-target="30">0</div>Podios Nacionales
             </div>
-            <div class="card reveal">
+            <!-- TARJETA +3 ahora abre el modal de logros -->
+            <div class="card reveal" onclick="openModal('logrosModal')">
                 <div class="highlight" data-target="3">0</div>Títulos FIDE
             </div>
         </div>
@@ -462,7 +500,8 @@
                 if (document.getElementById('imageModal').style.display === 'flex') {
                     closeImageModal();
                 }
-                ['studentModal', 'modal60', 'podiumModal'].forEach(id => {
+                // Agregamos 'logrosModal' a la lista
+                ['studentModal', 'modal60', 'podiumModal', 'logrosModal'].forEach(id => {
                     if (document.getElementById(id).style.display === 'flex') {
                         closeModal(id);
                     }
@@ -472,7 +511,8 @@
         document.getElementById('imageModal').addEventListener('click', function(e) {
             if (e.target === this) closeImageModal();
         });
-        ['studentModal', 'modal60', 'podiumModal'].forEach(id => {
+        // Agregamos 'logrosModal' a la lista de modales para cerrar con clic fuera
+        ['studentModal', 'modal60', 'podiumModal', 'logrosModal'].forEach(id => {
             document.getElementById(id).addEventListener('click', function(e) {
                 if (e.target === this) closeModal(id);
             });
