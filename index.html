@@ -77,8 +77,10 @@
         figcaption { text-align: center; font-size: 14px; margin-top: 8px; color: #94a3b8; font-weight: 600; }
 
         .content-box { background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid #334155; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
 
         /* Formulario Contacto */
+        form { background: #1e293b; padding: 30px; border-radius: 20px; max-width: 500px; margin: auto; }
         input { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
         .btn { display: inline-block; padding: 14px 28px; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; border: none; width: 100%; cursor: pointer; text-align: center; }
 
@@ -86,17 +88,22 @@
         .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; text-decoration: none; }
         footer { background: #020617; text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
 
-        /* MODALES */
+        /* MODALES Estilo Dibujo/Nacionales */
         .modal {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95); justify-content: center; align-items: flex-start; overflow-y: auto; padding-top: 50px;
         }
         .close { position: fixed; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 2100; }
 
+        /* Estilos Verticales Alumnos/Títulos (Basados en el dibujo) */
         #galleryContainer, #hitosContainer { display: flex; flex-direction: column; gap: 20px; padding: 20px; max-width: 800px; margin: auto; padding-bottom: 100px; }
         .student-box, .hitos-box { display: flex; align-items: center; gap: 20px; background: #0f172a; padding: 15px; border-radius: 12px; border: 1px solid #334155; width: 100%; box-sizing: border-box; }
-        .student-photo, .hitos-photo { width: 100px; height: 100px; border-radius: 8px; border: 2px solid white; flex-shrink: 0; object-fit: cover; }
+        
+        .student-photo, .hitos-photo { width: 100px; height: 100px; border-radius: 8px; border: 2px solid white; flex-shrink: 0; object-fit: cover; cursor: pointer; }
+        
+        /* Contenedor NEGRO INTERNO q te gusta */
         .student-info, .hitos-info { background: #1e293b; padding: 10px 15px; border-radius: 8px; flex-grow: 1; border: 2px solid #000; }
+        
         .student-name, .hitos-title { color: #fff; font-weight: 800; font-size: 16px; margin: 0; }
         .student-achievement, .hitos-desc { color: #cbd5e1; font-weight: 600; font-size: 14px; margin: 0; }
     </style>
@@ -107,40 +114,37 @@
     <div id="studentModal" class="modal">
         <span class="close" onclick="closeModal('studentModal')">&times;</span>
         <div id="galleryContainer">
-            <h2 style="color: white; margin-bottom: 20px; text-align: center;">Nuestra Comunidad de Alumnos</h2>
+            <h2 style="color: white; margin-bottom: 20px;">Nuestra Comunidad de Alumnos</h2>
+            
             <div class="student-box">
-                <img src="ganadores/1conii.jpg" class="student-photo">
+                <img src="ganadores/1conii.jpg" class="student-photo" alt="C. Treumun">
                 <div class="student-info">
                     <p class="student-name">Constanza Treumun</p>
                     <p class="student-achievement">Deportista destacada Educación Pública Osorno</p>
                 </div>
             </div>
-            <div class="student-box">
-                <img src="ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo">
-                <div class="student-info">
-                    <p class="student-name">Kathy</p>
-                    <p class="student-achievement">Campeona Destacada</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div id="podiumModal" class="modal">
-        <span class="close" onclick="closeModal('podiumModal')">&times;</span>
-        <div id="galleryContainer">
-            <h2 style="color: white; margin-bottom: 20px; text-align: center;">Podios Nacionales</h2>
             <div class="student-box">
-                <img src="Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg" class="student-photo">
+                <img src="ganadores/3pipe.jpg" class="student-photo" alt="S. Vera y F.">
                 <div class="student-info">
-                    <p class="student-name">Leonardo Ballestrero</p>
-                    <p class="student-achievement">Campeón Nacional Sub-10</p>
+                    <p class="student-name">Sergio Vera y Felipe</p>
+                    <p class="student-achievement">Ganadores, Osorno</p>
                 </div>
             </div>
+
             <div class="student-box">
-                <img src="Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg" class="student-photo">
+                <img src="ganadores/5josefa.jpg" class="student-photo" alt="J. Cler">
                 <div class="student-info">
-                    <p class="student-name">Felipe Vera</p>
-                    <p class="student-achievement">Podio Nacional Sub-14</p>
+                    <p class="student-name">Josefa Cler Campeona</p>
+                    <p class="student-achievement">Regional Pto. Montt</p>
+                </div>
+            </div>
+
+            <div class="student-box">
+                <img src="ganadores/6antonela.jpg" class="student-photo" alt="A. Vera">
+                <div class="student-info">
+                    <p class="student-name">Antonella Flores</p>
+                    <p class="student-achievement">Campeona Comunal Osorno</p>
                 </div>
             </div>
         </div>
@@ -149,31 +153,40 @@
     <div id="hitosModal" class="modal">
         <span class="close" onclick="closeModal('hitosModal')">&times;</span>
         <div id="hitosContainer">
-            <h2 style="color: white; margin-bottom: 20px; text-align: center;">Trayectoria y Títulos Oficiales</h2>
+            <h2 style="color: white; margin-bottom: 20px;">Trayectoria y Títulos de Ajedrez</h2>
+            
             <div class="hitos-box">
-                <img src="logros/42e2dbed-fdbf-4a97-938a-828ba77057c7.jpg" class="hitos-photo">
+                <img src="logros/42e2dbed-fdbf-4a97-938a-828ba77057c7.jpg" class="hitos-photo" alt="FIDE">
                 <div class="hitos-info">
-                    <p class="hitos-title">Título Instructor FIDE</p>
+                    <p class="hitos-title">Titulo Instructor FIDE</p>
                     <p class="hitos-desc">Certificación Internacional FIDE</p>
                 </div>
             </div>
+
             <div class="hitos-box">
-                <img src="logros/arbitro.jpg" class="hitos-photo">
+                <img src="logros/CertificadoMonitor-AJEFECH-.pdf" class="hitos-photo" alt="FENACH">
+                <div class="hitos-info">
+                    <p class="hitos-title">Certificado Monitor Nacional FENACH</p>
+                    <p class="hitos-desc">Formación de Talentos en Chile</p>
+                </div>
+            </div>
+
+            <div class="hitos-box">
+                <img src="logros/arbitro.jpg" class="hitos-photo" alt="FEDAJ">
                 <div class="hitos-info">
                     <p class="hitos-title">Arbitro FEDAJ</p>
-                    <p class="hitos-desc">Garantía de Imparcialidad</p>
+                    <p class="hitos-desc">Garantía de Imparcialidad en Torneos</p>
                 </div>
             </div>
         </div>
     </div>
 
     <nav class="navbar">
-        <a href="#"><img src="logo/osorno-clases-ajedrez-logo.jpg" class="logo-img"></a>
+        <a href="#"><img src="logo/osorno-clases-ajedrez-logo.jpg" alt="Logo" class="logo-img"></a>
         <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         <ul class="menu" id="navMenu">
             <li><a href="#historia">Historia</a></li>
-            <li><a href="#hitos">Hitos</a></li>
-            <li><a href="#resultados">Logros</a></li>
+            <li><a href="#hitos">Hitos</a></li> <li><a href="#resultados">Logros</a></li>
             <li><a href="#inscripciones">Contacto</a></li>
         </ul>
     </nav>
@@ -186,6 +199,7 @@
             <span>🏆 Campeones Regionales</span>
             <span>🧠 Mejora Cognitiva</span>
         </div>
+        <a href="#inscripciones" class="btn" style="width: auto; margin-top: 20px;">Primera clase de prueba</a>
     </header>
 
     <section id="resultados">
@@ -195,16 +209,14 @@
                 <div class="highlight" data-target="1200">0</div>Alumnos Formados
                 <p style="font-size: 11px; color: #60a5fa;">Ver comunidad ⬇</p>
             </div>
+            
             <div class="card reveal">
                 <div class="highlight" data-target="60">0</div>Títulos Regionales
             </div>
-            <div class="card reveal" onclick="openModal('podiumModal')">
-                <div class="highlight" data-target="30">0</div>Podios Nacionales
-                <p style="font-size: 11px; color: #60a5fa;">Ver éxitos ⬇</p>
-            </div>
+
             <div class="card reveal" onclick="openModal('hitosModal')">
                 <div class="highlight" data-target="3">0</div>Títulos Ajedrez
-                <p style="font-size: 11px; color: #60a5fa;">Ver certificados ⬇</p>
+                <p style="font-size: 11px; color: #60a5fa;">Ver hitos ⬇</p>
             </div>
         </div>
     </section>
@@ -212,25 +224,39 @@
     <section id="historia">
         <h2 class="reveal">Trayectoria de la Academia</h2>
         <div class="content-box reveal">
-            <p><strong>Chess Academy Osorno</strong> es el proyecto líder en la enseñanza competitiva de ajedrez en Osorno, llevando a nuestros alumnos a podios nacionales.</p>
+            <p><strong>Chess Academy Osorno</strong> es el proyecto líder en la enseñanza competitiva de ajedrez en Osorno. Llevando a nuestros alumnos a podios escolares, comunales y nacionales.</p>
         </div>
     </section>
 
     <section id="hitos">
-        <h2 class="reveal">Hitos y Títulos</h2>
+        <h2 class="reveal">Hitos y Títulos Ajedrez</h2>
+        
         <div class="content-box reveal">
             <h3>Trayectoria de Sergio Vera S.</h3>
-            <div id="hitosContainer" style="padding:0">
+            
+            <div id="hitosContainer">
+                
                 <div class="hitos-box">
-                    <img src="logros/42e2dbed-fdbf-4a97-938a-828ba77057c7.jpg" class="hitos-photo">
+                    <img src="logros/42e2dbed-fdbf-4a97-938a-828ba77057c7.jpg" class="hitos-photo" alt="FIDE">
                     <div class="hitos-info">
-                        <p class="hitos-title">Título Instructor FIDE</p>
+                        <p class="hitos-title">Titulo Instructor FIDE</p>
+                        <p class="hitos-desc">Certificación Internacional FIDE</p>
                     </div>
                 </div>
+
                 <div class="hitos-box">
-                    <img src="logros/arbitro.jpg" class="hitos-photo">
+                    <img src="logros/CertificadoMonitor-AJEFECH-.pdf" class="hitos-photo" alt="FENACH">
+                    <div class="hitos-info">
+                        <p class="hitos-title">Certificado Monitor Nacional FENACH</p>
+                        <p class="hitos-desc">Formación de Talentos en Chile</p>
+                    </div>
+                </div>
+
+                <div class="hitos-box">
+                    <img src="logros/arbitro.jpg" class="hitos-photo" alt="FEDAJ">
                     <div class="hitos-info">
                         <p class="hitos-title">Arbitro FEDAJ</p>
+                        <p class="hitos-desc">Garantía de Imparcialidad en Torneos</p>
                     </div>
                 </div>
             </div>
@@ -239,9 +265,12 @@
 
     <section id="galeria">
         <h2 class="reveal">Galería Visual</h2>
+        <h3>Torneos Nacionales</h3>
         <div class="galeria-scroll reveal">
-            <figure><img src="torneos/osorno-nacional.jpg"><figcaption>Nacional 2017</figcaption></figure>
-            <figure><img src="torneos/osorno-nacional-santiago-2018.jpg"><figcaption>Nacional 2018</figcaption></figure>
+            <figure><img src="torneos/osorno-nacional.jpg"><figcaption>Final Nacional Santiago 2017</figcaption></figure>
+            <figure><img src="torneos/osorno-nacional-santiago-2018.jpg"><figcaption>Santiago 2018 Nacional</figcaption></figure>
+            <figure><img src="torneos/osorno-puertomontt2.jpg"><figcaption>Escolar de Puerto Montt</figcaption></figure>
+            <figure><img src="torneos/osorno-puertomontt-regional.jpg"><figcaption>Match Osorno vs Puerto</figcaption></figure>
         </div>
     </section>
 
@@ -249,6 +278,8 @@
         <h2 class="reveal">Contacto Directo</h2>
         <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST" class="reveal">
             <input type="text" name="Nombre" placeholder="Nombre completo" required>
+            <input type="number" name="Edad" placeholder="Edad del alumno" required>
+            <input type="email" name="Email" placeholder="Tu correo electrónico" required>
             <button class="btn" type="submit">Enviar Solicitud</button>
         </form>
     </section>
@@ -262,8 +293,8 @@
     <script>
         function openModal(id) { document.getElementById(id).style.display = 'flex'; document.body.style.overflow = 'hidden'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = 'auto'; }
-        function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
 
+        // Contadores
         const counters = document.querySelectorAll('.highlight');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -280,7 +311,9 @@
             });
         }, {threshold: 0.5});
         counters.forEach(c => observer.observe(c));
-        ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', duration: 700 });
+
+        ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 700 });
+        function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
     </script>
 </body>
 </html>
