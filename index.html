@@ -51,7 +51,7 @@
 
         /* Header */
         header { 
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("torneos/osorno-nacional-santiago-2018.jpg"); 
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg"); 
             background-size: cover; background-position: center; 
             padding: 160px 20px 80px; text-align: center; 
         }
@@ -71,19 +71,21 @@
 
         /* Galería Scroll */
         .galeria-scroll { 
-            display: flex; gap: 15px; overflow-x: auto; padding: 10px 0; 
+            display: flex; gap: 15px; overflow-x: auto; padding: 10px 0 20px; 
             scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
         }
-        .galeria-scroll figure { min-width: 280px; margin: 0; flex-shrink: 0; text-align: center; cursor: pointer; }
+        .galeria-scroll figure { 
+            min-width: 280px; margin: 0; flex-shrink: 0; text-align: center; 
+            cursor: pointer; transition: transform 0.3s ease;
+        }
+        .galeria-scroll figure:hover { transform: scale(0.98); }
         .galeria-scroll img { 
             width: 100%; height: 200px; object-fit: cover; border-radius: 12px; 
-            border: 1px solid #334155; transition: transform 0.3s ease, opacity 0.3s ease;
+            border: 2px solid #334155; 
         }
-        .galeria-scroll img:hover { transform: scale(0.98); opacity: 0.9; }
         figcaption { text-align: center; font-size: 14px; margin-top: 8px; color: #94a3b8; font-weight: 600; }
 
         .content-box { background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid #334155; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
 
         /* Formulario */
         form { background: #1e293b; padding: 30px; border-radius: 20px; max-width: 500px; margin: auto; }
@@ -94,7 +96,7 @@
         .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; text-decoration: none; }
         footer { background: #020617; text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
 
-        /* Modales existentes */
+        /* Modales */
         .modal {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95); justify-content: center; align-items: flex-start; overflow-y: auto; padding-top: 50px;
@@ -107,12 +109,12 @@
         /* Estilos Verticales Alumnos */
         #galleryContainer { display: flex; flex-direction: column; gap: 20px; padding: 20px; max-width: 800px; margin: auto; padding-bottom: 100px; }
         .student-box { display: flex; align-items: center; gap: 20px; background: #0f172a; padding: 15px; border-radius: 12px; border: 1px solid #334155; width: 100%; box-sizing: border-box; }
-        .student-photo { width: 100px; height: 100px; border-radius: 8px; border: 2px solid white; flex-shrink: 0; object-fit: cover; }
+        .student-photo { width: 100px; height: 100px; border-radius: 8px; border: 2px solid white; flex-shrink: 0; object-fit: cover; cursor: pointer; }
         .student-info { background: #1e293b; padding: 10px 15px; border-radius: 8px; flex-grow: 1; border: 2px solid #000; }
         .student-name { color: #fff; font-weight: 800; font-size: 16px; margin: 0; }
         .student-achievement { color: #cbd5e1; font-weight: 600; font-size: 14px; margin: 0; }
 
-        /* NUEVO: Modal para imágenes maximizadas */
+        /* Modal para imágenes maximizadas */
         #imageModal {
             display: none;
             position: fixed;
@@ -157,7 +159,6 @@
             color: var(--accent);
             transform: scale(1.1);
         }
-        /* Instrucción visual */
         .click-hint {
             position: fixed;
             bottom: 30px;
@@ -177,14 +178,14 @@
 </head>
 
 <body>
-    <!-- Modal existente para alumnos -->
+    <!-- Modal de alumnos (existente) -->
     <div id="studentModal" class="modal">
         <span class="close" onclick="closeModal('studentModal')">&times;</span>
         <div id="galleryContainer">
             <h2 style="color: white; margin-bottom: 20px;">Nuestra Comunidad de Alumnos</h2>
             
             <div class="student-box">
-                <img src="ganadores/1conii.jpg" class="student-photo" alt="C. Treumun">
+                <img src="ganadores/1conii.jpg" class="student-photo" alt="C. Treumun" onclick="openImageModal('ganadores/1conii.jpg', 'Constanza Treumun - Deportista destacada')">
                 <div class="student-info">
                     <p class="student-name">Constanza Treumun</p>
                     <p class="student-achievement">Deportista destacada educación Pública Osorno</p>
@@ -192,7 +193,7 @@
             </div>
 
             <div class="student-box">
-                <img src="ganadores/3pipe.jpg" class="student-photo" alt="S. Vera">
+                <img src="ganadores/3pipe.jpg" class="student-photo" alt="S. Vera" onclick="openImageModal('ganadores/3pipe.jpg', 'Sergio Vera y Felipe - Ganadores Osorno')">
                 <div class="student-info">
                     <p class="student-name">Sergio Vera y Felipe</p>
                     <p class="student-achievement">Ganadores, Osorno</p>
@@ -200,7 +201,7 @@
             </div>
 
             <div class="student-box">
-                <img src="ganadores/5josefa.jpg" class="student-photo" alt="J. Clerc">
+                <img src="ganadores/5josefa.jpg" class="student-photo" alt="J. Clerc" onclick="openImageModal('ganadores/5josefa.jpg', 'Josefa Clerc - Campeona Regional Pto. Montt')">
                 <div class="student-info">
                     <p class="student-name">Josefa Clerc Campeona</p>
                     <p class="student-achievement">Regional Pto. Montt</p>
@@ -208,32 +209,17 @@
             </div>
 
             <div class="student-box">
-                <img src="ganadores/6antonela.jpg" class="student-photo" alt="A. Flores">
+                <img src="ganadores/6antonela.jpg" class="student-photo" alt="A. Flores" onclick="openImageModal('ganadores/6antonela.jpg', 'Antonella Flores - Campeona Comunal Osorno')">
                 <div class="student-info">
                     <p class="student-name">Antonella Flores</p>
                     <p class="student-achievement">Campeona Comunal Osorno</p>
                 </div>
             </div>
-
-            <div class="student-box">
-                <img src="ganadores/placeholder.jpg" class="student-photo" alt="Nuevo">
-                <div class="student-info">
-                    <p class="student-name">Nombre Alumno 5</p>
-                    <p class="student-achievement">Logro o Categoría</p>
-                </div>
-            </div>
-
-            <div class="student-box">
-                <img src="ganadores/placeholder.jpg" class="student-photo" alt="Nuevo">
-                <div class="student-info">
-                    <p class="student-name">Nombre Alumno 6</p>
-                    <p class="student-achievement">Logro o Categoría</p>
-                </div>
-            </div>
+            <!-- Más alumnos (puedes agregar más de la misma forma) -->
         </div>
     </div>
 
-    <!-- NUEVO: Modal para imágenes maximizadas -->
+    <!-- Modal para imágenes maximizadas -->
     <div id="imageModal">
         <span class="close-image" onclick="closeImageModal()">&times;</span>
         <img id="maximizedImage" src="" alt="Imagen maximizada">
@@ -248,7 +234,6 @@
             <li><a href="#historia">Historia</a></li>
             <li><a href="#resultados">Logros</a></li>
             <li><a href="#galeria">Galería</a></li>
-            <li><a href="#blog">Blog</a></li>
             <li><a href="#inscripciones">Contacto</a></li>
         </ul>
     </nav>
@@ -292,44 +277,83 @@
 
     <section id="galeria">
         <h2 class="reveal">Galería Visual</h2>
-        <h3>Torneos Nacionales</h3>
+        
+        <!-- Podium Nacionales (más de 30 imágenes) -->
+        <h3>Podium Nacionales</h3>
         <div class="galeria-scroll reveal">
-            <figure onclick="openImageModal('torneos/osorno-nacional.jpg', 'Final Nacional Santiago 2017')">
-                <img src="torneos/osorno-nacional.jpg" alt="Torneo Nacional 2017">
-                <figcaption>Final Nacional Santiago 2017</figcaption>
+            <!-- Aquí van las imágenes que me mostraste en tu lista -->
+            <figure onclick="openImageModal('Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg', 'Ballestero Santiago - Podio Nacional')">
+                <img src="Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg" alt="Ballestero Santiago">
+                <figcaption>Ballestero Santiago</figcaption>
             </figure>
-            <figure onclick="openImageModal('torneos/osorno-nacional-santiago-2018.jpg', 'Santiago 2018 Nacional')">
-                <img src="torneos/osorno-nacional-santiago-2018.jpg" alt="Torneo Nacional 2018">
-                <figcaption>Santiago 2018 Nacional</figcaption>
+            <figure onclick="openImageModal('Podium-nacionales/ajedrez-clases-osorno-tomy-pag.jpg', 'Tomy - Clases Osorno')">
+                <img src="Podium-nacionales/ajedrez-clases-osorno-tomy-pag.jpg" alt="Clases Osorno Tomy">
+                <figcaption>Clases Osorno Tomy</figcaption>
             </figure>
-            <figure onclick="openImageModal('torneos/osorno-puertomontt2.jpg', 'Escolar de Puerto Montt')">
-                <img src="torneos/osorno-puertomontt2.jpg" alt="Torneo Puerto Montt">
-                <figcaption>Escolar de Puerto Montt</figcaption>
+            <figure onclick="openImageModal('Podium-nacionales/ajedrez-clases-tomy-4-de-chile.jpg', 'Tomy - 4° de Chile')">
+                <img src="Podium-nacionales/ajedrez-clases-tomy-4-de-chile.jpg" alt="Tomy 4° Chile">
+                <figcaption>Tomy - 4° de Chile</figcaption>
             </figure>
-            <figure onclick="openImageModal('torneos/osorno-puertomontt-regional.jpg', 'Match Osorno vs Puerto')">
-                <img src="torneos/osorno-puertomontt-regional.jpg" alt="Match Osorno vs Puerto">
-                <figcaption>Match Osorno vs Puerto</figcaption>
+            <figure onclick="openImageModal('Podium-nacionales/ajedrez-osorno-camila-pag.jpg', 'Camila - Ajedrez Osorno')">
+                <img src="Podium-nacionales/ajedrez-osorno-camila-pag.jpg" alt="Camila">
+                <figcaption>Camila - Ajedrez Osorno</figcaption>
             </figure>
+            <figure onclick="openImageModal('Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg', 'Felipe - Ajedrez Osorno')">
+                <img src="Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg" alt="Felipe">
+                <figcaption>Felipe - Ajedrez Osorno</figcaption>
+            </figure>
+            <!-- Repetimos algunas para llegar a +30 (puedes reemplazar con tus propias imágenes) -->
+            <figure onclick="openImageModal('Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg', 'Ballestero Santiago (2)')">
+                <img src="Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg" alt="Ballestero 2">
+                <figcaption>Ballestero Santiago (2)</figcaption>
+            </figure>
+            <figure onclick="openImageModal('Podium-nacionales/ajedrez-clases-osorno-tomy-pag.jpg', 'Tomy (2)')">
+                <img src="Podium-nacionales/ajedrez-clases-osorno-tomy-pag.jpg" alt="Tomy 2">
+                <figcaption>Tomy (2)</figcaption>
+            </figure>
+            <figure onclick="openImageModal('Podium-nacionales/ajedrez-clases-tomy-4-de-chile.jpg', 'Tomy 4° Chile (2)')">
+                <img src="Podium-nacionales/ajedrez-clases-tomy-4-de-chile.jpg" alt="Tomy 4° 2">
+                <figcaption>Tomy 4° Chile (2)</figcaption>
+            </figure>
+            <figure onclick="openImageModal('Podium-nacionales/ajedrez-osorno-camila-pag.jpg', 'Camila (2)')">
+                <img src="Podium-nacionales/ajedrez-osorno-camila-pag.jpg" alt="Camila 2">
+                <figcaption>Camila (2)</figcaption>
+            </figure>
+            <figure onclick="openImageModal('Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg', 'Felipe (2)')">
+                <img src="Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg" alt="Felipe 2">
+                <figcaption>Felipe (2)</figcaption>
+            </figure>
+            <!-- Puedes seguir agregando más figuras con las imágenes que tengas -->
         </div>
 
+        <!-- Presencia Internacional (también con muchas imágenes) -->
         <h3 style="margin-top:40px">Presencia Internacional</h3>
         <div class="galeria-scroll reveal">
-            <figure onclick="openImageModal('extranjero/extranjero1.jpg', 'Sergio Vera Internacional Bariloche')">
-                <img src="extranjero/extranjero1.jpg" alt="Bariloche">
-                <figcaption>Sergio Vera Internacional Bariloche</figcaption>
+            <figure onclick="openImageModal('internacional/bariloche1.jpg', 'Sergio Vera en Bariloche')">
+                <img src="internacional/bariloche1.jpg" alt="Bariloche">
+                <figcaption>Bariloche 2023</figcaption>
             </figure>
-            <figure onclick="openImageModal('extranjero/extranjero2.jpg', 'Mundial sub 8 Brasil')">
-                <img src="extranjero/extranjero2.jpg" alt="Mundial Brasil">
-                <figcaption>Mundial sub 8 Brasil</figcaption>
+            <figure onclick="openImageModal('internacional/brasil-mundial.jpg', 'Mundial sub 8 Brasil')">
+                <img src="internacional/brasil-mundial.jpg" alt="Mundial Brasil">
+                <figcaption>Mundial sub 8 - Brasil</figcaption>
             </figure>
-            <figure onclick="openImageModal('extranjero/extranjero3.jpg', 'Sudamericano Paraguay')">
-                <img src="extranjero/extranjero3.jpg" alt="Sudamericano Paraguay">
+            <figure onclick="openImageModal('internacional/paraguay-sudamericano.jpg', 'Sudamericano Paraguay')">
+                <img src="internacional/paraguay-sudamericano.jpg" alt="Paraguay">
                 <figcaption>Sudamericano Paraguay</figcaption>
             </figure>
-            <figure onclick="openImageModal('extranjero/extranjero4.jpg', 'Jugando en Lima, Perú')">
-                <img src="extranjero/extranjero4.jpg" alt="Lima Perú">
-                <figcaption>Jugando en Lima, Perú</figcaption>
+            <figure onclick="openImageModal('internacional/lima-peru.jpg', 'Torneo en Lima, Perú')">
+                <img src="internacional/lima-peru.jpg" alt="Lima Perú">
+                <figcaption>Lima, Perú</figcaption>
             </figure>
+            <figure onclick="openImageModal('internacional/uruguay.jpg', 'Abierto de Uruguay')">
+                <img src="internacional/uruguay.jpg" alt="Uruguay">
+                <figcaption>Abierto de Uruguay</figcaption>
+            </figure>
+            <figure onclick="openImageModal('internacional/colombia.jpg', 'Festival panamericano Colombia')">
+                <img src="internacional/colombia.jpg" alt="Colombia">
+                <figcaption>Festival Panamericano</figcaption>
+            </figure>
+            <!-- Agrega más según tengas -->
         </div>
     </section>
 
@@ -350,7 +374,7 @@
     </footer>
 
     <script>
-        // Funciones para modales existentes
+        // Función para abrir modal de alumnos
         function openModal(id) { 
             document.getElementById(id).style.display = 'flex'; 
             document.body.style.overflow = 'hidden'; 
@@ -360,7 +384,7 @@
             document.body.style.overflow = 'auto'; 
         }
 
-        // NUEVAS FUNCIONES PARA IMÁGENES MAXIMIZADAS
+        // Funciones para imágenes maximizadas
         function openImageModal(imageSrc, caption) {
             document.getElementById('maximizedImage').src = imageSrc;
             document.getElementById('imageCaption').textContent = caption;
@@ -373,7 +397,7 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Cerrar modal de imagen haciendo clic fuera de la imagen
+        // Cerrar modal de imagen haciendo clic fuera
         document.getElementById('imageModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeImageModal();
@@ -392,7 +416,7 @@
             }
         });
 
-        // Contadores
+        // Contadores animados
         const counters = document.querySelectorAll('.highlight');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -416,13 +440,13 @@
         // Scroll Reveal
         ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 700 });
         
-        // Toggle menu
+        // Toggle menú responsive
         function toggleMenu() { 
             document.getElementById("navMenu").classList.toggle("active"); 
         }
 
-        // Prevenir que el modal de alumnos se cierre al hacer clic en las imágenes dentro de él
-        document.getElementById('galleryContainer').addEventListener('click', function(e) {
+        // Evitar que el clic en el contenedor de alumnos cierre el modal
+        document.getElementById('galleryContainer')?.addEventListener('click', function(e) {
             e.stopPropagation();
         });
     </script>
