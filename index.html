@@ -366,6 +366,7 @@
         <div class="click-hint">Haz clic fuera o presiona ESC para cerrar</div>
     </div>
 
+    <!-- MENÚ EXACTO COMO LO PEDISTE -->
     <nav class="navbar">
         <a href="#"><img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logo/osorno-clases-ajedrez-logo.jpg" alt="Logo" class="logo-img"></a>
         <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
@@ -373,9 +374,8 @@
             <li><a href="#historia">Historia</a></li>
             <li><a href="#resultados">Logros</a></li>
             <li><a href="#galeria">Galería</a></li>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#inscripciones">Contacto</a></li>
-            <!-- NUEVO ÍTEM EN MENÚ: Logros (o Hito) -->
-            <li><a href="#logros">Logros</a></li>
         </ul>
     </nav>
 
@@ -403,7 +403,7 @@
             <div class="card reveal" onclick="openModal('podiumModal')">
                 <div class="highlight" data-target="30">0</div>Podios Nacionales
             </div>
-            <!-- TARJETA +3 ahora abre el modal de logros -->
+            <!-- TARJETA +3 abre el modal de logros -->
             <div class="card reveal" onclick="openModal('logrosModal')">
                 <div class="highlight" data-target="3">0</div>Títulos FIDE
             </div>
@@ -500,7 +500,6 @@
                 if (document.getElementById('imageModal').style.display === 'flex') {
                     closeImageModal();
                 }
-                // Agregamos 'logrosModal' a la lista
                 ['studentModal', 'modal60', 'podiumModal', 'logrosModal'].forEach(id => {
                     if (document.getElementById(id).style.display === 'flex') {
                         closeModal(id);
@@ -511,7 +510,6 @@
         document.getElementById('imageModal').addEventListener('click', function(e) {
             if (e.target === this) closeImageModal();
         });
-        // Agregamos 'logrosModal' a la lista de modales para cerrar con clic fuera
         ['studentModal', 'modal60', 'podiumModal', 'logrosModal'].forEach(id => {
             document.getElementById(id).addEventListener('click', function(e) {
                 if (e.target === this) closeModal(id);
