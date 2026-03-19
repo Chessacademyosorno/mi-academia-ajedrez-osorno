@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Academy Osorno | Entrenamiento de Elite</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
-
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -15,15 +13,12 @@
             --accent: #2563eb;
             --text-light: #f1f5f9;
         }
-
         html { scroll-behavior: smooth; }
         body { 
             margin: 0; font-family: 'Montserrat', sans-serif; 
             background: var(--bg-dark); color: var(--text-light); 
             line-height: 1.6; overflow-x: hidden; 
         }
-
-        /* Navegación */
         .navbar { 
             position: fixed; top: 0; width: 100%; background: var(--nav-bg); 
             display: flex; justify-content: space-between; align-items: center; 
@@ -31,14 +26,11 @@
             box-sizing: border-box;
         }
         .logo-img { height: 50px; border-radius: 6px; background: white; padding: 2px; }
-
         .menu { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
         .menu a { color: #cbd5e1; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: .3s; }
         .menu a:hover { color: #60a5fa; }
-
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
         .menu-toggle span { width: 25px; height: 3px; background: white; }
-
         @media (max-width: 768px) {
             .menu-toggle { display: flex; }
             .menu { 
@@ -48,8 +40,6 @@
             }
             .menu.active { height: 100vh; padding-top: 40px; opacity: 1; }
         }
-
-        /* Header */
         header { 
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional-santiago-2018.jpg"); 
             background-size: cover; background-position: center; 
@@ -57,19 +47,13 @@
         }
         header h1 { font-size: clamp(30px, 6vw, 52px); margin: 0; font-weight: 800; }
         .hero-points { margin: 20px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; color: #60a5fa; font-weight: 600; }
-
-        /* Secciones */
         section { padding: 60px 20px; max-width: 1100px; margin: auto; }
         h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: var(--accent); }
         h3 { color: #60a5fa; border-left: 4px solid var(--accent); padding-left: 15px; margin: 40px 0 20px; }
-
-        /* Tarjetas de Logros */
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .card { background: #1e293b; padding: 25px; border-radius: 16px; text-align: center; border-bottom: 4px solid var(--accent); cursor: pointer; transition: 0.3s ease; }
         .card:hover { transform: translateY(-5px); }
         .highlight { font-size: 40px; font-weight: 800; color: white; }
-
-        /* Galería Scroll */
         .galeria-scroll { 
             display: flex; gap: 15px; overflow-x: auto; padding: 10px 0; 
             scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
@@ -84,20 +68,12 @@
             border: 1px solid #334155; 
         }
         figcaption { text-align: center; font-size: 14px; margin-top: 8px; color: #94a3b8; font-weight: 600; }
-
         .content-box { background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid #334155; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
-
-        /* Formulario */
         form { background: #1e293b; padding: 30px; border-radius: 20px; max-width: 500px; margin: auto; }
         input { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
         .btn { display: inline-block; padding: 14px 28px; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; border: none; width: 100%; cursor: pointer; text-align: center; }
-
-        /* WhatsApp y Footer */
         .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; text-decoration: none; }
         footer { background: #020617; text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
-
-        /* Modales */
         .modal {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95); justify-content: center; align-items: flex-start; overflow-y: auto; padding-top: 50px;
@@ -106,16 +82,12 @@
             position: fixed; top: 20px; right: 30px; color: white; font-size: 40px; 
             font-weight: bold; cursor: pointer; z-index: 2100; 
         }
-
-        /* Estilos Verticales Alumnos */
         #galleryContainer { display: flex; flex-direction: column; gap: 20px; padding: 20px; max-width: 800px; margin: auto; padding-bottom: 100px; }
         .student-box { display: flex; align-items: center; gap: 20px; background: #0f172a; padding: 15px; border-radius: 12px; border: 1px solid #334155; width: 100%; box-sizing: border-box; }
         .student-photo { width: 100px; height: 100px; border-radius: 8px; border: 2px solid white; flex-shrink: 0; object-fit: cover; cursor: pointer; }
         .student-info { background: #1e293b; padding: 10px 15px; border-radius: 8px; flex-grow: 1; border: 2px solid #000; }
         .student-name { color: #fff; font-weight: 800; font-size: 16px; margin: 0; }
         .student-achievement { color: #cbd5e1; font-weight: 600; font-size: 14px; margin: 0; }
-
-        /* Modal para imágenes maximizadas */
         #imageModal {
             display: none;
             position: fixed;
@@ -175,8 +147,6 @@
             pointer-events: none;
             opacity: 0.7;
         }
-
-        /* Modal para Podios Nacionales (+30) */
         #podiumModal {
             display: none;
             position: fixed;
@@ -225,15 +195,12 @@
         }
     </style>
 </head>
-
 <body>
-    <!-- MODAL GENERAL (TARJETA +3) - Incluye todos los alumnos destacados -->
+    <!-- MODAL GENERAL +3 -->
     <div id="studentModal" class="modal">
         <span class="close" onclick="closeModal('studentModal')">&times;</span>
         <div id="galleryContainer">
             <h2 style="color: white; margin-bottom: 20px;">Nuestra Comunidad de Alumnos</h2>
-            
-            <!-- Constanza (también está aquí para la tarjeta +3) -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg" class="student-photo" alt="Constanza Treumun" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg', 'Constanza Treumun')">
                 <div class="student-info">
@@ -241,7 +208,6 @@
                     <p class="student-achievement">Mejor deportista destacada educación pública Osorno</p>
                 </div>
             </div>
-
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/3pipe.jpg" class="student-photo" alt="Sergio Vera y Felipe" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/3pipe.jpg', 'Sergio Vera y Felipe')">
                 <div class="student-info">
@@ -249,7 +215,6 @@
                     <p class="student-achievement">Ganadores I.R.T. Osorno</p>
                 </div>
             </div>
-
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/5josefa.jpg" class="student-photo" alt="Josefa Clerc" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/5josefa.jpg', 'Josefa Clerc')">
                 <div class="student-info">
@@ -257,7 +222,6 @@
                     <p class="student-achievement">Campeona Regional Pto. Montt</p>
                 </div>
             </div>
-
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/6antonela.jpg" class="student-photo" alt="Antonella Flores" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/6antonela.jpg', 'Antonella Flores')">
                 <div class="student-info">
@@ -265,8 +229,6 @@
                     <p class="student-achievement">Campeona Comunal Osorno</p>
                 </div>
             </div>
-
-            <!-- Agustín -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg" class="student-photo" alt="Agustín" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg', 'Agustín - Ranking 1970 FIDE')">
                 <div class="student-info">
@@ -274,8 +236,6 @@
                     <p class="student-achievement">Ranking 1970 FIDE</p>
                 </div>
             </div>
-
-            <!-- Kathy campeona -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo" alt="Katherine Velásquez" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg', 'Katherine Velásquez - Campeona')">
                 <div class="student-info">
@@ -286,13 +246,11 @@
         </div>
     </div>
 
-    <!-- MODAL PARA +60 (Kathy, Daniel, Grupo Temuco) -->
+    <!-- MODAL +60 -->
     <div id="modal60" class="modal">
         <span class="close" onclick="closeModal('modal60')">&times;</span>
         <div id="galleryContainer">
             <h2 style="color: white; margin-bottom: 20px;">Campeones Regionales +60</h2>
-            
-            <!-- Kathy -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo" alt="Katherine Velásquez" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg', 'Katherine Velásquez')">
                 <div class="student-info">
@@ -300,8 +258,6 @@
                     <p class="student-achievement">Campeona Regional</p>
                 </div>
             </div>
-
-            <!-- Daniel -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-daniel-pag.jpg" class="student-photo" alt="Daniel" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-daniel-pag.jpg', 'Daniel Campeón')">
                 <div class="student-info">
@@ -309,8 +265,6 @@
                     <p class="student-achievement">Campeón Queullin, Osorno, Valdivia, etc.</p>
                 </div>
             </div>
-
-            <!-- Foto grupal Temuco -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-temuco-nacional-pag.jpg" class="student-photo" alt="Grupo Temuco" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-temuco-nacional-pag.jpg', 'Alumnos en Temuco')">
                 <div class="student-info">
@@ -321,7 +275,7 @@
         </div>
     </div>
 
-    <!-- MODAL PARA +30 (Podios Nacionales) -->
+    <!-- MODAL +30 (Podios Nacionales) -->
     <div id="podiumModal" class="modal">
         <span class="close" onclick="closeModal('podiumModal')">&times;</span>
         <h2 style="color: white; text-align: center; margin-bottom: 30px;">Podios Nacionales</h2>
@@ -349,7 +303,22 @@
         </div>
     </div>
 
-    <!-- Modal para maximizar imágenes (sirve para todos) -->
+    <!-- MODAL +1200 (SOLO Constanza) -->
+    <div id="modal1200" class="modal">
+        <span class="close" onclick="closeModal('modal1200')">&times;</span>
+        <div id="galleryContainer">
+            <h2 style="color: white; margin-bottom: 20px;">Alumna Destacada +1200</h2>
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg" class="student-photo" alt="Constanza Treumun" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg', 'Constanza Treumun')">
+                <div class="student-info">
+                    <p class="student-name">Constanza Treumun</p>
+                    <p class="student-achievement">Mejor deportista destacada educación pública Osorno</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para maximizar imágenes -->
     <div id="imageModal">
         <span class="close-image" onclick="closeImageModal()">&times;</span>
         <img id="maximizedImage" src="" alt="Imagen maximizada">
@@ -364,7 +333,6 @@
             <li><a href="#historia">Historia</a></li>
             <li><a href="#resultados">Logros</a></li>
             <li><a href="#galeria">Galería</a></li>
-            <li><a href="#blog">Blog</a></li>
             <li><a href="#inscripciones">Contacto</a></li>
         </ul>
     </nav>
@@ -383,40 +351,21 @@
     <section id="resultados">
         <h2 class="reveal">Nuestro Impacto</h2>
         <div class="cards">
-            <!-- Tarjeta +1200 (CORREGIDA: abre modal de Constanza exclusivamente) -->
             <div class="card reveal" onclick="openModal('modal1200')">
                 <div class="highlight" data-target="1200">0</div>Alumnos Formados
                 <p style="font-size: 11px; color: #60a5fa;">Ver destacada ⬇</p>
             </div>
-            <!-- Tarjeta +60 -->
             <div class="card reveal" onclick="openModal('modal60')">
                 <div class="highlight" data-target="60">0</div>Títulos Regionales
             </div>
-            <!-- Tarjeta +30 -->
             <div class="card reveal" onclick="openModal('podiumModal')">
                 <div class="highlight" data-target="30">0</div>Podios Nacionales
             </div>
-            <!-- Tarjeta +3 -->
             <div class="card reveal" onclick="openModal('studentModal')">
                 <div class="highlight" data-target="3">0</div>Títulos FIDE
             </div>
         </div>
     </section>
-
-    <!-- MODAL ESPECÍFICO PARA +1200 (SOLO CONSTANZA) -->
-    <div id="modal1200" class="modal">
-        <span class="close" onclick="closeModal('modal1200')">&times;</span>
-        <div id="galleryContainer">
-            <h2 style="color: white; margin-bottom: 20px;">Alumna Destacada +1200</h2>
-            <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg" class="student-photo" alt="Constanza Treumun" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg', 'Constanza Treumun')">
-                <div class="student-info">
-                    <p class="student-name">Constanza Treumun</p>
-                    <p class="student-achievement">Mejor deportista destacada educación pública Osorno</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <section id="historia">
         <h2 class="reveal">Trayectoria de la Academia</h2>
@@ -446,7 +395,6 @@
                 <figcaption>Match Osorno vs Puerto</figcaption>
             </figure>
         </div>
-
         <h3 style="margin-top:40px">Presencia Internacional</h3>
         <div class="galeria-scroll reveal">
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero1.jpg', 'Sergio Vera Internacional Bariloche')">
@@ -493,20 +441,16 @@
             document.getElementById(id).style.display = 'none'; 
             document.body.style.overflow = 'auto'; 
         }
-
         function openImageModal(imageSrc, caption) {
             document.getElementById('maximizedImage').src = imageSrc;
             document.getElementById('imageCaption').textContent = caption;
             document.getElementById('imageModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
-
         function closeImageModal() {
             document.getElementById('imageModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-
-        // Cerrar modales con ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 if (document.getElementById('imageModal').style.display === 'flex') {
@@ -519,8 +463,6 @@
                 });
             }
         });
-
-        // Cerrar modales haciendo clic fuera del contenido
         document.getElementById('imageModal').addEventListener('click', function(e) {
             if (e.target === this) closeImageModal();
         });
@@ -529,8 +471,6 @@
                 if (e.target === this) closeModal(id);
             });
         });
-
-        // Contadores animados
         const counters = document.querySelectorAll('.highlight');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -550,14 +490,10 @@
             });
         }, {threshold: 0.5});
         counters.forEach(c => observer.observe(c));
-
         ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 700 });
-        
         function toggleMenu() { 
             document.getElementById("navMenu").classList.toggle("active"); 
         }
-
-        // Prevenir cierre al hacer clic dentro del contenido de los modales
         document.querySelectorAll('#galleryContainer, .podium-gallery').forEach(el => {
             if (el) el.addEventListener('click', (e) => e.stopPropagation());
         });
