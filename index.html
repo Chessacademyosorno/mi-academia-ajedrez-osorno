@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Títulos y Hitos en Ajedrez Osorno | Chess Academy</title>
+    <title>Chess Academy Osorno | Sergio Vera S.</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
     <style>
@@ -59,47 +59,35 @@
         .student-achievement, .hitos-desc { color: #cbd5e1; font-weight: 600; font-size: 14px; margin: 0; }
 
         .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; text-decoration: none; }
+        footer { background: #020617; text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
     </style>
 </head>
-
 <body>
 
     <div id="studentModal" class="modal">
         <span class="close" onclick="closeModal('studentModal')">&times;</span>
         <div id="galleryContainer">
-            <h2 style="color: white; text-align: center;">Nuestra Comunidad de Alumnos</h2>
-            <div class="student-box"><img src="ganadores/1conii.jpg" class="student-photo"><div class="student-info"><p class="student-name">Constanza Treumun</p><p class="student-achievement">Deportista destacada Educación Pública Osorno</p></div></div>
-            <div class="student-box"><img src="ganadores/3pipe.jpg" class="student-photo"><div class="student-info"><p class="student-name">Sergio Vera y Felipe</p><p class="student-achievement">Ganadores, Osorno</p></div></div>
-            <div class="student-box"><img src="ganadores/5josefa.jpg" class="student-photo"><div class="student-info"><p class="student-name">Josefa Cler Campeona</p><p class="student-achievement">Regional Pto. Montt</p></div></div>
-            <div class="student-box"><img src="ganadores/6antonela.jpg" class="student-photo"><div class="student-info"><p class="student-name">Antonella Flores</p><p class="student-achievement">Campeona Comunal Osorno</p></div></div>
+            <h2 style="color: white; text-align: center;">Nuestra Comunidad</h2>
+            <div class="student-box"><img src="ganadores/1conii.jpg" class="student-photo"><div class="student-info"><p class="student-name">Constanza Treumun</p><p class="student-achievement">Enfermera y Ajedrecista</p></div></div>
+            <div class="student-box"><img src="ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo"><div class="student-info"><p class="student-name">Kathy</p><p class="student-achievement">Campeona Destacada</p></div></div>
+        </div>
+    </div>
+
+    <div id="podiumModal" class="modal">
+        <span class="close" onclick="closeModal('podiumModal')">&times;</span>
+        <div id="galleryContainer">
+            <h2 style="color: white; text-align: center;">Éxitos Nacionales</h2>
+            <div class="student-box"><img src="Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg" class="student-photo"><div class="student-info"><p class="student-name">Leonardo Ballestrero</p><p class="student-achievement">Campeón Nacional Sub-10</p></div></div>
+            <div class="student-box"><img src="Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg" class="student-photo"><div class="student-info"><p class="student-name">Felipe Vera</p><p class="student-achievement">Podio Nacional Sub-14</p></div></div>
         </div>
     </div>
 
     <div id="hitosModal" class="modal">
         <span class="close" onclick="closeModal('hitosModal')">&times;</span>
         <div id="hitosContainer">
-            <h2 style="color: white; text-align: center;">Trayectoria y Títulos</h2>
-            <div class="hitos-box">
-                <img src="logros/42e2dbed-fdbf-4a97-938a-828ba77057c7.jpg" class="hitos-photo" alt="Instructor FIDE">
-                <div class="hitos-info">
-                    <p class="hitos-title">Título Instructor FIDE</p>
-                    <p class="hitos-desc">Certificación Internacional FIDE</p>
-                </div>
-            </div>
-            <div class="hitos-box">
-                <img src="logros/CertificadoMonitor-AJEFECH-.jpg" class="hitos-photo" alt="Monitor Nacional">
-                <div class="hitos-info">
-                    <p class="hitos-title">Certificado Monitor Nacional FENACH</p>
-                    <p class="hitos-desc">Formación de Talentos en Chile</p>
-                </div>
-            </div>
-            <div class="hitos-box">
-                <img src="logros/arbitro.jpg" class="hitos-photo" alt="Árbitro">
-                <div class="hitos-info">
-                    <p class="hitos-title">Árbitro FEDAJ</p>
-                    <p class="hitos-desc">Garantía de Imparcialidad en Torneos</p>
-                </div>
-            </div>
+            <h2 style="color: white; text-align: center;">Títulos Sergio Vera S.</h2>
+            <div class="hitos-box"><img src="logros/42e2dbed-fdbf-4a97-938a-828ba77057c7.jpg" class="hitos-photo"><div class="hitos-info"><p class="hitos-title">Titulo Instructor FIDE</p><p class="hitos-desc">Certificación Internacional</p></div></div>
+            <div class="hitos-box"><img src="logros/arbitro.jpg" class="hitos-photo"><div class="hitos-info"><p class="hitos-title">Arbitro FEDAJ</p><p class="hitos-desc">Garantía de Imparcialidad</p></div></div>
         </div>
     </div>
 
@@ -129,39 +117,36 @@
         <div class="cards">
             <div class="card reveal" onclick="openModal('studentModal')"><div class="highlight" data-target="1200">0</div>Alumnos Formados</div>
             <div class="card reveal"><div class="highlight" data-target="60">0</div>Títulos Regionales</div>
+            <div class="card reveal" onclick="openModal('podiumModal')"><div class="highlight" data-target="30">0</div>Podios Nacionales</div>
             <div class="card reveal" onclick="openModal('hitosModal')"><div class="highlight" data-target="3">0</div>Títulos Ajedrez</div>
         </div>
     </section>
 
     <section id="hitos">
-        <h2 class="reveal">Hitos y Títulos</h2>
+        <h2 class="reveal">Hitos y Trayectoria</h2>
         <div class="content-box">
-            <div id="hitosContainer" style="padding:0">
-                <div class="hitos-box">
-                    <img src="logros/42e2dbed-fdbf-4a97-938a-828ba77057c7.jpg" class="hitos-photo">
-                    <div class="hitos-info"><p class="hitos-title">Título Instructor FIDE</p></div>
-                </div>
-                <div class="hitos-box">
-                    <img src="logros/CertificadoMonitor-AJEFECH-.jpg" class="hitos-photo">
-                    <div class="hitos-info"><p class="hitos-title">Monitor Nacional FENACH</p></div>
-                </div>
-                <div class="hitos-box">
-                    <img src="logros/arbitro.jpg" class="hitos-photo">
-                    <div class="hitos-info"><p class="hitos-title">Árbitro FEDAJ</p></div>
-                </div>
-            </div>
+            <p><strong>Chess Academy Osorno</strong> lidera la formación competitiva en la región, llevando talentos locales a la élite nacional.</p>
         </div>
     </section>
 
     <section id="galeria">
-        <h2>Galería Visual</h2>
+        <h2>Galería de Torneos</h2>
         <div class="galeria-scroll">
             <figure><img src="torneos/osorno-nacional.jpg"><figcaption>Nacional 2017</figcaption></figure>
             <figure><img src="torneos/osorno-nacional-santiago-2018.jpg"><figcaption>Santiago 2018</figcaption></figure>
         </div>
     </section>
 
+    <section id="inscripciones">
+        <h2>Contacto Directo</h2>
+        <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST">
+            <input type="text" name="Nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #334155; background:#0f172a; color:white;">
+            <button class="btn" type="submit" style="display:inline-block; padding:14px 28px; background:var(--accent); color:white; border-radius:10px; border:none; width:100%; cursor:pointer;">Enviar Solicitud</button>
+        </form>
+    </section>
+
     <a class="whatsapp" href="https://wa.me/56981772160" target="_blank">💬</a>
+    <footer><p>Chess Academy Osorno © 2026 | Osorno, Chile</p></footer>
 
     <script>
         function openModal(id) { document.getElementById(id).style.display = 'flex'; document.body.style.overflow = 'hidden'; }
