@@ -151,17 +151,13 @@
             display: none;
             position: fixed;
             z-index: 2500;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95);
             justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            align-items: flex-start;
             overflow-y: auto;
-            padding: 50px 20px;
-            box-sizing: border-box;
+            padding-top: 50px;
         }
         .podium-gallery {
             display: flex;
@@ -170,6 +166,7 @@
             gap: 20px;
             max-width: 1200px;
             margin: 20px auto;
+            padding: 20px;
         }
         .podium-gallery figure {
             width: 300px;
@@ -196,11 +193,12 @@
     </style>
 </head>
 <body>
-    <!-- MODAL GENERAL +3 -->
+    <!-- MODAL GENERAL (TODA LA COMUNIDAD) -->
     <div id="studentModal" class="modal">
         <span class="close" onclick="closeModal('studentModal')">&times;</span>
         <div id="galleryContainer">
             <h2 style="color: white; margin-bottom: 20px;">Nuestra Comunidad de Alumnos</h2>
+            
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg" class="student-photo" alt="Constanza Treumun" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg', 'Constanza Treumun')">
                 <div class="student-info">
@@ -208,6 +206,7 @@
                     <p class="student-achievement">Mejor deportista destacada educación pública Osorno</p>
                 </div>
             </div>
+
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/3pipe.jpg" class="student-photo" alt="Sergio Vera y Felipe" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/3pipe.jpg', 'Sergio Vera y Felipe')">
                 <div class="student-info">
@@ -215,6 +214,7 @@
                     <p class="student-achievement">Ganadores I.R.T. Osorno</p>
                 </div>
             </div>
+
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/5josefa.jpg" class="student-photo" alt="Josefa Clerc" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/5josefa.jpg', 'Josefa Clerc')">
                 <div class="student-info">
@@ -222,6 +222,7 @@
                     <p class="student-achievement">Campeona Regional Pto. Montt</p>
                 </div>
             </div>
+
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/6antonela.jpg" class="student-photo" alt="Antonella Flores" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/6antonela.jpg', 'Antonella Flores')">
                 <div class="student-info">
@@ -229,6 +230,8 @@
                     <p class="student-achievement">Campeona Comunal Osorno</p>
                 </div>
             </div>
+
+            <!-- AGUSTÍN -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg" class="student-photo" alt="Agustín" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg', 'Agustín - Ranking 1970 FIDE')">
                 <div class="student-info">
@@ -236,6 +239,8 @@
                     <p class="student-achievement">Ranking 1970 FIDE</p>
                 </div>
             </div>
+
+            <!-- KATHERINE CAMPEONA (para +3) -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo" alt="Katherine Velásquez" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg', 'Katherine Velásquez - Campeona')">
                 <div class="student-info">
@@ -246,11 +251,13 @@
         </div>
     </div>
 
-    <!-- MODAL +60 -->
+    <!-- MODAL +60 (Kathy, Daniel, Grupo Temuco) -->
     <div id="modal60" class="modal">
         <span class="close" onclick="closeModal('modal60')">&times;</span>
         <div id="galleryContainer">
             <h2 style="color: white; margin-bottom: 20px;">Campeones Regionales +60</h2>
+            
+            <!-- KATHERINE (misma imagen) -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo" alt="Katherine Velásquez" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg', 'Katherine Velásquez')">
                 <div class="student-info">
@@ -258,6 +265,8 @@
                     <p class="student-achievement">Campeona Regional</p>
                 </div>
             </div>
+
+            <!-- DANIEL -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-daniel-pag.jpg" class="student-photo" alt="Daniel" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-daniel-pag.jpg', 'Daniel Campeón')">
                 <div class="student-info">
@@ -265,6 +274,8 @@
                     <p class="student-achievement">Campeón Queullin, Osorno, Valdivia, etc.</p>
                 </div>
             </div>
+
+            <!-- GRUPO TEMUCO -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-temuco-nacional-pag.jpg" class="student-photo" alt="Grupo Temuco" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-temuco-nacional-pag.jpg', 'Alumnos en Temuco')">
                 <div class="student-info">
@@ -303,22 +314,7 @@
         </div>
     </div>
 
-    <!-- MODAL +1200 (SOLO Constanza) -->
-    <div id="modal1200" class="modal">
-        <span class="close" onclick="closeModal('modal1200')">&times;</span>
-        <div id="galleryContainer">
-            <h2 style="color: white; margin-bottom: 20px;">Alumna Destacada +1200</h2>
-            <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg" class="student-photo" alt="Constanza Treumun" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg', 'Constanza Treumun')">
-                <div class="student-info">
-                    <p class="student-name">Constanza Treumun</p>
-                    <p class="student-achievement">Mejor deportista destacada educación pública Osorno</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal para maximizar imágenes -->
+    <!-- Modal para maximizar imágenes (sirve para todos) -->
     <div id="imageModal">
         <span class="close-image" onclick="closeImageModal()">&times;</span>
         <img id="maximizedImage" src="" alt="Imagen maximizada">
@@ -351,17 +347,21 @@
     <section id="resultados">
         <h2 class="reveal">Nuestro Impacto</h2>
         <div class="cards">
-            <div class="card reveal" onclick="openModal('modal1200')">
+            <!-- TARJETA +1200: abre studentModal (comunidad completa) -->
+            <div class="card reveal" onclick="openModal('studentModal')">
                 <div class="highlight" data-target="1200">0</div>Alumnos Formados
-                <p style="font-size: 11px; color: #60a5fa;">Ver destacada ⬇</p>
+                <p style="font-size: 11px; color: #60a5fa;">Ver comunidad ⬇</p>
             </div>
+            <!-- TARJETA +60: abre modal60 (Kathy, Daniel, Grupo Temuco) -->
             <div class="card reveal" onclick="openModal('modal60')">
                 <div class="highlight" data-target="60">0</div>Títulos Regionales
             </div>
+            <!-- TARJETA +30: abre podiumModal (podios nacionales) -->
             <div class="card reveal" onclick="openModal('podiumModal')">
                 <div class="highlight" data-target="30">0</div>Podios Nacionales
             </div>
-            <div class="card reveal" onclick="openModal('studentModal')">
+            <!-- TARJETA +3: sin función (o podrías ponerle studentModal también) -->
+            <div class="card reveal">
                 <div class="highlight" data-target="3">0</div>Títulos FIDE
             </div>
         </div>
@@ -395,6 +395,7 @@
                 <figcaption>Match Osorno vs Puerto</figcaption>
             </figure>
         </div>
+
         <h3 style="margin-top:40px">Presencia Internacional</h3>
         <div class="galeria-scroll reveal">
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero1.jpg', 'Sergio Vera Internacional Bariloche')">
@@ -441,36 +442,44 @@
             document.getElementById(id).style.display = 'none'; 
             document.body.style.overflow = 'auto'; 
         }
+
         function openImageModal(imageSrc, caption) {
             document.getElementById('maximizedImage').src = imageSrc;
             document.getElementById('imageCaption').textContent = caption;
             document.getElementById('imageModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
+
         function closeImageModal() {
             document.getElementById('imageModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
+
+        // Cerrar modales con ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 if (document.getElementById('imageModal').style.display === 'flex') {
                     closeImageModal();
                 }
-                ['studentModal', 'modal1200', 'modal60', 'podiumModal'].forEach(id => {
+                ['studentModal', 'modal60', 'podiumModal'].forEach(id => {
                     if (document.getElementById(id).style.display === 'flex') {
                         closeModal(id);
                     }
                 });
             }
         });
+
+        // Cerrar modales haciendo clic fuera del contenido
         document.getElementById('imageModal').addEventListener('click', function(e) {
             if (e.target === this) closeImageModal();
         });
-        ['studentModal', 'modal1200', 'modal60', 'podiumModal'].forEach(id => {
+        ['studentModal', 'modal60', 'podiumModal'].forEach(id => {
             document.getElementById(id).addEventListener('click', function(e) {
                 if (e.target === this) closeModal(id);
             });
         });
+
+        // Contadores animados
         const counters = document.querySelectorAll('.highlight');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -490,10 +499,14 @@
             });
         }, {threshold: 0.5});
         counters.forEach(c => observer.observe(c));
+
         ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 700 });
+        
         function toggleMenu() { 
             document.getElementById("navMenu").classList.toggle("active"); 
         }
+
+        // Prevenir cierre al hacer clic dentro del contenido de los modales
         document.querySelectorAll('#galleryContainer, .podium-gallery').forEach(el => {
             if (el) el.addEventListener('click', (e) => e.stopPropagation());
         });
