@@ -176,7 +176,7 @@
             opacity: 0.7;
         }
 
-        /* Nuevo modal para Podios Nacionales (+30) */
+        /* Modal para Podios Nacionales (+30) */
         #podiumModal {
             display: none;
             position: fixed;
@@ -227,63 +227,115 @@
 </head>
 
 <body>
-    <!-- Modal de alumnos (original) -->
+    <!-- MODAL GENERAL (TARJETA +3) - Incluye todos los alumnos destacados -->
     <div id="studentModal" class="modal">
         <span class="close" onclick="closeModal('studentModal')">&times;</span>
         <div id="galleryContainer">
             <h2 style="color: white; margin-bottom: 20px;">Nuestra Comunidad de Alumnos</h2>
             
             <div class="student-box">
-                <img src="ganadores/1conii.jpg" class="student-photo" alt="C. Treumun" onclick="openImageModal('ganadores/1conii.jpg', 'Constanza Treumun - Deportista destacada')">
+                <img src="ganadores/1conii.jpg" class="student-photo" alt="Constanza Treumun" onclick="openImageModal('ganadores/1conii.jpg', 'Constanza Treumun')">
                 <div class="student-info">
                     <p class="student-name">Constanza Treumun</p>
-                    <p class="student-achievement">Deportista destacada educación Pública Osorno</p>
+                    <p class="student-achievement">Mejor deportista destacada educación pública Osorno</p>
                 </div>
             </div>
 
             <div class="student-box">
-                <img src="ganadores/3pipe.jpg" class="student-photo" alt="S. Vera" onclick="openImageModal('ganadores/3pipe.jpg', 'Sergio Vera y Felipe - Ganadores Osorno')">
+                <img src="ganadores/3pipe.jpg" class="student-photo" alt="Sergio Vera y Felipe" onclick="openImageModal('ganadores/3pipe.jpg', 'Sergio Vera y Felipe')">
                 <div class="student-info">
                     <p class="student-name">Sergio Vera y Felipe</p>
-                    <p class="student-achievement">Ganadores, Osorno</p>
+                    <p class="student-achievement">Ganadores I.R.T. Osorno</p>
                 </div>
             </div>
 
             <div class="student-box">
-                <img src="ganadores/5josefa.jpg" class="student-photo" alt="J. Clerc" onclick="openImageModal('ganadores/5josefa.jpg', 'Josefa Clerc - Campeona Regional')">
+                <img src="ganadores/5josefa.jpg" class="student-photo" alt="Josefa Clerc" onclick="openImageModal('ganadores/5josefa.jpg', 'Josefa Clerc')">
                 <div class="student-info">
-                    <p class="student-name">Josefa Clerc Campeona</p>
-                    <p class="student-achievement">Regional Pto. Montt</p>
+                    <p class="student-name">Josefa Clerc</p>
+                    <p class="student-achievement">Campeona Regional Pto. Montt</p>
                 </div>
             </div>
 
             <div class="student-box">
-                <img src="ganadores/6antonela.jpg" class="student-photo" alt="A. Flores" onclick="openImageModal('ganadores/6antonela.jpg', 'Antonella Flores - Campeona Comunal')">
+                <img src="ganadores/6antonela.jpg" class="student-photo" alt="Antonella Flores" onclick="openImageModal('ganadores/6antonela.jpg', 'Antonella Flores')">
                 <div class="student-info">
                     <p class="student-name">Antonella Flores</p>
                     <p class="student-achievement">Campeona Comunal Osorno</p>
                 </div>
             </div>
 
+            <!-- NUEVO: Agustín -->
             <div class="student-box">
-                <img src="ganadores/placeholder.jpg" class="student-photo" alt="Nuevo" onclick="openImageModal('ganadores/placeholder.jpg', 'Nombre Alumno 5')">
+                <img src="ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg" class="student-photo" alt="Agustín" onclick="openImageModal('ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg', 'Agustín - Ranking 1970 FIDE')">
                 <div class="student-info">
-                    <p class="student-name">Nombre Alumno 5</p>
-                    <p class="student-achievement">Logro o Categoría</p>
+                    <p class="student-name">Agustín</p>
+                    <p class="student-achievement">Ranking 1970 FIDE</p>
                 </div>
             </div>
 
+            <!-- NUEVO: Kathy -->
             <div class="student-box">
-                <img src="ganadores/placeholder.jpg" class="student-photo" alt="Nuevo" onclick="openImageModal('ganadores/placeholder.jpg', 'Nombre Alumno 6')">
+                <img src="ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo" alt="Katherine Velásquez" onclick="openImageModal('ganadores/ajedrez-osorno-kathy-campeona-pag.jpg', 'Katherine Velásquez - Campeona')">
                 <div class="student-info">
-                    <p class="student-name">Nombre Alumno 6</p>
-                    <p class="student-achievement">Logro o Categoría</p>
+                    <p class="student-name">Katherine Velásquez</p>
+                    <p class="student-achievement">Campeona Regional</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Nuevo modal para Podios Nacionales (+30) -->
+    <!-- MODAL PARA +1200 (Constanza Treumun) -->
+    <div id="modal1200" class="modal">
+        <span class="close" onclick="closeModal('modal1200')">&times;</span>
+        <div id="galleryContainer">
+            <h2 style="color: white; margin-bottom: 20px;">Alumna Destacada +1200</h2>
+            <div class="student-box">
+                <img src="ganadores/1conii.jpg" class="student-photo" alt="Constanza Treumun" onclick="openImageModal('ganadores/1conii.jpg', 'Constanza Treumun')">
+                <div class="student-info">
+                    <p class="student-name">Constanza Treumun</p>
+                    <p class="student-achievement">Mejor deportista destacada educación pública Osorno</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PARA +60 (Kathy, Daniel, Grupo Temuco) -->
+    <div id="modal60" class="modal">
+        <span class="close" onclick="closeModal('modal60')">&times;</span>
+        <div id="galleryContainer">
+            <h2 style="color: white; margin-bottom: 20px;">Campeones Regionales +60</h2>
+            
+            <!-- Kathy -->
+            <div class="student-box">
+                <img src="ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo" alt="Katherine Velásquez" onclick="openImageModal('ganadores/ajedrez-osorno-kathy-campeona-pag.jpg', 'Katherine Velásquez')">
+                <div class="student-info">
+                    <p class="student-name">Katherine Velásquez</p>
+                    <p class="student-achievement">Campeona Regional</p>
+                </div>
+            </div>
+
+            <!-- Daniel -->
+            <div class="student-box">
+                <img src="ganadores/osorno-ajedrez-clases-daniel-pag.jpg" class="student-photo" alt="Daniel" onclick="openImageModal('ganadores/osorno-ajedrez-clases-daniel-pag.jpg', 'Daniel Campeón')">
+                <div class="student-info">
+                    <p class="student-name">Daniel</p>
+                    <p class="student-achievement">Campeón Queullin, Osorno, Valdivia, etc.</p>
+                </div>
+            </div>
+
+            <!-- Foto grupal Temuco -->
+            <div class="student-box">
+                <img src="ganadores/osorno-ajedrez-clases-temuco-nacional-pag.jpg" class="student-photo" alt="Grupo Temuco" onclick="openImageModal('ganadores/osorno-ajedrez-clases-temuco-nacional-pag.jpg', 'Alumnos en Temuco')">
+                <div class="student-info">
+                    <p class="student-name">Iñaki Andrade, Camila Saldias, Josefa Clerc, Katherine Velásquez, Tomás Gebauer</p>
+                    <p class="student-achievement">Participación en Nacional Temuco</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PARA +30 (Podios Nacionales) -->
     <div id="podiumModal">
         <span class="close" onclick="closeModal('podiumModal')">&times;</span>
         <h2 style="color: white; text-align: center; margin-bottom: 30px;">Podios Nacionales</h2>
@@ -311,7 +363,7 @@
         </div>
     </div>
 
-    <!-- Modal para maximizar imágenes -->
+    <!-- Modal para maximizar imágenes (sirve para todos) -->
     <div id="imageModal">
         <span class="close-image" onclick="closeImageModal()">&times;</span>
         <img id="maximizedImage" src="" alt="Imagen maximizada">
@@ -345,16 +397,20 @@
     <section id="resultados">
         <h2 class="reveal">Nuestro Impacto</h2>
         <div class="cards">
-            <div class="card reveal" onclick="openModal('studentModal')">
+            <!-- Tarjeta +1200 -->
+            <div class="card reveal" onclick="openModal('modal1200')">
                 <div class="highlight" data-target="1200">0</div>Alumnos Formados
-                <p style="font-size: 11px; color: #60a5fa;">Ver comunidad ⬇</p>
+                <p style="font-size: 11px; color: #60a5fa;">Ver destacada ⬇</p>
             </div>
-            <div class="card reveal" onclick="openModal('studentModal')">
+            <!-- Tarjeta +60 -->
+            <div class="card reveal" onclick="openModal('modal60')">
                 <div class="highlight" data-target="60">0</div>Títulos Regionales
             </div>
-            <div class="card reveal" onclick="openModal('podiumModal')"> <!-- +30 abre el nuevo modal -->
+            <!-- Tarjeta +30 -->
+            <div class="card reveal" onclick="openModal('podiumModal')">
                 <div class="highlight" data-target="30">0</div>Podios Nacionales
             </div>
+            <!-- Tarjeta +3 -->
             <div class="card reveal" onclick="openModal('studentModal')">
                 <div class="highlight" data-target="3">0</div>Títulos FIDE
             </div>
@@ -455,27 +511,25 @@
                 if (document.getElementById('imageModal').style.display === 'flex') {
                     closeImageModal();
                 }
-                if (document.getElementById('studentModal').style.display === 'flex') {
-                    closeModal('studentModal');
-                }
-                if (document.getElementById('podiumModal').style.display === 'flex') {
-                    closeModal('podiumModal');
-                }
+                ['studentModal', 'modal1200', 'modal60', 'podiumModal'].forEach(id => {
+                    if (document.getElementById(id).style.display === 'flex') {
+                        closeModal(id);
+                    }
+                });
             }
         });
 
-        // Cerrar modales haciendo clic fuera
+        // Cerrar modales haciendo clic fuera del contenido
         document.getElementById('imageModal').addEventListener('click', function(e) {
             if (e.target === this) closeImageModal();
         });
-        document.getElementById('studentModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal('studentModal');
-        });
-        document.getElementById('podiumModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal('podiumModal');
+        ['studentModal', 'modal1200', 'modal60', 'podiumModal'].forEach(id => {
+            document.getElementById(id).addEventListener('click', function(e) {
+                if (e.target === this) closeModal(id);
+            });
         });
 
-        // Contadores
+        // Contadores animados
         const counters = document.querySelectorAll('.highlight');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -503,8 +557,9 @@
         }
 
         // Prevenir cierre al hacer clic dentro del contenido de los modales
-        document.getElementById('galleryContainer')?.addEventListener('click', (e) => e.stopPropagation());
-        document.querySelector('.podium-gallery')?.addEventListener('click', (e) => e.stopPropagation());
+        document.querySelectorAll('#galleryContainer, .podium-gallery').forEach(el => {
+            el.addEventListener('click', (e) => e.stopPropagation());
+        });
     </script>
 </body>
 </html>
