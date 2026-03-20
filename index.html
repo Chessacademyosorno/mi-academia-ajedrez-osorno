@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Academy Osorno | Entrenamiento de Elite</title>
+    <meta name="description" content="Chess Academy Osorno: la academia líder en ajedrez del sur de Chile. +30 años formando campeones regionales, nacionales e internacionales. Clases para niños y adultos, beneficios cognitivos y desarrollo personal. ¡Primera clase de prueba!">
+    <meta name="keywords" content="ajedrez Osorno, clases de ajedrez, escuela de ajedrez, campeones de ajedrez, beneficios del ajedrez, Sergio Vera, entrenamiento ajedrez, academia ajedrez sur Chile">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
     <style>
@@ -65,7 +67,7 @@
         .galeria-scroll figure:hover { transform: scale(0.98); }
         .galeria-scroll img { 
             width: 100%; height: 200px; object-fit: cover; border-radius: 12px; 
-            border: 1px solid #334155; 
+            border: 1px solid #334155; background: #0f172a; /* fondo oscuro para imágenes pequeñas */
         }
         figcaption { text-align: center; font-size: 14px; margin-top: 8px; color: #94a3b8; font-weight: 600; }
         .content-box { background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid #334155; }
@@ -84,7 +86,7 @@
         }
         #galleryContainer { display: flex; flex-direction: column; gap: 20px; padding: 20px; max-width: 800px; margin: auto; padding-bottom: 100px; }
         .student-box { display: flex; align-items: center; gap: 20px; background: #0f172a; padding: 15px; border-radius: 12px; border: 1px solid #334155; width: 100%; box-sizing: border-box; }
-        .student-photo { width: 100px; height: 100px; border-radius: 8px; border: 2px solid white; flex-shrink: 0; object-fit: cover; cursor: pointer; }
+        .student-photo { width: 100px; height: 100px; border-radius: 8px; border: 2px solid white; flex-shrink: 0; object-fit: cover; background: #1e293b; cursor: pointer; }
         .student-info { background: #1e293b; padding: 10px 15px; border-radius: 8px; flex-grow: 1; border: 2px solid #000; }
         .student-name { color: #fff; font-weight: 800; font-size: 16px; margin: 0; }
         .student-achievement { color: #cbd5e1; font-weight: 600; font-size: 14px; margin: 0; }
@@ -184,6 +186,7 @@
             object-fit: cover;
             border-radius: 12px;
             border: 2px solid var(--accent);
+            background: #0f172a;
         }
         .podium-gallery figcaption {
             color: white;
@@ -236,7 +239,7 @@
             <h2 style="color: white; margin-bottom: 20px;">Nuestra Comunidad de Alumnos</h2>
             
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg" class="student-photo" alt="Constanza Treumun" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg', 'Constanza Treumun')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg" class="student-photo" alt="Constanza Treumun - Mejor deportista educación pública Osorno" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/1conii.jpg', 'Constanza Treumun')">
                 <div class="student-info">
                     <p class="student-name">Constanza Treumun</p>
                     <p class="student-achievement">Mejor deportista destacada educación pública Osorno</p>
@@ -244,7 +247,7 @@
             </div>
 
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/3pipe.jpg" class="student-photo" alt="Sergio Vera y Felipe" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/3pipe.jpg', 'Sergio Vera y Felipe')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/3pipe.jpg" class="student-photo" alt="Sergio Vera y Felipe - Ganadores I.R.T. Osorno" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/3pipe.jpg', 'Sergio Vera y Felipe')">
                 <div class="student-info">
                     <p class="student-name">Sergio Vera y Felipe</p>
                     <p class="student-achievement">Ganadores I.R.T. Osorno</p>
@@ -252,7 +255,7 @@
             </div>
 
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/5josefa.jpg" class="student-photo" alt="Josefa Clerc" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/5josefa.jpg', 'Josefa Clerc')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/5josefa.jpg" class="student-photo" alt="Josefa Clerc - Campeona Regional Pto. Montt" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/5josefa.jpg', 'Josefa Clerc')">
                 <div class="student-info">
                     <p class="student-name">Josefa Clerc</p>
                     <p class="student-achievement">Campeona Regional Pto. Montt</p>
@@ -260,7 +263,7 @@
             </div>
 
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/6antonela.jpg" class="student-photo" alt="Antonella Flores" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/6antonela.jpg', 'Antonella Flores')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/6antonela.jpg" class="student-photo" alt="Antonella Flores - Campeona Comunal Osorno" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/6antonela.jpg', 'Antonella Flores')">
                 <div class="student-info">
                     <p class="student-name">Antonella Flores</p>
                     <p class="student-achievement">Campeona Comunal Osorno</p>
@@ -269,7 +272,7 @@
 
             <!-- AGUSTÍN OJEDA -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg" class="student-photo" alt="Agustín Ojeda" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg', 'Agustín Ojeda')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg" class="student-photo" alt="Agustín Ojeda - Sudamericano de Temuco - Ranking 1970 FIDE" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-agustin-sudamericano-pag.jpg', 'Agustín Ojeda')">
                 <div class="student-info">
                     <p class="student-name">Agustín Ojeda</p>
                     <p class="student-achievement">Sudamericano de Temuco - Ranking 1970 FIDE</p>
@@ -278,7 +281,7 @@
 
             <!-- KATHERINE VELÁSQUEZ -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo" alt="Katherine Velásquez" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg', 'Katherine Velásquez')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo" alt="Katherine Velásquez - Campeona Regional" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg', 'Katherine Velásquez')">
                 <div class="student-info">
                     <p class="student-name">Katherine Velásquez</p>
                     <p class="student-achievement">Campeona Regional</p>
@@ -287,7 +290,7 @@
 
             <!-- NUEVAS INCORPORACIONES +1200 -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-kathy-pag.jpg" class="student-photo" alt="Kathy" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-kathy-pag.jpg', 'Kathy')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-kathy-pag.jpg" class="student-photo" alt="Kathy - Clases y formación" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-kathy-pag.jpg', 'Kathy')">
                 <div class="student-info">
                     <p class="student-name">Kathy</p>
                     <p class="student-achievement">Clases y formación</p>
@@ -295,7 +298,7 @@
             </div>
 
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/fran-diario-ajedrez-pag.jpg" class="student-photo" alt="Fran" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/fran-diario-ajedrez-pag.jpg', 'Fran')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/fran-diario-ajedrez-pag.jpg" class="student-photo" alt="Fran - Aparición en diario" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/fran-diario-ajedrez-pag.jpg', 'Fran')">
                 <div class="student-info">
                     <p class="student-name">Fran</p>
                     <p class="student-achievement">Aparición en diario</p>
@@ -312,7 +315,7 @@
             
             <!-- KATHERINE -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo" alt="Katherine Velásquez" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg', 'Katherine Velásquez')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg" class="student-photo" alt="Katherine Velásquez - Campeona Regional" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-kathy-campeona-pag.jpg', 'Katherine Velásquez')">
                 <div class="student-info">
                     <p class="student-name">Katherine Velásquez</p>
                     <p class="student-achievement">Campeona Regional</p>
@@ -321,7 +324,7 @@
 
             <!-- DANIEL -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-daniel-pag.jpg" class="student-photo" alt="Daniel" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-daniel-pag.jpg', 'Daniel')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-daniel-pag.jpg" class="student-photo" alt="Daniel - Campeón Queullin, Osorno, Valdivia" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-daniel-pag.jpg', 'Daniel')">
                 <div class="student-info">
                     <p class="student-name">Daniel</p>
                     <p class="student-achievement">Campeón Queullin, Osorno, Valdivia, etc.</p>
@@ -330,7 +333,7 @@
 
             <!-- GRUPO TEMUCO -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-temuco-nacional-pag.jpg" class="student-photo" alt="Grupo Temuco" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-temuco-nacional-pag.jpg', 'Grupo Temuco')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-temuco-nacional-pag.jpg" class="student-photo" alt="Grupo Temuco - Participación en Nacional Temuco" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-temuco-nacional-pag.jpg', 'Grupo Temuco')">
                 <div class="student-info">
                     <p class="student-name">Iñaki Andrade, Camila Saldias, Josefa Clerc, Katherine Velásquez, Tomás Gebauer</p>
                     <p class="student-achievement">Participación en Nacional Temuco</p>
@@ -339,7 +342,7 @@
 
             <!-- JOSEFA - 3 VECES CAMPEONA -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-josefa-campeona-pag.jpg" class="student-photo" alt="Josefa" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-josefa-campeona-pag.jpg', 'Josefa')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-josefa-campeona-pag.jpg" class="student-photo" alt="Josefa - 3 veces campeona Comunal - Provincial - Regional" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-josefa-campeona-pag.jpg', 'Josefa')">
                 <div class="student-info">
                     <p class="student-name">Josefa</p>
                     <p class="student-achievement">3 veces campeona Comunal - 3 veces campeona provincial - 3 veces campeona regional</p>
@@ -353,24 +356,24 @@
         <span class="close" onclick="closeModal('podiumModal')">&times;</span>
         <h2 style="color: white; text-align: center; margin-bottom: 30px;">Podios Nacionales</h2>
         <div class="podium-gallery">
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg', 'Leonardo Ballestero')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg" alt="Leonardo Ballestero">
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg', 'Leonardo Ballestero - Campeón de Chile sub 10')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-ballestero-santiago-pag.jpg" alt="Leonardo Ballestero - Campeón de Chile sub 10">
                 <figcaption>Leonardo Ballestero - Campeón de Chile sub 10</figcaption>
             </figure>
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-osorno-tomy-pag.jpg', 'Tomás Gebauer')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-osorno-tomy-pag.jpg" alt="Tomás Gebauer">
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-osorno-tomy-pag.jpg', 'Tomás Gebauer - 3° de Chile sub 12')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-osorno-tomy-pag.jpg" alt="Tomás Gebauer - 3° de Chile sub 12">
                 <figcaption>Tomás Gebauer - 3° de Chile sub 12</figcaption>
             </figure>
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-tomy-4-de-chile.jpg', 'Tomás Gebauer')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-tomy-4-de-chile.jpg" alt="Tomás Gebauer">
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-tomy-4-de-chile.jpg', 'Tomás Gebauer - 4° de Chile sub 12')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-clases-tomy-4-de-chile.jpg" alt="Tomás Gebauer - 4° de Chile sub 12">
                 <figcaption>Tomás Gebauer - 4° de Chile sub 12</figcaption>
             </figure>
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-camila-pag.jpg', 'Camila')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-camila-pag.jpg" alt="Camila">
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-camila-pag.jpg', 'Camila - 5° de Chile sub 14')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-camila-pag.jpg" alt="Camila - 5° de Chile sub 14">
                 <figcaption>Camila - 5° de Chile sub 14</figcaption>
             </figure>
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg', 'Felipe Vera')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg" alt="Felipe Vera">
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg', 'Felipe Vera - 4° de Chile Sub 14')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/Podium-nacionales/ajedrez-osorno-felipe-pagina.jpg" alt="Felipe Vera - 4° de Chile Sub 14">
                 <figcaption>Felipe Vera - 4° de Chile Sub 14</figcaption>
             </figure>
         </div>
@@ -411,7 +414,7 @@
         </div>
     </div>
 
-    <!-- MODAL HITOS (con imágenes corregidas) -->
+    <!-- MODAL HITOS (con imágenes corregidas y pies de foto actualizados) -->
     <div id="hitosModal" class="modal">
         <span class="close" onclick="closeModal('hitosModal')">&times;</span>
         <div id="galleryContainer">
@@ -428,7 +431,7 @@
 
             <!-- Nigel Short -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-clases-sergio-vs-nigel-short.jpg" class="student-photo" alt="Nigel Short" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-clases-sergio-vs-nigel-short.jpg', 'Nigel Short')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-clases-sergio-vs-nigel-short.jpg" class="student-photo" alt="Nigel Short - Vice Campeón del Mundo" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-clases-sergio-vs-nigel-short.jpg', 'Nigel Short')">
                 <div class="student-info">
                     <p class="student-name">Sergio Vera vs Nigel Short</p>
                     <p class="student-achievement">Nigel Short - Vice Campeón del Mundo <a href="https://es.wikipedia.org/wiki/Nigel_Short" target="_blank">(Wiki)</a></p>
@@ -437,7 +440,7 @@
 
             <!-- David Martinez Divis Chess 24 -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/condivis-ajedrez-osorno.jpg" class="student-photo" alt="David Martinez Divis" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/condivis-ajedrez-osorno.jpg', 'David Martinez Divis')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/condivis-ajedrez-osorno.jpg" class="student-photo" alt="David Martinez - Divis Chess 24" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/condivis-ajedrez-osorno.jpg', 'David Martinez Divis')">
                 <div class="student-info">
                     <p class="student-name">David Martinez</p>
                     <p class="student-achievement">Divis Chess 24</p>
@@ -446,41 +449,41 @@
 
             <!-- Rodrigo Vasquez (Doñihue) -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-vasquez-pag.jpg" class="student-photo" alt="Rodrigo Vasquez" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-vasquez-pag.jpg', 'Rodrigo Vasquez')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-vasquez-pag.jpg" class="student-photo" alt="Rodrigo Vásquez - Doñihue" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-vasquez-pag.jpg', 'Rodrigo Vásquez')">
                 <div class="student-info">
                     <p class="student-name">Rodrigo Vásquez</p>
                     <p class="student-achievement">Doñihue</p>
                 </div>
             </div>
 
-            <!-- yo valdivia.jpg -->
+            <!-- Torneo Equipos Valdivia (pie actualizado) -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/yo%20valdivia.jpg" class="student-photo" alt="Valdivia" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/yo%20valdivia.jpg', 'Valdivia')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/yo%20valdivia.jpg" class="student-photo" alt="Torneo Equipos Valdivia" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/yo%20valdivia.jpg', 'Torneo Equipos Valdivia')">
                 <div class="student-info">
-                    <p class="student-name">Torneo en Valdivia</p>
+                    <p class="student-name">Torneo Equipos Valdivia</p>
                     <p class="student-achievement">Participación destacada</p>
                 </div>
             </div>
 
-            <!-- equipo IND Stgo (NUEVA IMAGEN) -->
+            <!-- equipo IND Stgo (nueva imagen) -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/644269936_10240618183253230_3618919825864680319_n.jpg" class="student-photo" alt="equipo IND Stgo" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/644269936_10240618183253230_3618919825864680319_n.jpg', 'equipo IND Stgo')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/644269936_10240618183253230_3618919825864680319_n.jpg" class="student-photo" alt="Equipo IND Santiago" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/644269936_10240618183253230_3618919825864680319_n.jpg', 'Equipo IND Santiago')">
                 <div class="student-info">
                     <p class="student-name">Equipo IND</p>
                     <p class="student-achievement">Santiago</p>
                 </div>
             </div>
 
-            <!-- proyecto Frutillar-Fide -->
+            <!-- proyecto Frutillar-FIDE-M (pie actualizado) -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/471152819_10232432281166185_5779607782713427528_n.jpg" class="student-photo" alt="proyecto Frutillar-Fide" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/471152819_10232432281166185_5779607782713427528_n.jpg', 'proyecto Frutillar-Fide')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/471152819_10232432281166185_5779607782713427528_n.jpg" class="student-photo" alt="FIDE-M Frutillar Corfo" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/471152819_10232432281166185_5779607782713427528_n.jpg', 'FIDE-M Frutillar Corfo')">
                 <div class="student-info">
-                    <p class="student-name">Proyecto Frutillar</p>
-                    <p class="student-achievement">FIDE</p>
+                    <p class="student-name">FIDE-M. Frutillar, Corfo</p>
+                    <p class="student-achievement">Proyecto destacado</p>
                 </div>
             </div>
 
-            <!-- Nueva Imperial (ahora con la imagen que antes estaba en IND) -->
+            <!-- Nueva Imperial -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/504952307_10234164506190728_6218500350444734022_n.jpg" class="student-photo" alt="Nueva Imperial" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/504952307_10234164506190728_6218500350444734022_n.jpg', 'Nueva Imperial')">
                 <div class="student-info">
@@ -498,11 +501,11 @@
                 </div>
             </div>
 
-            <!-- Panguipulli -->
+            <!-- Open Panguipulli (pie actualizado) -->
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/555801965_10239091265409989_7978464705999615626_n.jpg" class="student-photo" alt="Panguipulli" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/555801965_10239091265409989_7978464705999615626_n.jpg', 'Panguipulli')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/555801965_10239091265409989_7978464705999615626_n.jpg" class="student-photo" alt="Open Panguipulli" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/555801965_10239091265409989_7978464705999615626_n.jpg', 'Open Panguipulli')">
                 <div class="student-info">
-                    <p class="student-name">Panguipulli</p>
+                    <p class="student-name">Open Panguipulli</p>
                     <p class="student-achievement">Torneo escolar</p>
                 </div>
             </div>
@@ -519,7 +522,7 @@
 
     <!-- MENÚ CON HITOS -->
     <nav class="navbar">
-        <a href="#"><img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logo/osorno-clases-ajedrez-logo.jpg" alt="Logo" class="logo-img"></a>
+        <a href="#"><img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logo/osorno-clases-ajedrez-logo.jpg" alt="Logo Chess Academy Osorno" class="logo-img"></a>
         <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         <ul class="menu" id="navMenu">
             <li><a href="#historia">Historia</a></li>
@@ -574,73 +577,76 @@
         <h3>Torneos Nacionales</h3>
         <div class="galeria-scroll reveal">
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional.jpg', 'Final Nacional Santiago 2017')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional.jpg" alt="Nacional 2017">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional.jpg" alt="Final Nacional Santiago 2017">
                 <figcaption>Final Nacional Santiago 2017</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional-santiago-2018.jpg', 'Santiago 2018 Nacional')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional-santiago-2018.jpg" alt="Nacional 2018">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional-santiago-2018.jpg" alt="Santiago 2018 Nacional">
                 <figcaption>Santiago 2018 Nacional</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-puertomontt2.jpg', 'Escolar de Puerto Montt')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-puertomontt2.jpg" alt="Puerto Montt">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-puertomontt2.jpg" alt="Escolar de Puerto Montt">
                 <figcaption>Escolar de Puerto Montt</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-puertomontt-regional.jpg', 'Match Osorno vs Puerto')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-puertomontt-regional.jpg" alt="Match">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-puertomontt-regional.jpg" alt="Match Osorno vs Puerto">
                 <figcaption>Match Osorno vs Puerto</figcaption>
             </figure>
-            <!-- Nuevas imágenes agregadas -->
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-premio-valdivia-pagina.jpg', 'Premio en Valdivia')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-premio-valdivia-pagina.jpg" alt="Premio Valdivia">
-                <figcaption>Premio en Valdivia</figcaption>
+            <!-- Nuevas imágenes agregadas con pies actualizados -->
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-premio-valdivia-pagina.jpg', 'Torneo Equipos Valdivia')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-premio-valdivia-pagina.jpg" alt="Torneo Equipos Valdivia">
+                <figcaption>Torneo Equipos Valdivia</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/en-dubai-ajedrez-osorno-pag.jpg', 'Experiencia en Dubái')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/en-dubai-ajedrez-osorno-pag.jpg" alt="Dubái">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/en-dubai-ajedrez-osorno-pag.jpg" alt="Experiencia en Dubái">
                 <figcaption>Experiencia en Dubái</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-pagi.jpg', 'Clases en Osorno')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-pagi.jpg" alt="Clases">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-pagi.jpg" alt="Clases en Osorno">
                 <figcaption>Clases en Osorno</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-vero-clases-pag.jpg', 'Verito y Conii en Frutillar')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-vero-clases-pag.jpg" alt="Verito y Conii">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-vero-clases-pag.jpg" alt="Verito y Conii en Frutillar">
                 <figcaption>Verito y Conii en Frutillar</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-clases-premios-pag.jpg', 'Osorno con mis Amigos Alex y Emilio')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-clases-premios-pag.jpg" alt="Alex y Emilio">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-clases-premios-pag.jpg" alt="Osorno con Alex y Emilio">
                 <figcaption>Osorno con mis Amigos Alex y Emilio</figcaption>
             </figure>
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-felipe-sergio-pag.jpg', 'Sergio y Felipe Primeros logros')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-felipe-sergio-pag.jpg" alt="Sergio y Felipe">
-                <figcaption>Sergio y Felipe Primeros logros</figcaption>
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-felipe-sergio-pag.jpg', 'Sergio y Felipe - Primeros logros')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-felipe-sergio-pag.jpg" alt="Sergio y Felipe - Primeros logros">
+                <figcaption>Sergio y Felipe - Primeros logros</figcaption>
             </figure>
         </div>
 
         <h3 style="margin-top:40px">Presencia Internacional</h3>
         <div class="galeria-scroll reveal">
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero1.jpg', 'Sergio Vera Internacional Bariloche')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero1.jpg" alt="Bariloche">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero1.jpg" alt="Sergio Vera en Bariloche">
                 <figcaption>Sergio Vera Internacional Bariloche</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero2.jpg', 'Mundial sub 8 Brasil')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero2.jpg" alt="Brasil">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero2.jpg" alt="Mundial sub 8 Brasil">
                 <figcaption>Mundial sub 8 Brasil</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero3.jpg', 'Sudamericano Paraguay')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero3.jpg" alt="Paraguay">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero3.jpg" alt="Sudamericano Paraguay">
                 <figcaption>Sudamericano Paraguay</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero4.jpg', 'Jugando en Lima, Perú')">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero4.jpg" alt="Lima">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero4.jpg" alt="Jugando en Lima, Perú">
                 <figcaption>Jugando en Lima, Perú</figcaption>
             </figure>
         </div>
     </section>
 
-    <!-- SECCIÓN BLOG -->
-    <section id="blog">
-        <h2 class="reveal">Blog: Ajedrez, Escuela y Vida</h2>
-        <div class="blog-content reveal">
+    <!-- SECCIÓN BLOG con Schema Article -->
+    <section id="blog" itemscope itemtype="https://schema.org/Article">
+        <h2 class="reveal" itemprop="name">Blog: Ajedrez, Escuela y Vida</h2>
+        <div class="blog-content reveal" itemprop="articleBody">
+            <meta itemprop="author" content="Sergio Vera S.">
+            <meta itemprop="datePublished" content="2026-03-20">
+            <meta itemprop="description" content="Beneficios del ajedrez en niños y adultos, la importancia de perder y comenzar de nuevo, y cómo el ajedrez forma personas resilientes.">
             <h3>Beneficios del ajedrez en la etapa escolar</h3>
             <p>El ajedrez no es solo un juego, es una herramienta pedagógica que transforma la manera de pensar de niños y jóvenes. En la etapa escolar, practicar ajedrez de forma regular desarrolla habilidades cognitivas fundamentales: mejora la concentración, la memoria y la capacidad de resolución de problemas. Cada partida es un ejercicio de paciencia y análisis, donde el alumno aprende a planificar con anticipación y a evaluar consecuencias. Estudios han demostrado que los niños que juegan ajedrez tienden a obtener mejores resultados en matemáticas y comprensión lectora, ya que el juego fortalece el pensamiento lógico y la creatividad.</p>
             <p>Además, el ajedrez enseña disciplina y gestión del tiempo. Durante una partida, los pequeños deben administrar su reloj, tomar decisiones bajo presión y mantener la calma ante situaciones complejas. Estas habilidades se trasladan directamente al aula y a la vida cotidiana, formando estudiantes más resilientes y autónomos.</p>
@@ -669,7 +675,7 @@
         </form>
     </section>
 
-    <a class="whatsapp" href="https://wa.me/56981772160" target="_blank">💬</a>
+    <a class="whatsapp" href="https://wa.me/56981772160" target="_blank" aria-label="Contactar por WhatsApp">💬</a>
 
     <footer>
         <p>Chess Academy Osorno © 2026 | Osorno, Chile</p>
@@ -677,8 +683,12 @@
 
     <script>
         function openModal(id) { 
-            document.getElementById(id).style.display = 'flex'; 
-            document.body.style.overflow = 'hidden'; 
+            const modal = document.getElementById(id);
+            modal.style.display = 'flex'; 
+            document.body.style.overflow = 'hidden';
+            // Mover el foco al botón de cerrar para accesibilidad
+            const closeBtn = modal.querySelector('.close');
+            if (closeBtn) closeBtn.focus();
         }
         function closeModal(id) { 
             document.getElementById(id).style.display = 'none'; 
@@ -694,6 +704,13 @@
             document.getElementById('imageModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
+        // Trampa de foco dentro del modal
+        function trapFocus(event, modal) {
+            if (!modal.contains(document.activeElement)) {
+                const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusable.length) focusable[0].focus();
+            }
+        }
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 if (document.getElementById('imageModal').style.display === 'flex') {
@@ -704,6 +721,29 @@
                         closeModal(id);
                     }
                 });
+            }
+            // Mantener foco dentro del modal abierto
+            const openModal = Array.from(document.querySelectorAll('.modal')).find(m => m.style.display === 'flex');
+            if (openModal && e.key === 'Tab') {
+                e.preventDefault();
+                const focusable = openModal.querySelectorAll('.close, button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusable.length === 0) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey) {
+                    if (document.activeElement === first) {
+                        last.focus();
+                    } else {
+                        first.focus();
+                    }
+                } else {
+                    if (document.activeElement === last) {
+                        first.focus();
+                    } else {
+                        const index = Array.from(focusable).indexOf(document.activeElement);
+                        focusable[(index + 1) % focusable.length].focus();
+                    }
+                }
             }
         });
         document.getElementById('imageModal').addEventListener('click', function(e) {
