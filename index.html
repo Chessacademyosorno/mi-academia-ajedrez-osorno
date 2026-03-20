@@ -190,6 +190,36 @@
             margin-top: 8px;
             font-weight: 600;
         }
+        /* Blog section styles */
+        .blog-content {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #334155;
+        }
+        .blog-content p {
+            margin-bottom: 1.5em;
+            font-size: 1.1rem;
+        }
+        .blog-content h3 {
+            margin-top: 2em;
+            color: #60a5fa;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
+        .blog-highlight {
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 16px;
+            border-left: 6px solid var(--accent);
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #cbd5e1;
+        }
+        @media (max-width: 768px) {
+            .navbar { padding: 10px 20px; }
+        }
     </style>
 </head>
 <body>
@@ -460,6 +490,28 @@
         </div>
     </section>
 
+    <!-- NUEVA SECCIÓN BLOG -->
+    <section id="blog">
+        <h2 class="reveal">Blog: Ajedrez, Escuela y Vida</h2>
+        <div class="blog-content reveal">
+            <h3>Beneficios del ajedrez en la etapa escolar</h3>
+            <p>El ajedrez no es solo un juego, es una herramienta pedagógica que transforma la manera de pensar de niños y jóvenes. En la etapa escolar, practicar ajedrez de forma regular desarrolla habilidades cognitivas fundamentales: mejora la concentración, la memoria y la capacidad de resolución de problemas. Cada partida es un ejercicio de paciencia y análisis, donde el alumno aprende a planificar con anticipación y a evaluar consecuencias. Estudios han demostrado que los niños que juegan ajedrez tienden a obtener mejores resultados en matemáticas y comprensión lectora, ya que el juego fortalece el pensamiento lógico y la creatividad.</p>
+            <p>Además, el ajedrez enseña disciplina y gestión del tiempo. Durante una partida, los pequeños deben administrar su reloj, tomar decisiones bajo presión y mantener la calma ante situaciones complejas. Estas habilidades se trasladan directamente al aula y a la vida cotidiana, formando estudiantes más resilientes y autónomos.</p>
+            
+            <h3>Beneficios del ajedrez en adultos</h3>
+            <p>En la edad adulta, el ajedrez se convierte en un aliado para mantener la mente activa y prevenir el deterioro cognitivo. Diversas investigaciones asocian la práctica regular del ajedrez con una menor incidencia de enfermedades neurodegenerativas como el Alzheimer. El constante ejercicio de calcular variantes, reconocer patrones y elaborar estrategias mantiene las conexiones neuronales en forma.</p>
+            <p>Para los adultos, el ajedrez también es un espacio de socialización y desconexión del estrés diario. Las reuniones de club, los torneos o simplemente una partida con amigos generan vínculos y un sano entretenimiento. Muchos encuentran en el tablero un refugio donde el tiempo se detiene y solo importa la batalla intelectual, lo que ayuda a equilibrar la rutina laboral y familiar.</p>
+            
+            <div class="blog-highlight">
+                ♟️ <strong>La lección más valiosa: perder y volver a empezar</strong><br>
+                En el ajedrez, como en la vida, se pierde más de lo que se gana. Cada derrota es una oportunidad disfrazada: el tablero te muestra sin piedad tus errores, te obliga a revisar tus decisiones y te invita a intentarlo de nuevo. Los grandes maestros no son quienes nunca han perdido, sino quienes supieron levantarse después de cada caída. Aprender a perder con dignidad, analizar la partida y extraer enseñanzas es una habilidad que trasciende el deporte. Enseña humildad, perseverancia y la certeza de que siempre se puede recomenzar. En la academia inculcamos ese valor: el error no es un fracaso, es un paso más hacia la maestría.
+            </div>
+            
+            <h3>El ajedrez como escuela de vida</h3>
+            <p>Tanto en niños como en adultos, el ajedrez desarrolla la inteligencia emocional. Controlar la frustración tras una mala jugada, celebrar con respeto una victoria y mantener la concentración durante horas son lecciones que forman el carácter. En un mundo que exige respuestas rápidas, el ajedrez nos recuerda el valor de la pausa, la reflexión y la estrategia a largo plazo. Por eso, en Chess Academy Osorno no solo formamos jugadores, formamos personas capaces de enfrentar los desafíos con la misma lógica y temple que aplican sobre el tablero.</p>
+        </div>
+    </section>
+
     <section id="inscripciones">
         <h2 class="reveal">Contacto</h2>
         <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST" class="reveal">
@@ -535,9 +587,27 @@
         }, {threshold: 0.5});
         counters.forEach(c => observer.observe(c));
         ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 700 });
+        
+        // Mobile menu toggle
         function toggleMenu() { 
             document.getElementById("navMenu").classList.toggle("active"); 
         }
+
+        // Cerrar menú al hacer scroll (mejora solicitada)
+        window.addEventListener('scroll', function() {
+            const menu = document.getElementById('navMenu');
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace (opcional pero mejora UX)
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
         document.querySelectorAll('#galleryContainer, .podium-gallery').forEach(el => {
             if (el) el.addEventListener('click', (e) => e.stopPropagation());
         });
