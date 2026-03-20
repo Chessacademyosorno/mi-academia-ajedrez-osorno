@@ -88,6 +88,7 @@
         .student-info { background: #1e293b; padding: 10px 15px; border-radius: 8px; flex-grow: 1; border: 2px solid #000; }
         .student-name { color: #fff; font-weight: 800; font-size: 16px; margin: 0; }
         .student-achievement { color: #cbd5e1; font-weight: 600; font-size: 14px; margin: 0; }
+        .student-achievement a { color: #60a5fa; text-decoration: underline; }
         #imageModal {
             display: none;
             position: fixed;
@@ -189,6 +190,11 @@
             text-align: center;
             margin-top: 8px;
             font-weight: 600;
+            font-size: 16px;
+            background: rgba(0,0,0,0.7);
+            padding: 5px;
+            border-radius: 6px;
+            text-shadow: 1px 1px 2px black;
         }
         /* Blog section styles */
         .blog-content {
@@ -276,6 +282,23 @@
                 <div class="student-info">
                     <p class="student-name">Katherine Velásquez</p>
                     <p class="student-achievement">Campeona Regional</p>
+                </div>
+            </div>
+
+            <!-- NUEVAS INCORPORACIONES +1200 -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-kathy-pag.jpg" class="student-photo" alt="Kathy" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-clases-kathy-pag.jpg', 'Kathy')">
+                <div class="student-info">
+                    <p class="student-name">Kathy</p>
+                    <p class="student-achievement">Clases y formación</p>
+                </div>
+            </div>
+
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/fran-diario-ajedrez-pag.jpg" class="student-photo" alt="Fran" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/fran-diario-ajedrez-pag.jpg', 'Fran')">
+                <div class="student-info">
+                    <p class="student-name">Fran</p>
+                    <p class="student-achievement">Aparición en diario</p>
                 </div>
             </div>
         </div>
@@ -388,6 +411,104 @@
         </div>
     </div>
 
+    <!-- NUEVO MODAL HITOS -->
+    <div id="hitosModal" class="modal">
+        <span class="close" onclick="closeModal('hitosModal')">&times;</span>
+        <div id="galleryContainer">
+            <h2 style="color: white; margin-bottom: 20px;">Hitos y Momentos Destacados</h2>
+            
+            <!-- Nacional Santo Tomas Stgo -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/468207623_10232126365878494_550755984105368113_n.jpg" class="student-photo" alt="Nacional Santo Tomas Stgo" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/468207623_10232126365878494_550755984105368113_n.jpg', 'Nacional Santo Tomas Stgo')">
+                <div class="student-info">
+                    <p class="student-name">Nacional Santo Tomas</p>
+                    <p class="student-achievement">Santiago</p>
+                </div>
+            </div>
+
+            <!-- Nigel Short -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/ajedrez-clases-sergio-vs-nigel-short.jpg" class="student-photo" alt="Nigel Short" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/ajedrez-clases-sergio-vs-nigel-short.jpg', 'Nigel Short')">
+                <div class="student-info">
+                    <p class="student-name">Sergio Vera vs Nigel Short</p>
+                    <p class="student-achievement">Nigel Short - Vice Campeón del Mundo <a href="https://es.wikipedia.org/wiki/Nigel_Short" target="_blank">(Wiki)</a></p>
+                </div>
+            </div>
+
+            <!-- David Martinez Divis Chess 24 -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/condivis-ajedrez-osorno.jpg" class="student-photo" alt="David Martinez Divis" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/condivis-ajedrez-osorno.jpg', 'David Martinez Divis')">
+                <div class="student-info">
+                    <p class="student-name">David Martinez</p>
+                    <p class="student-achievement">Divis Chess 24</p>
+                </div>
+            </div>
+
+            <!-- Rodrigo Vasquez (Doñihue) -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/ajedrez-osorno-clases-vasquez-pag.jpg" class="student-photo" alt="Rodrigo Vasquez" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/ajedrez-osorno-clases-vasquez-pag.jpg', 'Rodrigo Vasquez')">
+                <div class="student-info">
+                    <p class="student-name">Rodrigo Vásquez</p>
+                    <p class="student-achievement">Doñihue</p>
+                </div>
+            </div>
+
+            <!-- yo valdivia.jpg -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/yo%20valdivia.jpg" class="student-photo" alt="Valdivia" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/yo%20valdivia.jpg', 'Valdivia')">
+                <div class="student-info">
+                    <p class="student-name">Torneo en Valdivia</p>
+                    <p class="student-achievement">Participación destacada</p>
+                </div>
+            </div>
+
+            <!-- equipo IND Stgo -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/504952307_10234164506190728_6218500350444734022_n.jpg" class="student-photo" alt="equipo IND Stgo" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/504952307_10234164506190728_6218500350444734022_n.jpg', 'equipo IND Stgo')">
+                <div class="student-info">
+                    <p class="student-name">Equipo IND</p>
+                    <p class="student-achievement">Santiago</p>
+                </div>
+            </div>
+
+            <!-- proyecto Frutillar-Fide -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/471152819_10232432281166185_5779607782713427528_n.jpg" class="student-photo" alt="proyecto Frutillar-Fide" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/471152819_10232432281166185_5779607782713427528_n.jpg', 'proyecto Frutillar-Fide')">
+                <div class="student-info">
+                    <p class="student-name">Proyecto Frutillar</p>
+                    <p class="student-achievement">FIDE</p>
+                </div>
+            </div>
+
+            <!-- Nueva Imperial (repetido nombre? lo diferenciamos con otro texto) -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/504952307_10234164506190728_6218500350444734022_n%20(1).jpg" class="student-photo" alt="Nueva Imperial" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/504952307_10234164506190728_6218500350444734022_n%20(1).jpg', 'Nueva Imperial')">
+                <div class="student-info">
+                    <p class="student-name">Nueva Imperial</p>
+                    <p class="student-achievement">Torneo local</p>
+                </div>
+            </div>
+
+            <!-- Calbuco -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/507019567_10234310486600147_4485116911315958202_n.jpg" class="student-photo" alt="Calbuco" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/507019567_10234310486600147_4485116911315958202_n.jpg', 'Calbuco')">
+                <div class="student-info">
+                    <p class="student-name">Calbuco</p>
+                    <p class="student-achievement">Torneo regional</p>
+                </div>
+            </div>
+
+            <!-- Panguipulli -->
+            <div class="student-box">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/555801965_10239091265409989_7978464705999615626_n.jpg" class="student-photo" alt="Panguipulli" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/hitos/555801965_10239091265409989_7978464705999615626_n.jpg', 'Panguipulli')">
+                <div class="student-info">
+                    <p class="student-name">Panguipulli</p>
+                    <p class="student-achievement">Torneo escolar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal para maximizar imágenes -->
     <div id="imageModal">
         <span class="close-image" onclick="closeImageModal()">&times;</span>
@@ -396,7 +517,7 @@
         <div class="click-hint">Haz clic fuera o presiona ESC para cerrar</div>
     </div>
 
-    <!-- MENÚ EXACTO COMO LO PEDISTE -->
+    <!-- MENÚ CON HITOS -->
     <nav class="navbar">
         <a href="#"><img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logo/osorno-clases-ajedrez-logo.jpg" alt="Logo" class="logo-img"></a>
         <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
@@ -405,6 +526,7 @@
             <li><a href="#resultados">Logros</a></li>
             <li><a href="#galeria">Galería</a></li>
             <li><a href="#blog">Blog</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('hitosModal')">Hitos</a></li>
             <li><a href="#inscripciones">Contacto</a></li>
         </ul>
     </nav>
@@ -490,7 +612,7 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN BLOG -->
+    <!-- SECCIÓN BLOG (ya existente) -->
     <section id="blog">
         <h2 class="reveal">Blog: Ajedrez, Escuela y Vida</h2>
         <div class="blog-content reveal">
@@ -552,7 +674,7 @@
                 if (document.getElementById('imageModal').style.display === 'flex') {
                     closeImageModal();
                 }
-                ['studentModal', 'modal60', 'podiumModal', 'logrosModal'].forEach(id => {
+                ['studentModal', 'modal60', 'podiumModal', 'logrosModal', 'hitosModal'].forEach(id => {
                     if (document.getElementById(id).style.display === 'flex') {
                         closeModal(id);
                     }
@@ -562,7 +684,7 @@
         document.getElementById('imageModal').addEventListener('click', function(e) {
             if (e.target === this) closeImageModal();
         });
-        ['studentModal', 'modal60', 'podiumModal', 'logrosModal'].forEach(id => {
+        ['studentModal', 'modal60', 'podiumModal', 'logrosModal', 'hitosModal'].forEach(id => {
             document.getElementById(id).addEventListener('click', function(e) {
                 if (e.target === this) closeModal(id);
             });
