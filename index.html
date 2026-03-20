@@ -21,7 +21,6 @@
             background: var(--bg-dark); color: var(--text-light); 
             line-height: 1.6; overflow-x: hidden; 
         }
-        /* navbar */
         .navbar { 
             position: fixed; top: 0; width: 100%; background: var(--nav-bg); 
             display: flex; justify-content: space-between; align-items: center; 
@@ -50,7 +49,6 @@
             .menu.active { height: 100vh; padding-top: 40px; opacity: 1; }
             .lang-switch { margin-left: 0; margin-top: 10px; }
         }
-        /* header */
         header { 
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional-santiago-2018.jpg"); 
             background-size: cover; background-position: center; 
@@ -89,7 +87,6 @@
             background: #059669;
         }
         .hero-points { margin: 20px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; color: #60a5fa; font-weight: 600; }
-        /* floating button left */
         .floating-class {
             position: fixed;
             bottom: 25px;
@@ -123,7 +120,6 @@
             align-items: center; justify-content: center; font-size: 30px; 
             color: white; z-index: 1000; text-decoration: none; 
         }
-        /* section dividers */
         .section-divider {
             width: 80%;
             height: 1px;
@@ -169,9 +165,19 @@
         }
         figcaption { text-align: center; font-size: 14px; margin-top: 8px; color: #94a3b8; font-weight: 600; }
         .content-box { background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid #334155; }
-        /* historia sin imagen */
-        .historia-container {
-            display: block;
+        .historia-container { display: block; }
+        .estudio-container {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #334155;
+            text-align: center;
+        }
+        .estudio-container iframe {
+            max-width: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            background: #0f172a;
         }
         form { background: #1e293b; padding: 30px; border-radius: 20px; max-width: 500px; margin: auto; }
         input { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
@@ -312,7 +318,6 @@
             border-radius: 6px;
             text-shadow: 1px 1px 2px black;
         }
-        /* Blog */
         .blog-content {
             background: #1e293b;
             padding: 40px;
@@ -407,7 +412,7 @@
                     <p class="student-achievement">Aparición en diario</p>
                 </div>
             </div>
-            <!-- Verito con nombre corregido (sin ñ) -->
+            <!-- Verito con nombre corregido -->
             <div class="student-box">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/verita-clases-ajedrez-tablero-pag.jpg" class="student-photo" alt="Verito" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/verita-clases-ajedrez-tablero-pag.jpg', 'Verito')">
                 <div class="student-info">
@@ -616,6 +621,7 @@
             <li><a href="#historia">Historia</a></li>
             <li><a href="#resultados">Logros</a></li>
             <li><a href="#galeria">Galería</a></li>
+            <li><a href="#estudio">Estudio</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="javascript:void(0)" onclick="openModal('hitosModal')">Hitos</a></li>
             <li><a href="#inscripciones">Contacto</a></li>
@@ -623,7 +629,7 @@
         </ul>
     </nav>
 
-    <!-- Header con badge online que enlaza a WhatsApp -->
+    <!-- Header -->
     <header>
         <span class="fide-badge">Instructor FIDE</span>
         <h1 class="reveal">Chess Academy Osorno</h1>
@@ -665,7 +671,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- Historia (sin imagen de Verito) -->
+    <!-- Historia -->
     <section id="historia">
         <h2 class="reveal">Trayectoria de la Academia</h2>
         <div class="content-box reveal historia-container">
@@ -675,7 +681,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- Galería (Dubái se queda con pie "Chess Academy Osorno") -->
+    <!-- Galería (con Dubái restaurada) -->
     <section id="galeria">
         <h2 class="reveal">Galería Visual</h2>
         <h3>Torneos Nacionales</h3>
@@ -696,7 +702,6 @@
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-puertomontt-regional.jpg" alt="Match">
                 <figcaption>Match Osorno vs Puerto</figcaption>
             </figure>
-            <!-- Premio Valdivia como campeón en Open La Unión -->
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-premio-valdivia-pagina.jpg', 'campeón en Open La Unión')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-premio-valdivia-pagina.jpg" alt="campeón en Open La Unión">
                 <figcaption>campeón en Open La Unión</figcaption>
@@ -741,6 +746,17 @@
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero4.jpg" alt="Lima">
                 <figcaption>Jugando en Lima, Perú</figcaption>
             </figure>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- NUEVA SECCIÓN: ESTUDIO INTERACTIVO -->
+    <section id="estudio">
+        <h2 class="reveal">Estudio: Mate del Caballo</h2>
+        <div class="estudio-container reveal">
+            <iframe src="https://lichess.org/study/embed/6XtGGyp2/2HgoyyOg?theme=auto&bg=auto" width="100%" height="500" frameborder="0"></iframe>
+            <p style="margin-top: 15px; color: #94a3b8;">Explora las posiciones y aprende los mates con caballo. Estudia, juega y mejora.</p>
         </div>
     </section>
 
