@@ -316,7 +316,12 @@
         .btn { display: inline-block; padding: 14px 28px; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; border: none; width: 100%; cursor: pointer; text-align: center; }
         .btn-secondary { background: transparent; border: 1px solid var(--accent); margin-top: 10px; }
         .btn-secondary:hover { background: rgba(37, 99, 235, 0.18); }
+        .btn-instagram { background: #e1306c; margin-top: 10px; }
+        .btn-instagram:hover { background: #c13584; }
         .contact-note { max-width: 500px; margin: 14px auto 0; color: #94a3b8; font-size: 14px; text-align: center; }
+        .footer-social { margin-top: 10px; }
+        .footer-social a { color: #60a5fa; text-decoration: none; font-weight: 800; }
+        .footer-social a:hover { color: #93c5fd; }
         footer { background: #020617; text-align: center; padding: 30px; color: #94a3b8; font-size: 14px; }
         .modal {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
@@ -1152,6 +1157,7 @@
             </select>
             <textarea name="Mensaje" placeholder="Cuéntanos tu objetivo: aprender desde cero, mejorar, preparar torneos, clases para niños, etc." required></textarea>
             <button class="btn" type="submit">Enviar Solicitud</button>
+            <a class="btn btn-instagram" href="https://www.instagram.com/ajedrezchessacademyosorno1/" target="_blank" rel="noopener">Instagram</a>
             <button class="btn btn-secondary" type="button" onclick="compartirSitio()">Compartir página</button>
         </form>
         <p class="contact-note">También puedes escribir directo por WhatsApp para coordinar horarios.</p>
@@ -1160,6 +1166,7 @@
     <!-- Footer -->
     <footer>
         <p>Chess Academy Osorno</p>
+        <p class="footer-social"><a href="https://www.instagram.com/ajedrezchessacademyosorno1/" target="_blank" rel="noopener">Instagram @ajedrezchessacademyosorno1</a></p>
     </footer>
 
     <script>
