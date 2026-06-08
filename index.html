@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Academy Osorno | Entrenamiento de Elite</title>
-    <meta name="description" content="Chess Academy Osorno: la academia líder en ajedrez del sur de Chile. +30 años formando campeones regionales, nacionales e internacionales. Clases para niños y adultos, beneficios cognitivos y desarrollo personal. ¡Primera clase de prueba!">
-    <meta name="keywords" content="ajedrez Osorno, clases de ajedrez, escuela de ajedrez, campeones de ajedrez, beneficios del ajedrez, Sergio Vera, entrenamiento ajedrez, academia ajedrez sur Chile">
+    <title>Chess Academy Osorno | Clases de Ajedrez en Osorno y Online</title>
+    <meta name="description" content="Chess Academy Osorno: clases de ajedrez en Osorno y online para niños, adultos y jugadores de torneo. +30 años formando campeones provinciales, regionales y nacionales. Primera clase de prueba.">
+    <meta name="keywords" content="ajedrez Osorno, clases de ajedrez Osorno, academia de ajedrez Osorno, escuela de ajedrez, campeones provinciales ajedrez, campeones regionales ajedrez, campeones nacionales ajedrez, Sergio Vera, entrenamiento ajedrez">
+    <link rel="canonical" href="https://chessacademyosorno.cl/">
     <meta property="og:title" content="Chess Academy Osorno">
     <meta property="og:description" content="Clases de ajedrez en Osorno y online para niños, adultos y jugadores de torneo. Primera clase de prueba.">
     <meta property="og:image" content="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional-santiago-2018.jpg">
@@ -89,11 +90,12 @@
         .menu a { color: #cbd5e1; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: .3s; }
         .menu a:hover { color: #60a5fa; }
         .lang-switch { 
-            background: transparent; border: 1px solid var(--accent); color: white; 
-            border-radius: 20px; padding: 4px 12px; font-size: 12px; cursor: pointer;
-            transition: 0.3s; margin-left: 10px;
+            background: rgba(15, 23, 42, 0.92); border: 1px solid var(--accent); color: white; 
+            border-radius: 20px; padding: 5px 28px 5px 12px; font-size: 12px; cursor: pointer;
+            transition: 0.3s; margin-left: 10px; font-weight: 700;
         }
         .lang-switch:hover { background: var(--accent); }
+        .lang-switch option { color: #0f172a; background: white; }
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: transparent; border: 0; padding: 8px; }
         .menu-toggle span { width: 25px; height: 3px; background: white; }
         @media (max-width: 768px) {
@@ -110,7 +112,12 @@
         header { 
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional-santiago-2018.jpg"); 
             background-size: cover; background-position: center; 
-            padding: 160px 20px 80px; text-align: center; 
+            min-height: 74vh;
+            padding: 150px 20px 80px; text-align: center; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         header h1 { font-size: clamp(30px, 6vw, 52px); margin: 0; font-weight: 800; }
         .header-sub { 
@@ -144,7 +151,64 @@
         .online-badge:hover {
             background: #059669;
         }
-        .hero-points { margin: 20px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; color: #60a5fa; font-weight: 600; }
+        .hero-points { margin: 20px 0; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; color: #dbeafe; font-weight: 600; }
+        .hero-points span {
+            background: rgba(15, 23, 42, 0.72);
+            border: 1px solid rgba(96,165,250,0.26);
+            border-radius: 999px;
+            padding: 8px 13px;
+            backdrop-filter: blur(8px);
+        }
+        .hero-note {
+            margin-top: 10px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+        .hero-proof {
+            width: min(520px, 92vw);
+            margin: 28px auto 0;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(96,165,250,0.45);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.38);
+            background: #0f172a;
+        }
+        .hero-proof img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        .hero-proof figcaption {
+            margin: 0;
+            padding: 10px 14px;
+            background: rgba(2,6,23,0.92);
+            color: #dbeafe;
+            font-size: 13px;
+        }
+        .impact-proof {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+            gap: 22px;
+            align-items: center;
+            margin-top: 28px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 18px;
+        }
+        .impact-proof .hero-proof {
+            width: 100%;
+            margin: 0;
+        }
+        .impact-copy h3 {
+            margin: 0 0 10px;
+        }
+        .impact-copy p {
+            color: #cbd5e1;
+            line-height: 1.55;
+            margin: 0;
+        }
         /* floating button left */
         .floating-class {
             position: fixed;
@@ -186,25 +250,51 @@
             background: #1e293b;
             margin: 0 auto;
         }
-        section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+        section { padding: 60px 20px; max-width: 1100px; margin: auto; scroll-margin-top: 92px; }
         h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: var(--accent); }
         h3 { color: #60a5fa; border-left: 4px solid var(--accent); padding-left: 15px; margin: 40px 0 20px; }
         .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .card { 
-            background: #1e293b; padding: 25px; border-radius: 16px; text-align: center; 
+            background: linear-gradient(180deg, rgba(30,41,59,0.96), rgba(15,23,42,0.96));
+            padding: 25px; border-radius: 16px; text-align: center; 
+            border: 1px solid rgba(96,165,250,0.22);
             border-bottom: 4px solid var(--accent); cursor: pointer; transition: 0.3s ease; 
+            box-shadow: 0 14px 30px rgba(0,0,0,0.24);
         }
         .card:hover { 
             transform: translateY(-5px); 
             box-shadow: 0 15px 30px rgba(0,0,0,0.6);
         }
-        .highlight { font-size: 40px; font-weight: 800; color: white; }
+        .highlight { display: block; min-height: 52px; font-size: 40px; font-weight: 800; color: white; line-height: 1.15; }
         .plan-title { font-size: 40px; font-weight: 800; color: white; }
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-top: 22px;
+        }
+        .achievement-item {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 16px;
+        }
+        .achievement-item strong {
+            display: block;
+            color: #93c5fd;
+            margin-bottom: 6px;
+        }
         .method-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 18px;
             margin-top: 22px;
+        }
+        .method-lead {
+            color: #dbeafe;
+            font-size: 1.06rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
         }
         .method-step {
             background: #0f172a;
@@ -247,6 +337,7 @@
         .galeria-scroll img { 
             width: 100%; height: 200px; object-fit: cover; border-radius: 12px; 
             border: 1px solid #334155; background: #0f172a;
+            -webkit-touch-callout: default;
         }
         .netflix-gallery {
             display: flex;
@@ -284,6 +375,7 @@
             object-fit: cover;
             display: block;
             filter: saturate(1.06) contrast(1.02);
+            -webkit-touch-callout: default;
         }
         .netflix-gallery figcaption {
             position: absolute;
@@ -489,6 +581,85 @@
             font-size: 1.2rem;
             color: #cbd5e1;
         }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px;
+            margin: 18px 0 24px;
+        }
+        .benefit-chip {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 16px;
+            color: #cbd5e1;
+        }
+        .benefit-chip strong {
+            display: block;
+            color: #93c5fd;
+            margin-bottom: 6px;
+        }
+        .service-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.05fr);
+            gap: 22px;
+            align-items: stretch;
+        }
+        .service-photo {
+            margin: 0;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(96,165,250,0.28);
+            background: #0f172a;
+            cursor: pointer;
+            min-height: 100%;
+        }
+        .service-photo img {
+            width: 100%;
+            height: 100%;
+            max-height: 360px;
+            min-height: 260px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.28s ease, filter 0.28s ease;
+        }
+        .service-photo:hover img {
+            transform: scale(1.035);
+            filter: brightness(1.08);
+        }
+        .service-photo figcaption {
+            padding: 12px 14px;
+            background: rgba(2,6,23,0.94);
+            color: #dbeafe;
+            font-size: 13px;
+        }
+        .service-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .service-copy > p {
+            margin: 0;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .service-card {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 16px;
+            color: #cbd5e1;
+        }
+        .service-card strong {
+            display: block;
+            color: #93c5fd;
+            margin-bottom: 7px;
+        }
         details {
             background: #1e293b;
             border: 1px solid #334155;
@@ -507,7 +678,7 @@
         }
         @media (max-width: 768px) {
             .navbar { padding: 10px 20px; }
-            header { padding-top: 130px; }
+            header { min-height: 72vh; padding-top: 124px; }
             .floating-class { font-size: 13px; padding: 0 14px; height: 44px; bottom: 18px; left: 14px; max-width: calc(100vw - 96px); }
             .whatsapp { width: 54px; height: 54px; bottom: 16px; right: 14px; }
             section { padding: 46px 16px; }
@@ -515,17 +686,21 @@
             .student-box { align-items: flex-start; gap: 12px; }
             .student-photo { width: 82px; height: 82px; }
             .netflix-gallery figure { min-width: 82vw; height: 190px; }
+            .impact-proof { grid-template-columns: 1fr; }
+            .service-layout { grid-template-columns: 1fr; }
+            .service-grid { grid-template-columns: 1fr; }
+            .service-photo img { min-height: 230px; }
         }
         @media (max-width: 420px) {
             .floating-class {
-                font-size: 0;
-                width: 54px;
-                padding: 0;
-                border-radius: 50%;
+                font-size: 12px;
+                width: auto;
+                padding: 0 12px;
+                border-radius: 999px;
             }
             .floating-class::before {
-                content: "1ª";
-                font-size: 15px;
+                content: "";
+                font-size: 0;
             }
         }
         @media (prefers-reduced-motion: reduce) {
@@ -807,57 +982,74 @@
         <a href="#"><img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/logo/osorno-clases-ajedrez-logo.jpg" alt="Logo" class="logo-img"></a>
         <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú"><span></span><span></span><span></span></button>
         <ul class="menu" id="navMenu">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#historia">Historia</a></li>
-            <li><a href="#resultados">Logros</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#planes">Planes</a></li>
-            <li><a href="#metodo">Método</a></li>
-            <li><a href="#faq">Dudas</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="javascript:void(0)" onclick="openModal('hitosModal')">Hitos</a></li>
-            <li><a href="#inscripciones">Contacto</a></li>
-            <li><button class="lang-switch" onclick="toggleLang()">🌐 ES/EN</button></li>
+            <li><a href="#" data-i18n="navHome">Inicio</a></li>
+            <li><a href="#historia" data-i18n="navHistory">Historia</a></li>
+            <li><a href="#resultados" data-i18n="navAchievements">Logros</a></li>
+            <li><a href="#galeria" data-i18n="navGallery">Galería</a></li>
+            <li><a href="#planes" data-i18n="navPlans">Planes</a></li>
+            <li><a href="#metodo" data-i18n="navMethod">Método</a></li>
+            <li><a href="#faq" data-i18n="navFaq">Dudas</a></li>
+            <li><a href="#arbitraje" data-i18n="navServices">Arbitraje</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('hitosModal')" data-i18n="navMilestones">Hitos</a></li>
+            <li><a href="#inscripciones" data-i18n="navContact">Contacto</a></li>
+            <li>
+                <select class="lang-switch" id="languageSelect" onchange="setLanguage(this.value)" aria-label="Seleccionar idioma">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="de">DE</option>
+                </select>
+            </li>
         </ul>
     </nav>
 
     <!-- Header -->
     <header>
-        <span class="fide-badge">Instructor FIDE</span>
+        <span class="fide-badge" data-i18n="fideBadge">Instructor FIDE</span>
         <h1 class="reveal">Chess Academy Osorno</h1>
         <div class="header-sub reveal">
-            Clases de ajedrez en Osorno – Presencial y Online 
-            <a href="https://wa.me/56981772160?text=Hola%20Chess%20Academy%20Osorno%2C%20quiero%20consultar%20por%20clases%20online%20de%20ajedrez" target="_blank" class="online-badge">Online</a>
+            <span data-i18n="heroSubtitle">Clases de ajedrez en Osorno – Presencial y Online</span>
+            <a href="https://wa.me/56981772160?text=Hola%20Chess%20Academy%20Osorno%2C%20quiero%20consultar%20por%20clases%20online%20de%20ajedrez" target="_blank" class="online-badge" data-i18n="onlineBadge">Online</a>
         </div>
         <div class="hero-points reveal">
-            <span>♟ +30 años de experiencia</span>
-            <span>🏆 Campeones Regionales</span>
-            <span>🧠 Mejora Cognitiva</span>
+            <span data-i18n="heroPoint1">♟ +30 años de experiencia</span>
+            <span data-i18n="heroPoint2">🏆 Campeones provinciales</span>
+            <span data-i18n="heroPoint3">🥇 Regionales y nacionales</span>
         </div>
-        <a href="#inscripciones" class="btn" style="width: auto; margin-top: 20px;">Primera clase de prueba</a>
+        <a href="#inscripciones" class="btn" style="width: auto; margin-top: 20px;" data-i18n="heroCta">Primera clase de prueba</a>
     </header>
 
     <!-- Botón flotante -->
-    <a href="#inscripciones" class="floating-class" aria-label="Ir al formulario para solicitar primera clase gratis">♟ 1ª clase gratis</a>
+    <a href="#inscripciones" class="floating-class" aria-label="Ir al formulario para solicitar primera clase de prueba" data-i18n="floatCta">♟ Clase prueba</a>
     <a class="whatsapp" href="https://wa.me/56981772160?text=Hola%20Chess%20Academy%20Osorno%2C%20quiero%20agendar%20una%20clase%20de%20prueba%20de%20ajedrez" target="_blank" aria-label="Escribir por WhatsApp">💬</a>
 
     <!-- Resultados -->
     <section id="resultados">
-        <h2 class="reveal">Nuestro Impacto</h2>
+        <h2 class="reveal" data-i18n="impactTitle">Nuestro Impacto</h2>
         <div class="cards">
             <div class="card reveal" onclick="openModal('studentModal')">
-                <div class="highlight" data-target="1200">0</div>Alumnos Formados
-                <p style="font-size: 11px; color: #60a5fa;">Ver comunidad ⬇</p>
+                <div class="highlight" data-target="1200">0</div><span data-i18n="impactStudents">Alumnos Formados</span>
+                <p style="font-size: 11px; color: #60a5fa;" data-i18n="impactView">Ver comunidad ↓</p>
             </div>
             <div class="card reveal" onclick="openModal('modal60')">
-                <div class="highlight" data-target="60">0</div>Títulos Regionales
+                <div class="highlight" data-target="60">0</div><span data-i18n="impactRegional">Títulos Regionales</span>
             </div>
             <div class="card reveal" onclick="openModal('podiumModal')">
-                <div class="highlight" data-target="30">0</div>Podios Nacionales
+                <div class="highlight" data-target="30">0</div><span data-i18n="impactNational">Podios Nacionales</span>
             </div>
             <div class="card reveal" onclick="openModal('logrosModal')">
-                <div class="highlight" data-target="3">0</div>Títulos FIDE
+                <div class="highlight" data-target="3">0</div><span data-i18n="impactFide">Títulos FIDE</span>
             </div>
+        </div>
+        <div class="impact-proof reveal">
+            <div class="impact-copy">
+                <h3 data-i18n="impactProofTitle">Formación con resultados</h3>
+                <p data-i18n="impactProofText">Entrenamiento serio, acompañamiento constante y alumnos que avanzan desde sus primeras partidas hasta campeonatos provinciales, regionales y nacionales.</p>
+            </div>
+            <figure class="hero-proof">
+                <img src="galeria-torneo-2026/destacados-open-escolar-2026.jpg" alt="Campeones escolares formados por Chess Academy Osorno" onerror="this.closest('.impact-proof').style.display='none'">
+                <figcaption data-i18n="impactCaption">Campeones escolares formados con trabajo, constancia y método.</figcaption>
+            </figure>
         </div>
     </section>
 
@@ -865,9 +1057,15 @@
 
     <!-- Historia -->
     <section id="historia">
-        <h2 class="reveal">Trayectoria de la Academia</h2>
+        <h2 class="reveal" data-i18n="historyTitle">Trayectoria de la Academia</h2>
         <div class="content-box reveal historia-container">
-            <p><strong>Chess Academy Osorno</strong> no es solo una escuela de ajedrez; es el semillero de talentos más importante del sur de Chile. Con más de 30 años de experiencia y participaciones constantes en torneos nacionales e internacionales (Mundial sub 8 en Brasil, Sudamericano de Paraguay, Lima, Bariloche), hemos posicionado a Osorno en el mapa del ajedrez competitivo. Nuestros alumnos destacan en cada evento: <strong>Josefa Clerc</strong> ha logrado un histórico 9 títulos en la categoría sub 14 del IND, ganando todos los eventos organizados; <strong>Constanza Treumun</strong> acumula 8 títulos regionales y es un orgullo de la educación pública. En el plano nacional, <strong>Leonardo Ballestero</strong> se coronó Campeón de Chile sub 10, mientras que <strong>Tomás Gebauer</strong>, <strong>Felipe Vera</strong>, <strong>Camila Saldias</strong>, <strong>Francisco</strong> y <strong>Daniel</strong> han brillado con podios y actuaciones destacadas. Mención especial merece <strong>Agustín Ojeda</strong>, quien ha ganado múltiples torneos y alcanzado un ranking FIDE cercano a los 2000, siendo un ejemplo de dedicación y excelencia. Con un método de enseñanza que combina la técnica con valores como la resiliencia y el respeto, la Academia se ha consolidado como la <strong>academia líder en el sur de Chile</strong>, formando no solo grandes jugadores, sino grandes personas.</p>
+            <p data-i18n="historyIntro"><strong>Chess Academy Osorno</strong> nace desde una trayectoria de más de 30 años enseñando, compitiendo y formando jugadores en el sur de Chile. La academia acompaña a niños, jóvenes y adultos desde la iniciación hasta el ritmo competitivo, con una enseñanza cercana, técnica y orientada a resultados reales.</p>
+            <div class="achievement-grid">
+                <div class="achievement-item" data-i18n="historySchool"><strong>Formación escolar</strong> Alumnos que avanzan desde sus primeras partidas hasta torneos escolares y federados.</div>
+                <div class="achievement-item" data-i18n="historyResults"><strong>Resultados deportivos</strong> Campeones provinciales, regionales, nacionales y podios destacados.</div>
+                <div class="achievement-item" data-i18n="historyInternational"><strong>Experiencia internacional</strong> Participación en Brasil, Paraguay, Perú y Argentina, llevando a Osorno al tablero competitivo.</div>
+                <div class="achievement-item" data-i18n="historyHuman"><strong>Método humano</strong> Cálculo, estrategia, disciplina, resiliencia y respeto por el rival.</div>
+            </div>
         </div>
     </section>
 
@@ -875,7 +1073,7 @@
 
     <!-- Galería -->
     <section id="galeria">
-        <h2 class="reveal">Galería Visual</h2>
+        <h2 class="reveal" data-i18n="galleryTitle">Galería Visual</h2>
         <h3>Torneos Nacionales</h3>
         <div class="galeria-scroll reveal">
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional.jpg', 'Final Nacional Santiago 2017')">
@@ -1014,23 +1212,23 @@
 
     <!-- Planes -->
     <section id="planes">
-        <h2 class="reveal">Planes de Clases</h2>
+        <h2 class="reveal" data-i18n="plansTitle">Planes de Clases</h2>
         <div class="cards">
             <div class="card reveal">
-                <div class="plan-title">Niños</div>
-                Iniciación, concentración, cálculo y hábitos de estudio mediante el ajedrez.
+                <div class="plan-title" data-i18n="planKids">Niños</div>
+                <span data-i18n="planKidsText">Iniciación, concentración, cálculo y hábitos de estudio mediante el ajedrez.</span>
             </div>
             <div class="card reveal">
-                <div class="plan-title">Adultos</div>
-                Entrenamiento práctico para mejorar visión táctica, estrategia y toma de decisiones.
+                <div class="plan-title" data-i18n="planAdults">Adultos</div>
+                <span data-i18n="planAdultsText">Entrenamiento práctico para mejorar visión táctica, estrategia y toma de decisiones.</span>
             </div>
             <div class="card reveal">
-                <div class="plan-title">Online</div>
-                Clases a distancia con seguimiento personalizado, análisis de partidas y tareas.
+                <div class="plan-title" data-i18n="planOnline">Online</div>
+                <span data-i18n="planOnlineText">Clases a distancia con seguimiento personalizado, análisis de partidas y tareas.</span>
             </div>
             <div class="card reveal">
-                <div class="plan-title">Torneo</div>
-                Preparación competitiva para escolares, regionales, nacionales y ritmo FIDE.
+                <div class="plan-title" data-i18n="planTournament">Torneo</div>
+                <span data-i18n="planTournamentText">Preparación competitiva para escolares, regionales, nacionales y ritmo FIDE.</span>
             </div>
         </div>
     </section>
@@ -1039,15 +1237,15 @@
 
     <!-- Testimonios -->
     <section id="testimonios">
-        <h2 class="reveal">Confianza y Formación</h2>
+        <h2 class="reveal" data-i18n="trustTitle">Confianza y Formación</h2>
         <div class="cards">
-            <div class="card reveal">
+            <div class="card reveal" data-i18n="trustOne">
                 "El ajedrez ayuda a los niños a pensar antes de actuar, concentrarse y aprender de cada partida."
             </div>
-            <div class="card reveal">
+            <div class="card reveal" data-i18n="trustTwo">
                 "La academia combina competencia, disciplina y valores; no solo forma jugadores, forma personas."
             </div>
-            <div class="card reveal">
+            <div class="card reveal" data-i18n="trustThree">
                 "Las clases online y presenciales permiten avanzar con método, análisis y objetivos claros."
             </div>
         </div>
@@ -1057,29 +1255,28 @@
 
     <!-- Metodo -->
     <section id="metodo">
-        <h2 class="reveal">Método de Entrenamiento</h2>
+        <h2 class="reveal" data-i18n="methodTitle">Método de Entrenamiento</h2>
         <div class="content-box reveal">
-            <p><strong>En Chess Academy Osorno cada alumno avanza con un plan claro.</strong> No se trata solo de aprender aperturas o memorizar jugadas: el objetivo es formar una manera de pensar. El entrenamiento combina cálculo, estrategia, finales, análisis de partidas y preparación emocional para competir con calma. Cada clase busca que el alumno entienda por qué toma una decisión en el tablero y cómo puede mejorarla en la siguiente partida.</p>
-            <p>El trabajo parte desde el nivel real del estudiante. Un niño que recién comienza necesita confianza, hábitos y entusiasmo; un jugador de torneo necesita precisión, disciplina y análisis más profundo; un adulto suele buscar concentración, memoria, desafío mental y progreso sostenido. Por eso las clases se adaptan al objetivo de cada persona, manteniendo siempre una base técnica seria.</p>
+            <p class="method-lead" data-i18n="methodLead"><strong>Cada alumno avanza con un plan claro.</strong> Diagnóstico, entrenamiento práctico, tareas y seguimiento para mejorar cálculo, estrategia, finales y toma de decisiones.</p>
             <div class="method-grid">
-                <div class="method-step">
+                <div class="method-step" data-i18n="methodStep1">
                     <strong>1. Diagnóstico</strong>
                     Revisamos nivel, experiencia, fortalezas y errores frecuentes para definir el punto de partida.
                 </div>
-                <div class="method-step">
+                <div class="method-step" data-i18n="methodStep2">
                     <strong>2. Técnica</strong>
                     Trabajamos táctica, estrategia, finales, patrones y principios prácticos de juego.
                 </div>
-                <div class="method-step">
+                <div class="method-step" data-i18n="methodStep3">
                     <strong>3. Partidas</strong>
                     Analizamos partidas reales para transformar errores en aprendizaje concreto.
                 </div>
-                <div class="method-step">
+                <div class="method-step" data-i18n="methodStep4">
                     <strong>4. Progreso</strong>
                     Dejamos tareas, objetivos y seguimiento para que el avance no dependa solo de la clase.
                 </div>
             </div>
-            <p class="method-cta">La meta es simple: que cada alumno juegue mejor, piense mejor y disfrute más el ajedrez.</p>
+            <p class="method-cta" data-i18n="methodCta">La meta es simple: que cada alumno juegue mejor, piense mejor y disfrute más el ajedrez.</p>
         </div>
     </section>
 
@@ -1087,48 +1284,49 @@
 
     <!-- FAQ -->
     <section id="faq">
-        <h2 class="reveal">Dudas Frecuentes</h2>
+        <h2 class="reveal" data-i18n="faqTitle">Dudas Frecuentes</h2>
         <div class="reveal" style="max-width: 800px; margin: auto;">
             <details>
-                <summary>¿La primera clase es de prueba?</summary>
-                <p>Sí. La primera clase permite conocer el nivel del alumno, sus objetivos y la modalidad más adecuada.</p>
+                <summary data-i18n="faqQ1">¿La primera clase es de prueba?</summary>
+                <p data-i18n="faqA1">Sí. La primera clase permite conocer el nivel del alumno, sus objetivos y la modalidad más adecuada.</p>
             </details>
             <details>
-                <summary>¿Se puede empezar desde cero?</summary>
-                <p>Sí. Hay clases para principiantes, niños, adultos y jugadores que ya compiten.</p>
+                <summary data-i18n="faqQ2">¿Se puede empezar desde cero?</summary>
+                <p data-i18n="faqA2">Sí. Hay clases para principiantes, niños, adultos y jugadores que ya compiten.</p>
             </details>
             <details>
-                <summary>¿Las clases pueden ser online?</summary>
-                <p>Sí. Hay modalidad online con análisis de partidas, ejercicios y seguimiento personalizado.</p>
+                <summary data-i18n="faqQ3">¿Las clases pueden ser online?</summary>
+                <p data-i18n="faqA3">Sí. Hay modalidad online con análisis de partidas, ejercicios y seguimiento personalizado.</p>
             </details>
             <details>
-                <summary>¿Preparan para torneos?</summary>
-                <p>Sí. Se trabaja cálculo, estrategia, repertorio, finales y hábitos de competencia.</p>
+                <summary data-i18n="faqQ4">¿Preparan para torneos?</summary>
+                <p data-i18n="faqA4">Sí. Se trabaja cálculo, estrategia, repertorio, finales y hábitos de competencia.</p>
             </details>
         </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- Blog -->
-    <section id="blog" itemscope itemtype="https://schema.org/Article">
-        <h2 class="reveal" itemprop="name">Blog: Ajedrez, Escuela y Vida</h2>
-        <div class="blog-content reveal" itemprop="articleBody">
-            <meta itemprop="author" content="Sergio Vera S.">
-            <meta itemprop="datePublished" content="2026-03-20">
-            <meta itemprop="description" content="Beneficios del ajedrez en niños y adultos, la importancia de perder y comenzar de nuevo.">
-            <h3>Beneficios del ajedrez en la etapa escolar</h3>
-            <p>El ajedrez no es solo un juego, es una herramienta pedagógica que transforma la manera de pensar de niños y jóvenes. En la etapa escolar, practicar ajedrez de forma regular desarrolla habilidades cognitivas fundamentales: mejora la concentración, la memoria y la capacidad de resolución de problemas. Cada partida es un ejercicio de paciencia y análisis, donde el alumno aprende a planificar con anticipación y a evaluar consecuencias. Estudios han demostrado que los niños que juegan ajedrez tienden a obtener mejores resultados en matemáticas y comprensión lectora, ya que el juego fortalece el pensamiento lógico y la creatividad.</p>
-            <p>Además, el ajedrez enseña disciplina y gestión del tiempo. Durante una partida, los pequeños deben administrar su reloj, tomar decisiones bajo presión y mantener la calma ante situaciones complejas. Estas habilidades se trasladan directamente al aula y a la vida cotidiana, formando estudiantes más resilientes y autónomos.</p>
-            <h3>Beneficios del ajedrez en adultos</h3>
-            <p>En la edad adulta, el ajedrez se convierte en un aliado para mantener la mente activa y prevenir el deterioro cognitivo. Diversas investigaciones asocian la práctica regular del ajedrez con una menor incidencia de enfermedades neurodegenerativas como el Alzheimer. El constante ejercicio de calcular variantes, reconocer patrones y elaborar estrategias mantiene las conexiones neuronales en forma.</p>
-            <p>Para los adultos, el ajedrez también es un espacio de socialización y desconexión del estrés diario. Las reuniones de club, los torneos o simplemente una partida con amigos generan vínculos y un sano entretenimiento. Muchos encuentran en el tablero un refugio donde el tiempo se detiene y solo importa la batalla intelectual, lo que ayuda a equilibrar la rutina laboral y familiar.</p>
-            <div class="blog-highlight">
-                ♟️ <strong>La lección más valiosa: perder y volver a empezar</strong><br>
-                En el ajedrez, como en la vida, se pierde más de lo que se gana. Cada derrota es una oportunidad disfrazada: el tablero te muestra sin piedad tus errores, te obliga a revisar tus decisiones y te invita a intentarlo de nuevo. Los grandes maestros no son quienes nunca han perdido, sino quienes supieron levantarse después de cada caída. Aprender a perder con dignidad, analizar la partida y extraer enseñanzas es una habilidad que trasciende el deporte. Enseña humildad, perseverancia y la certeza de que siempre se puede recomenzar. En la academia inculcamos ese valor: el error no es un fracaso, es un paso más hacia la maestría.
+    <!-- Arbitraje y servicios -->
+    <section id="arbitraje">
+        <h2 class="reveal" data-i18n="servicesTitle">Arbitraje y Servicios</h2>
+        <div class="blog-content reveal">
+            <div class="service-layout">
+                <figure class="service-photo" onclick="openImageModal('arbitraje/torneoosorno%20college.jpg', 'Arbitraje Torneo Osorno College 06-06-2026')">
+                    <img src="arbitraje/torneoosorno%20college.jpg" alt="Arbitraje Torneo Osorno College 06-06-2026" onerror="this.closest('figure').style.display='none'">
+                    <figcaption data-i18n="servicesCaption">Torneo Osorno College · 06-06-2026</figcaption>
+                </figure>
+                <div class="service-copy">
+                    <p data-i18n="servicesIntro"><strong>Organizamos y apoyamos actividades de ajedrez con formato claro, ritmo ordenado y enfoque formativo.</strong> Ideal para colegios, instituciones, empresas y grupos que quieren una experiencia seria, cercana y bien conducida.</p>
+                    <div class="service-grid">
+                        <div class="service-card" data-i18n="serviceSchool"><strong>Torneo escolar</strong> Bases, pareos, control de rondas, resultados y acompañamiento para estudiantes.</div>
+                        <div class="service-card" data-i18n="serviceAdults"><strong>Adultos</strong> Actividades recreativas o competitivas para grupos, clubes internos y comunidades.</div>
+                        <div class="service-card" data-i18n="serviceColleges"><strong>Colegios</strong> Talleres, simultáneas, torneos por curso o jornadas de convivencia escolar.</div>
+                        <div class="service-card" data-i18n="serviceCompanies"><strong>Empresas</strong> Eventos corporativos, torneos internos y actividades de ajedrez para equipos.</div>
+                    </div>
+                    <a href="#inscripciones" class="btn btn-secondary" style="width:auto; align-self:flex-start;" data-i18n="servicesCta">Consultar servicio</a>
+                </div>
             </div>
-            <h3>El ajedrez como escuela de vida</h3>
-            <p>Tanto en niños como en adultos, el ajedrez desarrolla la inteligencia emocional. Controlar la frustración tras una mala jugada, celebrar con respeto una victoria y mantener la concentración durante horas son lecciones que forman el carácter. En un mundo que exige respuestas rápidas, el ajedrez nos recuerda el valor de la pausa, la reflexión y la estrategia a largo plazo. Por eso, en Chess Academy Osorno no solo formamos jugadores, formamos personas capaces de enfrentar los desafíos con la misma lógica y temple que aplican sobre el tablero.</p>
         </div>
     </section>
 
@@ -1136,7 +1334,7 @@
 
     <!-- Contacto -->
     <section id="inscripciones">
-        <h2 class="reveal">Contacto</h2>
+        <h2 class="reveal" data-i18n="contactTitle">Contacto</h2>
         <form action="https://formsubmit.co/chessacademyosorno1@gmail.com" method="POST" class="reveal">
             <input type="hidden" name="_subject" value="Nueva solicitud desde Chess Academy Osorno">
             <input type="hidden" name="_template" value="table">
@@ -1144,23 +1342,23 @@
             <input type="hidden" name="_next" value="https://chessacademyosorno.cl/?enviado=1#inscripciones">
             <input type="hidden" name="_autoresponse" value="Gracias por contactar a Chess Academy Osorno. Recibimos tu solicitud y te responderemos pronto para coordinar tu clase de ajedrez.">
             <input type="text" name="_honey" style="display:none">
-            <input type="text" name="Nombre" placeholder="Nombre completo" autocomplete="name" required>
-            <input type="number" name="Edad" placeholder="Edad del alumno" min="4" max="99" required>
-            <input type="email" name="email" placeholder="Tu correo electrónico" autocomplete="email" required>
-            <input type="tel" name="WhatsApp" placeholder="WhatsApp de contacto" autocomplete="tel" required>
+            <input type="text" name="Nombre" placeholder="Nombre completo" autocomplete="name" required data-i18n-placeholder="namePlaceholder">
+            <input type="number" name="Edad" placeholder="Edad del alumno" min="4" max="99" required data-i18n-placeholder="agePlaceholder">
+            <input type="email" name="email" placeholder="Tu correo electrónico" autocomplete="email" required data-i18n-placeholder="emailPlaceholder">
+            <input type="tel" name="WhatsApp" placeholder="WhatsApp de contacto" autocomplete="tel" required data-i18n-placeholder="phonePlaceholder">
             <select name="Modalidad" required>
-                <option value="">Modalidad de interés</option>
-                <option value="Presencial en Osorno">Presencial en Osorno</option>
-                <option value="Online">Online</option>
-                <option value="Competitivo / torneos">Competitivo / torneos</option>
-                <option value="Aún no lo sé">Aún no lo sé</option>
+                <option value="" data-i18n="modalityDefault">Modalidad de interés</option>
+                <option value="Presencial en Osorno" data-i18n="modalityInPerson">Presencial en Osorno</option>
+                <option value="Online" data-i18n="modalityOnline">Online</option>
+                <option value="Competitivo / torneos" data-i18n="modalityTournament">Competitivo / torneos</option>
+                <option value="Aún no lo sé" data-i18n="modalityUnsure">Aún no lo sé</option>
             </select>
-            <textarea name="Mensaje" placeholder="Cuéntanos tu objetivo: aprender desde cero, mejorar, preparar torneos, clases para niños, etc." required></textarea>
-            <button class="btn" type="submit">Enviar Solicitud</button>
+            <textarea name="Mensaje" placeholder="Cuéntanos tu objetivo: aprender desde cero, mejorar, preparar torneos, clases para niños, etc." required data-i18n-placeholder="messagePlaceholder"></textarea>
+            <button class="btn" type="submit" data-i18n="sendButton">Enviar Solicitud</button>
             <a class="btn btn-instagram" href="https://www.instagram.com/ajedrezchessacademyosorno1/" target="_blank" rel="noopener">Instagram</a>
-            <button class="btn btn-secondary" type="button" onclick="compartirSitio()">Compartir página</button>
+            <button class="btn btn-secondary" type="button" onclick="compartirSitio()" data-i18n="shareButton">Compartir página</button>
         </form>
-        <p class="contact-note">También puedes escribir directo por WhatsApp para coordinar horarios.</p>
+        <p class="contact-note" data-i18n="contactNote">También puedes escribir directo por WhatsApp para coordinar horarios.</p>
     </section>
 
     <!-- Footer -->
@@ -1237,16 +1435,23 @@
             entries.forEach(entry => {
                 if(entry.isIntersecting){
                     const target = +entry.target.getAttribute('data-target');
+                    if (entry.target.dataset.running === 'true') return;
+                    entry.target.dataset.running = 'true';
                     let count = 0;
                     const update = () => {
                         count += target / 40;
                         if(count < target){
                             entry.target.innerText = Math.ceil(count);
                             setTimeout(update, 30);
-                        } else { entry.target.innerText = "+" + target; }
+                        } else {
+                            entry.target.innerText = "+" + target;
+                            entry.target.dataset.running = 'false';
+                        }
                     };
                     update();
-                    observer.unobserve(entry.target);
+                } else {
+                    entry.target.dataset.running = 'false';
+                    entry.target.innerText = '0';
                 }
             });
         }, {threshold: 0.5});
@@ -1282,9 +1487,75 @@
             img.decoding = 'async';
         });
 
-        function toggleLang() {
-            alert('Función de idioma en desarrollo. Pronto estará disponible la versión en inglés.');
+        const translations = {
+            es: {
+                navHome: "Inicio", navHistory: "Historia", navAchievements: "Logros", navGallery: "Galería", navPlans: "Planes", navMethod: "Método", navFaq: "Dudas", navServices: "Arbitraje", navMilestones: "Hitos", navContact: "Contacto",
+                fideBadge: "Instructor FIDE", heroSubtitle: "Clases de ajedrez en Osorno – Presencial y Online", onlineBadge: "Online", heroPoint1: "♟ +30 años de experiencia", heroPoint2: "🏆 Campeones provinciales", heroPoint3: "🥇 Regionales y nacionales", heroCta: "Primera clase de prueba", floatCta: "♟ Clase prueba",
+                impactTitle: "Nuestro Impacto", impactStudents: "Alumnos Formados", impactRegional: "Títulos Regionales", impactNational: "Podios Nacionales", impactFide: "Títulos FIDE", impactView: "Ver comunidad ↓", impactProofTitle: "Formación con resultados", impactProofText: "Entrenamiento serio, acompañamiento constante y alumnos que avanzan desde sus primeras partidas hasta campeonatos provinciales, regionales y nacionales.", impactCaption: "Campeones escolares formados con trabajo, constancia y método.",
+                historyTitle: "Trayectoria de la Academia", historyIntro: "<strong>Chess Academy Osorno</strong> nace desde una trayectoria de más de 30 años enseñando, compitiendo y formando jugadores en el sur de Chile. La academia acompaña a niños, jóvenes y adultos desde la iniciación hasta el ritmo competitivo, con una enseñanza cercana, técnica y orientada a resultados reales.", historySchool: "<strong>Formación escolar</strong> Alumnos que avanzan desde sus primeras partidas hasta torneos escolares y federados.", historyResults: "<strong>Resultados deportivos</strong> Campeones provinciales, regionales, nacionales y podios destacados.", historyInternational: "<strong>Experiencia internacional</strong> Participación en Brasil, Paraguay, Perú y Argentina, llevando a Osorno al tablero competitivo.", historyHuman: "<strong>Método humano</strong> Cálculo, estrategia, disciplina, resiliencia y respeto por el rival.",
+                galleryTitle: "Galería Visual", plansTitle: "Planes de Clases", planKids: "Niños", planKidsText: "Iniciación, concentración, cálculo y hábitos de estudio mediante el ajedrez.", planAdults: "Adultos", planAdultsText: "Entrenamiento práctico para mejorar visión táctica, estrategia y toma de decisiones.", planOnline: "Online", planOnlineText: "Clases a distancia con seguimiento personalizado, análisis de partidas y tareas.", planTournament: "Torneo", planTournamentText: "Preparación competitiva para escolares, regionales, nacionales y ritmo FIDE.",
+                trustTitle: "Confianza y Formación", trustOne: "\"El ajedrez ayuda a los niños a pensar antes de actuar, concentrarse y aprender de cada partida.\"", trustTwo: "\"La academia combina competencia, disciplina y valores; no solo forma jugadores, forma personas.\"", trustThree: "\"Las clases online y presenciales permiten avanzar con método, análisis y objetivos claros.\"",
+                methodTitle: "Método de Entrenamiento", methodLead: "<strong>Cada alumno avanza con un plan claro.</strong> Diagnóstico, entrenamiento práctico, tareas y seguimiento para mejorar cálculo, estrategia, finales y toma de decisiones.", methodStep1: "<strong>1. Diagnóstico</strong> Revisamos nivel, experiencia, fortalezas y errores frecuentes para definir el punto de partida.", methodStep2: "<strong>2. Técnica</strong> Trabajamos táctica, estrategia, finales, patrones y principios prácticos de juego.", methodStep3: "<strong>3. Partidas</strong> Analizamos partidas reales para transformar errores en aprendizaje concreto.", methodStep4: "<strong>4. Progreso</strong> Dejamos tareas, objetivos y seguimiento para que el avance no dependa solo de la clase.", methodCta: "La meta es simple: que cada alumno juegue mejor, piense mejor y disfrute más el ajedrez.",
+                faqTitle: "Dudas Frecuentes", faqQ1: "¿La primera clase es de prueba?", faqA1: "Sí. La primera clase permite conocer el nivel del alumno, sus objetivos y la modalidad más adecuada.", faqQ2: "¿Se puede empezar desde cero?", faqA2: "Sí. Hay clases para principiantes, niños, adultos y jugadores que ya compiten.", faqQ3: "¿Las clases pueden ser online?", faqA3: "Sí. Hay modalidad online con análisis de partidas, ejercicios y seguimiento personalizado.", faqQ4: "¿Preparan para torneos?", faqA4: "Sí. Se trabaja cálculo, estrategia, repertorio, finales y hábitos de competencia.",
+                servicesTitle: "Arbitraje y Servicios", servicesCaption: "Torneo Osorno College · 06-06-2026", servicesIntro: "<strong>Organizamos y apoyamos actividades de ajedrez con formato claro, ritmo ordenado y enfoque formativo.</strong> Ideal para colegios, instituciones, empresas y grupos que quieren una experiencia seria, cercana y bien conducida.", serviceSchool: "<strong>Torneo escolar</strong> Bases, pareos, control de rondas, resultados y acompañamiento para estudiantes.", serviceAdults: "<strong>Adultos</strong> Actividades recreativas o competitivas para grupos, clubes internos y comunidades.", serviceColleges: "<strong>Colegios</strong> Talleres, simultáneas, torneos por curso o jornadas de convivencia escolar.", serviceCompanies: "<strong>Empresas</strong> Eventos corporativos, torneos internos y actividades de ajedrez para equipos.", servicesCta: "Consultar servicio",
+                contactTitle: "Contacto", namePlaceholder: "Nombre completo", agePlaceholder: "Edad del alumno", emailPlaceholder: "Tu correo electrónico", phonePlaceholder: "WhatsApp de contacto", messagePlaceholder: "Cuéntanos tu objetivo: aprender desde cero, mejorar, preparar torneos, clases para niños, etc.", modalityDefault: "Modalidad de interés", modalityInPerson: "Presencial en Osorno", modalityOnline: "Online", modalityTournament: "Competitivo / torneos", modalityUnsure: "Aún no lo sé", sendButton: "Enviar Solicitud", shareButton: "Compartir página", contactNote: "También puedes escribir directo por WhatsApp para coordinar horarios."
+            },
+            en: {
+                navHome: "Home", navHistory: "History", navAchievements: "Results", navGallery: "Gallery", navPlans: "Plans", navMethod: "Method", navFaq: "FAQ", navServices: "Arbitration", navMilestones: "Milestones", navContact: "Contact",
+                fideBadge: "FIDE Instructor", heroSubtitle: "Chess lessons in Osorno – In person and online", onlineBadge: "Online", heroPoint1: "♟ 30+ years of experience", heroPoint2: "🏆 Provincial champions", heroPoint3: "🥇 Regional and national results", heroCta: "Trial lesson", floatCta: "♟ Trial lesson",
+                impactTitle: "Our Impact", impactStudents: "Students Trained", impactRegional: "Regional Titles", impactNational: "National Podiums", impactFide: "FIDE Titles", impactView: "View community ↓", impactProofTitle: "Training with results", impactProofText: "Serious training, steady guidance and students who progress from their first games to provincial, regional and national championships.", impactCaption: "School champions formed through work, consistency and method.",
+                historyTitle: "Academy Background", historyIntro: "<strong>Chess Academy Osorno</strong> is built on more than 30 years of teaching, competing and developing players in southern Chile. The academy supports children, teenagers and adults from beginner level to competitive rhythm, with close, technical and results-oriented teaching.", historySchool: "<strong>School development</strong> Students progress from their first games to school and federated tournaments.", historyResults: "<strong>Sporting results</strong> Provincial, regional and national champions, with outstanding podium finishes.", historyInternational: "<strong>International experience</strong> Participation in Brazil, Paraguay, Peru and Argentina, bringing Osorno to competitive boards.", historyHuman: "<strong>Human method</strong> Calculation, strategy, discipline, resilience and respect for the opponent.",
+                galleryTitle: "Visual Gallery", plansTitle: "Lesson Plans", planKids: "Children", planKidsText: "Introduction, concentration, calculation and study habits through chess.", planAdults: "Adults", planAdultsText: "Practical training to improve tactical vision, strategy and decision-making.", planOnline: "Online", planOnlineText: "Distance lessons with personal follow-up, game analysis and tasks.", planTournament: "Tournament", planTournamentText: "Competitive preparation for school, regional, national and FIDE rhythm events.",
+                trustTitle: "Trust and Development", trustOne: "\"Chess helps children think before acting, focus and learn from every game.\"", trustTwo: "\"The academy combines competition, discipline and values; it forms players and people.\"", trustThree: "\"Online and in-person lessons allow progress with method, analysis and clear goals.\"",
+                methodTitle: "Training Method", methodLead: "<strong>Each student advances with a clear plan.</strong> Diagnosis, practical training, tasks and follow-up to improve calculation, strategy, endings and decision-making.", methodStep1: "<strong>1. Diagnosis</strong> We review level, experience, strengths and common mistakes to define the starting point.", methodStep2: "<strong>2. Technique</strong> We train tactics, strategy, endings, patterns and practical playing principles.", methodStep3: "<strong>3. Games</strong> We analyze real games to turn mistakes into concrete learning.", methodStep4: "<strong>4. Progress</strong> We assign tasks, goals and follow-up so improvement does not depend only on the lesson.", methodCta: "The goal is simple: each student plays better, thinks better and enjoys chess more.",
+                faqTitle: "Frequently Asked Questions", faqQ1: "Is the first lesson a trial?", faqA1: "Yes. The first lesson helps us understand the student's level, goals and best format.", faqQ2: "Can someone start from zero?", faqA2: "Yes. There are lessons for beginners, children, adults and players who already compete.", faqQ3: "Can lessons be online?", faqA3: "Yes. Online lessons include game analysis, exercises and personal follow-up.", faqQ4: "Do you prepare players for tournaments?", faqA4: "Yes. We work on calculation, strategy, repertoire, endings and competition habits.",
+                servicesTitle: "Arbitration and Services", servicesCaption: "Osorno College Tournament · 06-06-2026", servicesIntro: "<strong>We organize and support chess activities with a clear format, orderly rhythm and educational focus.</strong> Ideal for schools, institutions, companies and groups seeking a serious, close and well-run experience.", serviceSchool: "<strong>School tournament</strong> Rules, pairings, round control, results and student guidance.", serviceAdults: "<strong>Adults</strong> Recreational or competitive activities for groups, internal clubs and communities.", serviceColleges: "<strong>Schools</strong> Workshops, simultaneous displays, class tournaments and school community events.", serviceCompanies: "<strong>Companies</strong> Corporate events, internal tournaments and chess activities for teams.", servicesCta: "Ask about this service",
+                contactTitle: "Contact", namePlaceholder: "Full name", agePlaceholder: "Student age", emailPlaceholder: "Your email", phonePlaceholder: "Contact WhatsApp", messagePlaceholder: "Tell us your goal: start from zero, improve, prepare tournaments, lessons for children, etc.", modalityDefault: "Preferred format", modalityInPerson: "In person in Osorno", modalityOnline: "Online", modalityTournament: "Competitive / tournaments", modalityUnsure: "Not sure yet", sendButton: "Send Request", shareButton: "Share page", contactNote: "You can also write directly by WhatsApp to coordinate schedules."
+            },
+            fr: {
+                navHome: "Accueil", navHistory: "Histoire", navAchievements: "Résultats", navGallery: "Galerie", navPlans: "Plans", navMethod: "Méthode", navFaq: "Questions", navServices: "Arbitrage", navMilestones: "Étapes", navContact: "Contact",
+                fideBadge: "Instructeur FIDE", heroSubtitle: "Cours d'échecs à Osorno – Présentiel et en ligne", onlineBadge: "En ligne", heroPoint1: "♟ Plus de 30 ans d'expérience", heroPoint2: "🏆 Champions provinciaux", heroPoint3: "🥇 Résultats régionaux et nationaux", heroCta: "Cours d'essai", floatCta: "♟ Cours d'essai",
+                impactTitle: "Notre Impact", impactStudents: "Élèves formés", impactRegional: "Titres régionaux", impactNational: "Podiums nationaux", impactFide: "Titres FIDE", impactView: "Voir la communauté ↓", impactProofTitle: "Formation avec résultats", impactProofText: "Un entraînement sérieux, un suivi constant et des élèves qui progressent de leurs premières parties aux championnats provinciaux, régionaux et nationaux.", impactCaption: "Des champions scolaires formés avec travail, constance et méthode.",
+                historyTitle: "Parcours de l'académie", historyIntro: "<strong>Chess Academy Osorno</strong> naît d'un parcours de plus de 30 ans d'enseignement, de compétition et de formation de joueurs dans le sud du Chili. L'académie accompagne enfants, jeunes et adultes de l'initiation au rythme compétitif, avec un enseignement proche, technique et orienté vers des résultats réels.", historySchool: "<strong>Formation scolaire</strong> Des élèves qui avancent de leurs premières parties aux tournois scolaires et fédérés.", historyResults: "<strong>Résultats sportifs</strong> Champions provinciaux, régionaux, nationaux et podiums remarquables.", historyInternational: "<strong>Expérience internationale</strong> Participation au Brésil, au Paraguay, au Pérou et en Argentine, en portant Osorno sur l'échiquier compétitif.", historyHuman: "<strong>Méthode humaine</strong> Calcul, stratégie, discipline, résilience et respect de l'adversaire.",
+                galleryTitle: "Galerie visuelle", plansTitle: "Plans de cours", planKids: "Enfants", planKidsText: "Initiation, concentration, calcul et habitudes d'étude grâce aux échecs.", planAdults: "Adultes", planAdultsText: "Entraînement pratique pour améliorer la vision tactique, la stratégie et la prise de décision.", planOnline: "En ligne", planOnlineText: "Cours à distance avec suivi personnalisé, analyse de parties et exercices.", planTournament: "Tournoi", planTournamentText: "Préparation compétitive pour les tournois scolaires, régionaux, nationaux et au rythme FIDE.",
+                trustTitle: "Confiance et Formation", trustOne: "\"Les échecs aident les enfants à réfléchir avant d'agir, à se concentrer et à apprendre de chaque partie.\"", trustTwo: "\"L'académie unit compétition, discipline et valeurs; elle forme des joueurs et des personnes.\"", trustThree: "\"Les cours en ligne et en présentiel permettent de progresser avec méthode, analyse et objectifs clairs.\"",
+                methodTitle: "Méthode d'entraînement", methodLead: "<strong>Chaque élève avance avec un plan clair.</strong> Diagnostic, entraînement pratique, exercices et suivi pour améliorer le calcul, la stratégie, les finales et la prise de décision.", methodStep1: "<strong>1. Diagnostic</strong> Nous examinons le niveau, l'expérience, les forces et les erreurs fréquentes pour définir le point de départ.", methodStep2: "<strong>2. Technique</strong> Nous travaillons tactique, stratégie, finales, schémas et principes pratiques de jeu.", methodStep3: "<strong>3. Parties</strong> Nous analysons des parties réelles pour transformer les erreurs en apprentissage concret.", methodStep4: "<strong>4. Progrès</strong> Nous donnons des exercices, des objectifs et un suivi pour que le progrès ne dépende pas seulement du cours.", methodCta: "L'objectif est simple : que chaque élève joue mieux, pense mieux et profite davantage des échecs.",
+                faqTitle: "Questions fréquentes", faqQ1: "Le premier cours est-il un essai ?", faqA1: "Oui. Le premier cours permet de connaître le niveau de l'élève, ses objectifs et la modalité la plus adaptée.", faqQ2: "Peut-on commencer de zéro ?", faqA2: "Oui. Il y a des cours pour débutants, enfants, adultes et joueurs déjà compétitifs.", faqQ3: "Les cours peuvent-ils être en ligne ?", faqA3: "Oui. Le format en ligne comprend analyse de parties, exercices et suivi personnalisé.", faqQ4: "Préparez-vous aux tournois ?", faqA4: "Oui. Nous travaillons le calcul, la stratégie, le répertoire, les finales et les habitudes de compétition.",
+                servicesTitle: "Arbitrage et Services", servicesCaption: "Tournoi Osorno College · 06-06-2026", servicesIntro: "<strong>Nous organisons et accompagnons des activités d'échecs avec un format clair, un rythme ordonné et une approche formative.</strong> Idéal pour écoles, institutions, entreprises et groupes qui souhaitent une expérience sérieuse, proche et bien conduite.", serviceSchool: "<strong>Tournoi scolaire</strong> Règlement, appariements, contrôle des rondes, résultats et accompagnement des élèves.", serviceAdults: "<strong>Adultes</strong> Activités récréatives ou compétitives pour groupes, clubs internes et communautés.", serviceColleges: "<strong>Écoles</strong> Ateliers, simultanées, tournois par classe ou journées de convivialité scolaire.", serviceCompanies: "<strong>Entreprises</strong> Événements corporatifs, tournois internes et activités d'échecs pour équipes.", servicesCta: "Consulter le service",
+                contactTitle: "Contact", namePlaceholder: "Nom complet", agePlaceholder: "Âge de l'élève", emailPlaceholder: "Votre e-mail", phonePlaceholder: "WhatsApp de contact", messagePlaceholder: "Dites-nous votre objectif : commencer de zéro, progresser, préparer des tournois, cours pour enfants, etc.", modalityDefault: "Modalité souhaitée", modalityInPerson: "Présentiel à Osorno", modalityOnline: "En ligne", modalityTournament: "Compétitif / tournois", modalityUnsure: "Je ne sais pas encore", sendButton: "Envoyer la demande", shareButton: "Partager la page", contactNote: "Vous pouvez aussi écrire directement par WhatsApp pour coordonner les horaires."
+            },
+            de: {
+                navHome: "Start", navHistory: "Geschichte", navAchievements: "Erfolge", navGallery: "Galerie", navPlans: "Kurse", navMethod: "Methode", navFaq: "Fragen", navServices: "Schiedsrichter", navMilestones: "Meilensteine", navContact: "Kontakt",
+                fideBadge: "FIDE-Trainer", heroSubtitle: "Schachunterricht in Osorno – vor Ort und online", onlineBadge: "Online", heroPoint1: "♟ Über 30 Jahre Erfahrung", heroPoint2: "🏆 Provinzmeister", heroPoint3: "🥇 Regionale und nationale Erfolge", heroCta: "Probestunde", floatCta: "♟ Probestunde",
+                impactTitle: "Unsere Wirkung", impactStudents: "Ausgebildete Schüler", impactRegional: "Regionale Titel", impactNational: "Nationale Podestplätze", impactFide: "FIDE-Titel", impactView: "Community ansehen ↓", impactProofTitle: "Training mit Ergebnissen", impactProofText: "Seriöses Training, ständige Begleitung und Schüler, die von den ersten Partien bis zu Provinz-, Regional- und nationalen Meisterschaften vorankommen.", impactCaption: "Schulmeister, geprägt durch Arbeit, Beständigkeit und Methode.",
+                historyTitle: "Werdegang der Akademie", historyIntro: "<strong>Chess Academy Osorno</strong> entsteht aus mehr als 30 Jahren Unterricht, Wettkampf und Spielerentwicklung im Süden Chiles. Die Akademie begleitet Kinder, Jugendliche und Erwachsene vom Einstieg bis zum Wettkampfrhythmus, mit nahbarem, technischem und ergebnisorientiertem Unterricht.", historySchool: "<strong>Schulische Ausbildung</strong> Schüler entwickeln sich von den ersten Partien bis zu Schul- und Verbandsturnieren.", historyResults: "<strong>Sportliche Ergebnisse</strong> Provinz-, Regional- und nationale Meister sowie herausragende Podestplätze.", historyInternational: "<strong>Internationale Erfahrung</strong> Teilnahme in Brasilien, Paraguay, Peru und Argentinien, mit Osorno auf dem Wettkampfbrett.", historyHuman: "<strong>Menschliche Methode</strong> Berechnung, Strategie, Disziplin, Widerstandskraft und Respekt vor dem Gegner.",
+                galleryTitle: "Bildergalerie", plansTitle: "Kursangebote", planKids: "Kinder", planKidsText: "Einführung, Konzentration, Berechnung und Lerngewohnheiten durch Schach.", planAdults: "Erwachsene", planAdultsText: "Praktisches Training zur Verbesserung von taktischer Sicht, Strategie und Entscheidungsfindung.", planOnline: "Online", planOnlineText: "Fernunterricht mit persönlicher Begleitung, Partienanalyse und Aufgaben.", planTournament: "Turnier", planTournamentText: "Wettkampfvorbereitung für Schul-, Regional-, nationale und FIDE-Rhythmus-Turniere.",
+                trustTitle: "Vertrauen und Ausbildung", trustOne: "\"Schach hilft Kindern, vor dem Handeln zu denken, sich zu konzentrieren und aus jeder Partie zu lernen.\"", trustTwo: "\"Die Akademie verbindet Wettkampf, Disziplin und Werte; sie bildet Spieler und Menschen.\"", trustThree: "\"Online- und Präsenzunterricht ermöglichen Fortschritt mit Methode, Analyse und klaren Zielen.\"",
+                methodTitle: "Trainingsmethode", methodLead: "<strong>Jeder Schüler kommt mit einem klaren Plan voran.</strong> Diagnose, praktisches Training, Aufgaben und Begleitung zur Verbesserung von Berechnung, Strategie, Endspielen und Entscheidungen.", methodStep1: "<strong>1. Diagnose</strong> Wir prüfen Niveau, Erfahrung, Stärken und häufige Fehler, um den Startpunkt festzulegen.", methodStep2: "<strong>2. Technik</strong> Wir trainieren Taktik, Strategie, Endspiele, Muster und praktische Spielprinzipien.", methodStep3: "<strong>3. Partien</strong> Wir analysieren echte Partien, um Fehler in konkretes Lernen zu verwandeln.", methodStep4: "<strong>4. Fortschritt</strong> Wir geben Aufgaben, Ziele und Begleitung, damit Fortschritt nicht nur vom Unterricht abhängt.", methodCta: "Das Ziel ist einfach: Jeder Schüler spielt besser, denkt besser und genießt Schach mehr.",
+                faqTitle: "Häufige Fragen", faqQ1: "Ist die erste Stunde eine Probestunde?", faqA1: "Ja. Die erste Stunde hilft, das Niveau, die Ziele und das passende Format zu erkennen.", faqQ2: "Kann man bei null anfangen?", faqA2: "Ja. Es gibt Kurse für Anfänger, Kinder, Erwachsene und Spieler, die bereits Turniere spielen.", faqQ3: "Sind Online-Stunden möglich?", faqA3: "Ja. Online-Unterricht umfasst Partienanalyse, Übungen und persönliche Begleitung.", faqQ4: "Bereiten Sie auf Turniere vor?", faqA4: "Ja. Wir arbeiten an Berechnung, Strategie, Repertoire, Endspielen und Wettkampfgewohnheiten.",
+                servicesTitle: "Schiedsrichter und Services", servicesCaption: "Osorno College Turnier · 06-06-2026", servicesIntro: "<strong>Wir organisieren und unterstützen Schachaktivitäten mit klarem Format, geordnetem Rhythmus und pädagogischem Fokus.</strong> Ideal für Schulen, Institutionen, Unternehmen und Gruppen, die eine seriöse, nahe und gut geführte Erfahrung suchen.", serviceSchool: "<strong>Schulturnier</strong> Ausschreibung, Paarungen, Rundenkontrolle, Ergebnisse und Begleitung der Schüler.", serviceAdults: "<strong>Erwachsene</strong> Freizeit- oder Wettkampfaktivitäten für Gruppen, interne Clubs und Gemeinschaften.", serviceColleges: "<strong>Schulen</strong> Workshops, Simultanveranstaltungen, Klassenturniere oder Schulgemeinschaftstage.", serviceCompanies: "<strong>Unternehmen</strong> Firmenveranstaltungen, interne Turniere und Schachaktivitäten für Teams.", servicesCta: "Service anfragen",
+                contactTitle: "Kontakt", namePlaceholder: "Vollständiger Name", agePlaceholder: "Alter des Schülers", emailPlaceholder: "Ihre E-Mail", phonePlaceholder: "Kontakt-WhatsApp", messagePlaceholder: "Erzählen Sie uns Ihr Ziel: bei null anfangen, besser werden, Turniere vorbereiten, Kinderkurse usw.", modalityDefault: "Gewünschtes Format", modalityInPerson: "Vor Ort in Osorno", modalityOnline: "Online", modalityTournament: "Wettkampf / Turniere", modalityUnsure: "Noch nicht sicher", sendButton: "Anfrage senden", shareButton: "Seite teilen", contactNote: "Sie können auch direkt per WhatsApp schreiben, um Termine zu koordinieren."
+            }
+        };
+
+        function setLanguage(lang = 'es') {
+            const dictionary = translations[lang] || translations.es;
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const value = dictionary[element.dataset.i18n];
+                if (value) element.innerHTML = value;
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const value = dictionary[element.dataset.i18nPlaceholder];
+                if (value) element.placeholder = value;
+            });
+            const selector = document.getElementById('languageSelect');
+            if (selector) selector.value = lang;
+            localStorage.setItem('academyLang', lang);
         }
+
+        window.setLanguage = setLanguage;
+        setLanguage(localStorage.getItem('academyLang') || 'es');
 
         async function compartirSitio() {
             const shareData = {
