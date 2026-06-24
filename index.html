@@ -91,8 +91,9 @@
         .menu a:hover { color: #60a5fa; }
         .lang-switch { 
             background: rgba(15, 23, 42, 0.92); border: 1px solid var(--accent); color: white; 
-            border-radius: 20px; padding: 5px 28px 5px 12px; font-size: 12px; cursor: pointer;
-            transition: 0.3s; margin-left: 10px; font-weight: 700;
+            border-radius: 20px; padding: 6px 30px 6px 12px; font-size: 13px; cursor: pointer;
+            transition: 0.3s; margin-left: 10px; font-weight: 800;
+            min-width: 92px;
         }
         .lang-switch:hover { background: var(--accent); }
         .lang-switch option { color: #0f172a; background: white; }
@@ -447,7 +448,7 @@
         }
         #maximizedImage {
             max-width: 90vw;
-            max-height: 85vh;
+            max-height: calc(100vh - 190px);
             object-fit: contain;
             border-radius: 8px;
             border: 2px solid var(--accent);
@@ -455,11 +456,18 @@
         }
         #imageCaption {
             color: white;
-            margin-top: 20px;
-            font-size: 18px;
+            margin-top: 16px;
+            font-size: clamp(16px, 2.4vw, 22px);
             font-weight: 600;
             text-align: center;
-            padding: 0 20px;
+            line-height: 1.35;
+            max-width: min(920px, 90vw);
+            padding: 12px 18px;
+            background: rgba(15, 23, 42, 0.94);
+            border: 1px solid rgba(96, 165, 250, 0.42);
+            border-radius: 10px;
+            user-select: text;
+            cursor: text;
         }
         .close-image {
             position: fixed;
@@ -953,16 +961,16 @@
                 </div>
             </div>
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/507019567_10234310486600147_4485116911315958202_n.jpg" class="student-photo" alt="Calbuco" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/507019567_10234310486600147_4485116911315958202_n.jpg', 'Calbuco')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/507019567_10234310486600147_4485116911315958202_n.jpg" class="student-photo" alt="Campeón Open Calbuco" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/507019567_10234310486600147_4485116911315958202_n.jpg', 'Campeón Open Calbuco')">
                 <div class="student-info">
-                    <p class="student-name">Calbuco</p>
+                    <p class="student-name">Campeón Open Calbuco</p>
                     <p class="student-achievement">Torneo regional</p>
                 </div>
             </div>
             <div class="student-box">
-                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/555801965_10239091265409989_7978464705999615626_n.jpg" class="student-photo" alt="Open Panguipulli" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/555801965_10239091265409989_7978464705999615626_n.jpg', 'Open Panguipulli')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/555801965_10239091265409989_7978464705999615626_n.jpg" class="student-photo" alt="Campeón Open Panguipulli junto a Felipe campeón sub 12" onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/555801965_10239091265409989_7978464705999615626_n.jpg', 'Campeón Open Panguipulli junto a Felipe campeón sub 12')">
                 <div class="student-info">
-                    <p class="student-name">Open Panguipulli</p>
+                    <p class="student-name">Campeón Open Panguipulli junto a Felipe campeón sub 12</p>
                     <p class="student-achievement">Torneo escolar</p>
                 </div>
             </div>
@@ -994,10 +1002,10 @@
             <li><a href="#inscripciones" data-i18n="navContact">Contacto</a></li>
             <li>
                 <select class="lang-switch" id="languageSelect" onchange="setLanguage(this.value)" aria-label="Seleccionar idioma">
-                    <option value="es">ES</option>
-                    <option value="en">EN</option>
-                    <option value="fr">FR</option>
-                    <option value="de">DE</option>
+                    <option value="es">🇨🇱 ES</option>
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="de">🇩🇪 DE</option>
                 </select>
             </li>
         </ul>
@@ -1047,7 +1055,7 @@
                 <p data-i18n="impactProofText">Entrenamiento serio, acompañamiento constante y alumnos que avanzan desde sus primeras partidas hasta campeonatos provinciales, regionales y nacionales.</p>
             </div>
             <figure class="hero-proof">
-                <img src="galeria-torneo-2026/destacados-open-escolar-2026.jpg" alt="Campeones escolares formados por Chess Academy Osorno" onerror="this.closest('.impact-proof').style.display='none'">
+                <img src="destacados-open-escolar-2026.jpg" alt="Campeones escolares formados por Chess Academy Osorno" onerror="this.closest('.impact-proof').style.display='none'">
                 <figcaption data-i18n="impactCaption">Campeones escolares formados con trabajo, constancia y método.</figcaption>
             </figure>
         </div>
@@ -1104,17 +1112,17 @@
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/en-dubai-ajedrez-osorno-pag.jpg" alt="Dubái">
                 <figcaption>Chess Academy Osorno</figcaption>
             </figure>
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-pagi.jpg', 'Clases en Osorno')">
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-pagi.jpg', 'Campeón Torneo de equipos Valdivia')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-clases-pagi.jpg" alt="Clases">
-                <figcaption>Clases en Osorno</figcaption>
+                <figcaption>Campeón Torneo de equipos Valdivia</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-vero-clases-pag.jpg', 'Verito y Conii en Frutillar')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-ajedrez-vero-clases-pag.jpg" alt="Verito y Conii">
                 <figcaption>Verito y Conii en Frutillar</figcaption>
             </figure>
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-clases-premios-pag.jpg', 'Osorno con Alex y Emilio')">
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-clases-premios-pag.jpg', 'Vice Campeón Open de Osorno junto a Alex y Emilio')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/osorno-clases-premios-pag.jpg" alt="Alex y Emilio">
-                <figcaption>Osorno con Alex y Emilio</figcaption>
+                <figcaption>Vice Campeón Open de Osorno junto a Alex y Emilio</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-felipe-sergio-pag.jpg', 'Sergio y Felipe - Primeros logros')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/ajedrez-osorno-felipe-sergio-pag.jpg" alt="Sergio y Felipe">
@@ -1127,13 +1135,17 @@
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero1.jpg" alt="Bariloche">
                 <figcaption>Sergio Vera Internacional Bariloche</figcaption>
             </figure>
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero2.jpg', 'Mundial sub 8 Brasil')">
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero2.jpg', 'Junto a Francisco Van der Baan en Mundial sub 8 Brasil')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero2.jpg" alt="Brasil">
-                <figcaption>Mundial sub 8 Brasil</figcaption>
+                <figcaption>Junto a Francisco Van der Baan en Mundial sub 8 Brasil</figcaption>
             </figure>
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero3.jpg', 'Sudamericano Paraguay')">
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero3.jpg', 'Junto a Francisco en Sudamericano Paraguay')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero3.jpg" alt="Paraguay">
-                <figcaption>Sudamericano Paraguay</figcaption>
+                <figcaption>Junto a Francisco en Sudamericano Paraguay</figcaption>
+            </figure>
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/Kathy-paraguay-sudamericano.png', 'Katherine Velásquez en Sudamericano de Paraguay')">
+                <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/Kathy-paraguay-sudamericano.png" alt="Katherine Velásquez en Sudamericano de Paraguay">
+                <figcaption>Katherine Velásquez en Sudamericano de Paraguay</figcaption>
             </figure>
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero4.jpg', 'Jugando en Lima, Perú')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/extranjero/extranjero4.jpg" alt="Lima">
@@ -1159,53 +1171,53 @@
                 <img src="galeria-torneo-2026/equipo-en-la-union.jpg" alt="Equipo en La Unión - Torneo 2026">
                 <figcaption>Equipo en La Unión</figcaption>
             </figure>
-            <figure onclick="openImageModal('galeria-torneo-2026/chicos%20en%20la%20union.jpg', 'Chicos en La Unión - Torneo 2026')">
-                <img src="galeria-torneo-2026/chicos%20en%20la%20union.jpg" alt="Chicos en La Unión - Torneo 2026">
-                <figcaption>Chicos en La Unión</figcaption>
+            <figure onclick="openImageModal('galeria-torneo-2026/chicos%20en%20la%20union.jpg', 'Tomás, Maximiliano, Carlos, Renato y Alonso, La Unión 2026')">
+                <img src="galeria-torneo-2026/chicos%20en%20la%20union.jpg" alt="Tomás, Maximiliano, Carlos, Renato y Alonso, La Unión 2026">
+                <figcaption>Tomás, Maximiliano, Carlos, Renato y Alonso, La Unión 2026</figcaption>
             </figure>
             <figure onclick="openImageModal('galeria-torneo-2026/angel-ruiz.jpg', 'Ángel Ruiz - Torneo 2026')">
                 <img src="galeria-torneo-2026/angel-ruiz.jpg" alt="Ángel Ruiz - Torneo 2026">
                 <figcaption>Ángel Ruiz</figcaption>
             </figure>
-            <figure onclick="openImageModal('galeria-torneo-2026/renato.jpg', 'Renato - Torneo 2026')">
-                <img src="galeria-torneo-2026/renato.jpg" alt="Renato - Torneo 2026">
-                <figcaption>Renato</figcaption>
+            <figure onclick="openImageModal('galeria-torneo-2026/renato.jpg', 'Renato Conejeros - Torneo 2026')">
+                <img src="galeria-torneo-2026/renato.jpg" alt="Renato Conejeros - Torneo 2026">
+                <figcaption>Renato Conejeros</figcaption>
             </figure>
-            <figure onclick="openImageModal('galeria-torneo-2026/vicente.jpg', 'Vicente - Torneo 2026')">
-                <img src="galeria-torneo-2026/vicente.jpg" alt="Vicente - Torneo 2026">
-                <figcaption>Vicente</figcaption>
+            <figure onclick="openImageModal('galeria-torneo-2026/vicente.jpg', 'Vicente Zárate - Torneo 2026')">
+                <img src="galeria-torneo-2026/vicente.jpg" alt="Vicente Zárate - Torneo 2026">
+                <figcaption>Vicente Zárate</figcaption>
             </figure>
             <figure onclick="openImageModal('galeria-torneo-2026/maximiliano-gajardo.jpg', 'Maximiliano Gajardo - Torneo 2026')">
                 <img src="galeria-torneo-2026/maximiliano-gajardo.jpg" alt="Maximiliano Gajardo - Torneo 2026">
                 <figcaption>Maximiliano Gajardo</figcaption>
             </figure>
-            <figure onclick="openImageModal('galeria-torneo-2026/juanalonso.jpg', 'Juan Alonso - Torneo 2026')">
-                <img src="galeria-torneo-2026/juanalonso.jpg" alt="Juan Alonso - Torneo 2026">
-                <figcaption>Juan Alonso</figcaption>
+            <figure onclick="openImageModal('galeria-torneo-2026/juanalonso.jpg', 'Juan Alonso Dimter - Torneo 2026')">
+                <img src="galeria-torneo-2026/juanalonso.jpg" alt="Juan Alonso Dimter - Torneo 2026">
+                <figcaption>Juan Alonso Dimter</figcaption>
             </figure>
-            <figure onclick="openImageModal('galeria-torneo-2026/bastian.jpg', 'Bastián - Torneo 2026')">
-                <img src="galeria-torneo-2026/bastian.jpg" alt="Bastián - Torneo 2026">
-                <figcaption>Bastián</figcaption>
+            <figure onclick="openImageModal('galeria-torneo-2026/bastian.jpg', 'Bastián Obando - Torneo 2026')">
+                <img src="galeria-torneo-2026/bastian.jpg" alt="Bastián Obando - Torneo 2026">
+                <figcaption>Bastián Obando</figcaption>
             </figure>
-            <figure onclick="openImageModal('galeria-torneo-2026/carlos.jpg', 'Carlos - Torneo 2026')">
-                <img src="galeria-torneo-2026/carlos.jpg" alt="Carlos - Torneo 2026">
-                <figcaption>Carlos</figcaption>
+            <figure onclick="openImageModal('galeria-torneo-2026/carlos.jpg', 'Carlos Quintramán - Torneo 2026')">
+                <img src="galeria-torneo-2026/carlos.jpg" alt="Carlos Quintramán - Torneo 2026">
+                <figcaption>Carlos Quintramán</figcaption>
             </figure>
             <figure onclick="openImageModal('galeria-torneo-2026/eithan-atenas.jpg', 'Eithan Atenas - Torneo 2026')">
                 <img src="galeria-torneo-2026/eithan-atenas.jpg" alt="Eithan Atenas - Torneo 2026">
                 <figcaption>Eithan Atenas</figcaption>
             </figure>
-            <figure onclick="openImageModal('galeria-torneo-2026/adolfo.jpg', 'Adolfo - Torneo 2026')">
-                <img src="galeria-torneo-2026/adolfo.jpg" alt="Adolfo - Torneo 2026">
-                <figcaption>Adolfo</figcaption>
+            <figure onclick="openImageModal('galeria-torneo-2026/adolfo.jpg', 'Adolfo Pereira - Torneo 2026')">
+                <img src="galeria-torneo-2026/adolfo.jpg" alt="Adolfo Pereira - Torneo 2026">
+                <figcaption>Adolfo Pereira</figcaption>
             </figure>
-            <figure onclick="openImageModal('galeria-torneo-2026/villagran.jpg', 'Villagrán - Torneo 2026')">
-                <img src="galeria-torneo-2026/villagran.jpg" alt="Villagrán - Torneo 2026">
-                <figcaption>Villagrán</figcaption>
+            <figure onclick="openImageModal('galeria-torneo-2026/villagran.jpg', 'Lucas Villagrán - Torneo 2026')">
+                <img src="galeria-torneo-2026/villagran.jpg" alt="Lucas Villagrán - Torneo 2026">
+                <figcaption>Lucas Villagrán</figcaption>
             </figure>
-            <figure onclick="openImageModal('galeria-torneo-2026/b6d338fa-c4c6-4c62-bb31-d45f76fef97d%20(1).jpg', 'Torneo 2026')">
-                <img src="galeria-torneo-2026/b6d338fa-c4c6-4c62-bb31-d45f76fef97d%20(1).jpg" alt="Torneo 2026">
-                <figcaption>Torneo 2026</figcaption>
+            <figure onclick="openImageModal('galeria-torneo-2026/b6d338fa-c4c6-4c62-bb31-d45f76fef97d%20(1).jpg', 'Torneo escolar 2026')">
+                <img src="galeria-torneo-2026/b6d338fa-c4c6-4c62-bb31-d45f76fef97d%20(1).jpg" alt="Torneo escolar 2026">
+                <figcaption>Torneo escolar 2026</figcaption>
             </figure>
         </div>
     </section>
