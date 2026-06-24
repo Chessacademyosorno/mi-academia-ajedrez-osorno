@@ -480,7 +480,7 @@
             font-weight: 600;
             font-size: 14px;
         }
-        figcaption { text-align: center; font-size: 14px; margin-top: 8px; color: #94a3b8; font-weight: 600; }
+        figcaption { text-align: center; font-size: 14px; margin-top: 8px; color: #94a3b8; font-weight: 600; user-select: text; cursor: text; }
         .content-box { background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid #334155; }
         /* historia sin imagen */
         .historia-container {
@@ -1167,14 +1167,14 @@
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional.jpg" alt="Nacional 2017">
                 <figcaption>Final Nacional Santiago 2017</figcaption>
             </figure>
-<figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-puertomontt2.jpg', 'Escolar de Puerto Montt')">
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/puerto-montt-open-2026.jpg', 'Campeón Open IRT de Puerto Montt 2026')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/ganadores/puerto-montt-open-2026.jpg" alt="Puerto Montt">
                 <figcaption>Campeón Open IRT de Puerto Montt 2026</figcaption>
             </figure>
-            
-            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional-santiago-2018.jpg', 'Santiago 2018 Nacional')">
+
+            <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional-santiago-2018.jpg', 'Nacional Santiago 2018')">
                 <img src="https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-nacional-santiago-2018.jpg" alt="Nacional 2018">
-                <figcaption>Santiago 2018 Nacional</figcaption>
+                <figcaption>Nacional Santiago 2018</figcaption>
             </figure>
             
             <figure onclick="openImageModal('https://raw.githubusercontent.com/Chessacademyosorno/mi-academia-ajedrez-osorno/main/torneos/osorno-puertomontt-regional.jpg', 'Match Osorno vs Puerto')">
@@ -1579,6 +1579,11 @@
         document.querySelectorAll('img').forEach(img => {
             img.loading = img.closest('header') ? 'eager' : 'lazy';
             img.decoding = 'async';
+        });
+
+        document.querySelectorAll('figure figcaption').forEach(caption => {
+            caption.addEventListener('click', event => event.stopPropagation());
+            caption.addEventListener('dblclick', event => event.stopPropagation());
         });
 
         const translations = {
